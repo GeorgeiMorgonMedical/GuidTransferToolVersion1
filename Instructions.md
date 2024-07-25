@@ -1,7 +1,7 @@
 ### Requirements
 
-Node.js v22.4.1: https://nodejs.org/en/download/prebuilt-installer
-npm: 10.8.1
+Node.js: https://nodejs.org/en
+Install the above
 
 ### Setting up
 
