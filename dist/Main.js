@@ -1,0 +1,165 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = __importDefault(require("path"));
+const fs = __importStar(require("fs"));
+const GuidExtraction_1 = require("./GuidExtraction");
+const MValueMatching_1 = require("./MValueMatching");
+const prompt_sync_1 = __importDefault(require("prompt-sync"));
+const AzureFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/Azure.html');
+const TargetFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/Other.html');
+const CopyFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/NewFile.html');
+// Precleaning
+//removeParagraphTags(AzureFilePath);
+//removeParagraphTags(TargetFilePath);
+//removeUnnecessaryComments(AzureFilePath);
+//removeUnnecessaryComments(TargetFilePath);
+let AzureVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(AzureFilePath)));
+let TargetVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(TargetFilePath)));
+/*
+console.log(TargetVariables);
+
+let AzureJson = jsonToCsv(AzureVariables);
+let TargetJson = jsonToCsv(TargetVariables);
+
+fs.writeFileSync(path.resolve(__dirname, '../../CSVs/Azure.csv'), AzureJson, 'utf-8');
+fs.writeFileSync(path.resolve(__dirname, '../../CSVs/Target.csv'), TargetJson, 'utf-8');
+*/
+/*
+let allPossibleMatches : Map<string, string[]> = new Map();
+
+AzureVariables.forEach((AzureVar: VariableInformation) => {
+    allPossibleMatches.set(AzureVar.name, narrowDownList(AzureVar, TargetVariables));
+});
+
+console.log(allPossibleMatches);
+*/
+function formatOutput(azure, target) {
+    console.log('AZURE VARIABLE INFORMATION\n');
+    azure.forEach((azureVar) => {
+        console.log(azureVar.name + '\t' + azureVar.guid + '\t' + azureVar.table + '\t' + azureVar.column + '\t' + azureVar.row);
+    });
+    console.log('\nTARGET VARIABLE INFORMATION\n');
+    target.forEach((targetVar) => {
+        console.log(targetVar.name + '\t' + targetVar.guid + '\t' + targetVar.table + '\t' + targetVar.column + '\t' + targetVar.row);
+    });
+}
+function verifyResponse(response, TargetVariables) {
+    const match = TargetVariables.find(variable => variable.name === response);
+    return match || null;
+}
+function createCopy(matches, AzureVariables) {
+    let htmlFile = fs.readFileSync(AzureFilePath, 'utf-8');
+    matches.forEach((match) => {
+        const regex = new RegExp(match.azurevarGuid, 'g');
+        htmlFile = htmlFile.replace(regex, match.targetVarGuid);
+    });
+    AzureVariables.forEach(target => {
+        if (!matches.some(match => match.targetVarName === target.name)) {
+            const regex = new RegExp(target.guid, 'g');
+            htmlFile = htmlFile.replace(regex, '');
+        }
+    });
+    const unusedAzureVariables = AzureVariables.filter(azure => !matches.some(match => match.azureVarName === azure.name));
+    fs.writeFileSync(CopyFilePath, htmlFile, 'utf-8');
+    return unusedAzureVariables;
+}
+function main(AzureFilePath, TargetFilePath) {
+    let AzureVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(AzureFilePath)));
+    let TargetVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(TargetFilePath)));
+    formatOutput(AzureVariables, TargetVariables);
+    let allPossibleMatches = new Map();
+    AzureVariables.forEach((AzureVar) => {
+        allPossibleMatches.set(AzureVar.name, (0, MValueMatching_1.narrowDownList)(AzureVar, TargetVariables));
+    });
+    console.log('\nWARNING: THE FOLLOWING AUTOGENERATED MATCHES MAY BE INCORRECT PLEASE CHECK TO MAKE SURE THEY ARE CORRECT.\n');
+    const prompt = (0, prompt_sync_1.default)();
+    let userMatches = [];
+    AzureVariables.forEach((variable) => {
+        let userInstruction;
+        let possibleMatch = allPossibleMatches.get(variable.name);
+        if (possibleMatch && possibleMatch.length > 0) {
+            userInstruction = prompt(`Enter matching variable name for ${variable.name} [Recommended: ${possibleMatch}] (Enter "n" for no match or "y" to use recommended match): `);
+        }
+        else {
+            userInstruction = prompt(`Enter matching variable name for ${variable.name} (Enter "n" for no match): `);
+        }
+        if (userInstruction !== 'n') {
+            let matchedTarget;
+            if (userInstruction === 'y') {
+                matchedTarget = verifyResponse(possibleMatch[0], TargetVariables);
+            }
+            else {
+                matchedTarget = verifyResponse(userInstruction, TargetVariables);
+            }
+            if (matchedTarget) {
+                userMatches.push({
+                    azurevarGuid: variable.guid,
+                    azureVarName: variable.name,
+                    targetVarGuid: matchedTarget.guid,
+                    targetVarName: matchedTarget.name
+                });
+            }
+            else {
+                while (userInstruction !== 'n' && !matchedTarget) {
+                    console.log('This variable does not exist please try again');
+                    possibleMatch = allPossibleMatches.get(variable.name);
+                    if (possibleMatch && possibleMatch.length > 0) {
+                        userInstruction = prompt(`Enter matching variable name for ${variable.name} [Recommended: ${possibleMatch}] (Enter "n" for no match or "y" to use recommended match): `);
+                    }
+                    else {
+                        userInstruction = prompt(`Enter matching variable name for ${variable.name} (Enter "n" for no match): `);
+                    }
+                    if (userInstruction !== 'n') {
+                        if (userInstruction === 'y') {
+                            matchedTarget = verifyResponse(possibleMatch[0], TargetVariables);
+                        }
+                        else {
+                            matchedTarget = verifyResponse(userInstruction, TargetVariables);
+                        }
+                        if (matchedTarget) {
+                            userMatches.push({
+                                azurevarGuid: variable.guid,
+                                azureVarName: variable.name,
+                                targetVarGuid: matchedTarget.guid,
+                                targetVarName: matchedTarget.name
+                            });
+                        }
+                    }
+                }
+            }
+        }
+    });
+    let unused = createCopy(userMatches, AzureVariables);
+    console.log('\n\nThe following may potentially need to have a mapping created or found elsewhere due to being unmatched:\n');
+    unused.forEach((variable) => {
+        console.log(`${variable.name}\t${variable.guid}`);
+    });
+}
+main(AzureFilePath, TargetFilePath);
+//# sourceMappingURL=Main.js.map

@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "es2017",          /* Set the JavaScript language version */
+      "lib": ["es2020", "dom"],    /* Include default library files */
+      "module": "CommonJS",        /* Specify module code generation */
+      "esModuleInterop": true,     /* Enable emit interoperability */
+      "strict": true,              /* Enable all strict type-checking options */
+      "moduleResolution": "node",  /* Use Node.js module resolution */
+      "sourceMap": true,           /* Generate corresponding .map files */
+      "outDir": "./dist",          /* Redirect output structure to the directory */
+      "baseUrl": ".",              /* Base directory to resolve non-relative module names */
+      "paths": {
+        "*": ["node_modules/*"]
+      }
+    }
+  }
+  
