@@ -26,8 +26,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.verifyResponse = verifyResponse;
-exports.createCopy = createCopy;
 const path_1 = __importDefault(require("path"));
 const fs = __importStar(require("fs"));
 const GuidExtraction_1 = require("./GuidExtraction");
@@ -35,40 +33,25 @@ const MValueMatching_1 = require("./MValueMatching");
 const AzureFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/Azure.html');
 const TargetFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/Other.html');
 const CopyFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/NewFile.html');
-const UserInputPath = path_1.default.resolve(__dirname, '../userInput.txt');
+const UserInputPath = path_1.default.resolve(__dirname, '../Txts/userInput.txt');
+const AzureVariablesPath = path_1.default.resolve(__dirname, '../Txts/AzureVariables.txt');
+const TargetVariablesPath = path_1.default.resolve(__dirname, '../Txts/TargetVariables.txt');
 function formatOutput(azure, target) {
-    console.log('AZURE VARIABLE INFORMATION\n');
+    let azureTxt = 'AZURE VARIABLE INFORMATION\n';
     azure.forEach((azureVar) => {
-        console.log(azureVar.name + '\t' + azureVar.guid + '\t' + azureVar.table + '\t' + azureVar.column + '\t' + azureVar.row);
+        azureTxt += azureVar.name + '\t' + azureVar.guid + '\t' + azureVar.table + '\t' + azureVar.column + '\t' + azureVar.row + '\n';
     });
-    console.log('\nTARGET VARIABLE INFORMATION\n');
+    fs.writeFileSync(AzureVariablesPath, azureTxt, 'utf-8');
+    let targetTxt = 'TARGET VARIABLE INFORMATION\n';
     target.forEach((targetVar) => {
-        console.log(targetVar.name + '\t' + targetVar.guid + '\t' + targetVar.table + '\t' + targetVar.column + '\t' + targetVar.row);
+        targetTxt += targetVar.name + '\t' + targetVar.guid + '\t' + targetVar.table + '\t' + targetVar.column + '\t' + targetVar.row + '\n';
     });
-}
-function verifyResponse(response, TargetVariables) {
-    const match = TargetVariables.find(variable => variable.name === response);
-    return match || null;
-}
-function createCopy(matches, AzureVariables) {
-    let htmlFile = fs.readFileSync(AzureFilePath, 'utf-8');
-    matches.forEach((match) => {
-        const regex = new RegExp(match.azurevarGuid, 'g');
-        htmlFile = htmlFile.replace(regex, match.targetVarGuid);
-    });
-    AzureVariables.forEach(target => {
-        if (!matches.some(match => match.targetVarName === target.name)) {
-            const regex = new RegExp(target.guid, 'g');
-            htmlFile = htmlFile.replace(regex, '');
-        }
-    });
-    const unusedAzureVariables = AzureVariables.filter(azure => !matches.some(match => match.azureVarName === azure.name));
-    fs.writeFileSync(CopyFilePath, htmlFile, 'utf-8');
-    return unusedAzureVariables;
+    fs.writeFileSync(TargetVariablesPath, targetTxt, 'utf-8');
 }
 function main(AzureFilePath, TargetFilePath) {
     let AzureVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(AzureFilePath)));
     let TargetVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(TargetFilePath)));
+    formatOutput(AzureVariables, TargetVariables);
     let allPossibleMatches = new Map();
     AzureVariables.forEach((AzureVar) => {
         allPossibleMatches.set(AzureVar.name, (0, MValueMatching_1.narrowDownList)(AzureVar, TargetVariables));

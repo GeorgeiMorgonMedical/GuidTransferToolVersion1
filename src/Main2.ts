@@ -4,12 +4,10 @@ import * as fs from 'fs';
 import { Match, VariableInformation } from './interfaces';
 import { storeAsVariableInformation, cleanExtractedMvalueInfo } from './MValueMatching';
 import { extractMvalueInfoFromFile } from './GuidExtraction';
-import { createCopy, verifyResponse } from './Main';
-import { read } from './debug';
 
 const AzureFilePath = path.resolve(__dirname, '../HTMLFiles/Azure.html');
 const TargetFilePath = path.resolve(__dirname, '../HTMLFiles/Other.html');
-const UserInputPath = path.resolve(__dirname, '../userInput.txt');
+const UserInputPath = path.resolve(__dirname, '../Txts/userInput.txt');
 const CopyFilePath = path.resolve(__dirname, '../HTMLFiles/NewFile.html');
 
 
@@ -29,20 +27,43 @@ function extractUserAnswer(line: string) : string | null {
     }
 }
 
+function verifyResponse(response: string, TargetVariables: VariableInformation[]): VariableInformation | null {
+    const match = TargetVariables.find(variable => variable.name === response);
+    return match || null;
+}
+
+function createCopy(matches: Match[], AzureVariables: VariableInformation[]) {
+    let htmlFile = fs.readFileSync(AzureFilePath, 'utf-8');
+    matches.forEach((match: Match) => {
+        const regex = new RegExp(match.azurevarGuid, 'g');
+        htmlFile = htmlFile.replace(regex, match.targetVarGuid);
+    });
+
+    AzureVariables.forEach(target => {
+        if (!matches.some(match => match.targetVarName === target.name)) {
+            const regex = new RegExp(target.guid, 'g');
+            htmlFile = htmlFile.replace(regex, '');
+        }
+    });
+
+    const unusedAzureVariables = AzureVariables.filter(azure => 
+        !matches.some(match => match.azureVarName === azure.name)
+    );
+
+    fs.writeFileSync(CopyFilePath, htmlFile, 'utf-8');
+
+    return unusedAzureVariables;
+}
+
 function getUserAnswers(AzureVariables: VariableInformation[], TargetVariables: VariableInformation[]) {
     let userAnswers: string[] = fs.readFileSync(UserInputPath, 'utf-8').split('\n');
     let matches: Match[] = [];
-    console.log('Checkpoint 1');
 
     userAnswers.forEach((line: string) => {
         let answer = extractUserAnswer(line);
         if (answer) {
-            console.log(answer);
-            console.log('Checkpoint 2');
             let answerInformation = verifyResponse(answer, TargetVariables);
-            console.log(answerInformation);
             if (answerInformation) {
-                console.log('Checkpoint 3');
                 let azureVarName = extractAzureVariable(line);
                 let azureVar: VariableInformation = AzureVariables.find(variable => variable.name === azureVarName)!;
                 matches.push({ azureVarName: azureVar.name, azurevarGuid: azureVar.guid, targetVarName: answerInformation.name, targetVarGuid:answerInformation.guid });
@@ -52,17 +73,9 @@ function getUserAnswers(AzureVariables: VariableInformation[], TargetVariables: 
     return matches;
 }
 
-function debug() {
-    console.log('DEBUGGING');
-    console.log(read());
-}
-
-
 function main2(AzureFilePath: string, TargetFilePath: string) {
     let AzureVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(AzureFilePath)));
     let TargetVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(TargetFilePath)));
-
-    debug();
 
     let matches = getUserAnswers(AzureVariables, TargetVariables);
 
