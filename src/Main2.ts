@@ -5,6 +5,7 @@ import { Match, VariableInformation } from './interfaces';
 import { storeAsVariableInformation, cleanExtractedMvalueInfo } from './MValueMatching';
 import { extractMvalueInfoFromFile } from './GuidExtraction';
 import { createCopy, verifyResponse } from './Main';
+import { read } from './debug';
 
 const AzureFilePath = path.resolve(__dirname, '../HTMLFiles/Azure.html');
 const TargetFilePath = path.resolve(__dirname, '../HTMLFiles/Other.html');
@@ -28,15 +29,20 @@ function extractUserAnswer(line: string) : string | null {
     }
 }
 
-function getUserAnswers(UserInputPath: string, AzureVariables: VariableInformation[], TargetVariables: VariableInformation[]) {
+function getUserAnswers(AzureVariables: VariableInformation[], TargetVariables: VariableInformation[]) {
     let userAnswers: string[] = fs.readFileSync(UserInputPath, 'utf-8').split('\n');
     let matches: Match[] = [];
+    console.log('Checkpoint 1');
 
     userAnswers.forEach((line: string) => {
         let answer = extractUserAnswer(line);
         if (answer) {
+            console.log(answer);
+            console.log('Checkpoint 2');
             let answerInformation = verifyResponse(answer, TargetVariables);
+            console.log(answerInformation);
             if (answerInformation) {
+                console.log('Checkpoint 3');
                 let azureVarName = extractAzureVariable(line);
                 let azureVar: VariableInformation = AzureVariables.find(variable => variable.name === azureVarName)!;
                 matches.push({ azureVarName: azureVar.name, azurevarGuid: azureVar.guid, targetVarName: answerInformation.name, targetVarGuid:answerInformation.guid });
@@ -44,14 +50,21 @@ function getUserAnswers(UserInputPath: string, AzureVariables: VariableInformati
         }
     });
     return matches;
-} 
+}
+
+function debug() {
+    console.log('DEBUGGING');
+    console.log(read());
+}
 
 
 function main2(AzureFilePath: string, TargetFilePath: string) {
     let AzureVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(AzureFilePath)));
     let TargetVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(TargetFilePath)));
 
-    let matches = getUserAnswers(UserInputPath, AzureVariables, TargetVariables);
+    debug();
+
+    let matches = getUserAnswers(AzureVariables, TargetVariables);
 
     let unused = createCopy(matches, AzureVariables);
     
