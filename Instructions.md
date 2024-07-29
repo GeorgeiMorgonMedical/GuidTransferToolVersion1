@@ -1,11 +1,11 @@
 ### Requirements
 
-Node.js: https://nodejs.org/en
+Node.js: https://nodejs.org/en/blog/release/v22.4.1
 Install the above
 
 ### Setting up
 
-You will be emailed a link to a site called github with a link. Click it and download the folder as a zip to the location of your choosing. (Under code dropdown as zip file).
+You will be emailed a link to a site called github with a link. Click it and download the folder as a zip to the location of your choosing. (Under code dropdown as zip file). The latest version will be under the main branch.
 
 Go to this location in your file explorer and extract the files from te zip file.
 
@@ -23,6 +23,7 @@ When running for the first time, run 'npm install' in the terminal.
 2. Make sure to save the above.
 3. In the terminal type npx tsc and wait (This may take ~15 seconds).
 4. Run the command 'node .\dist\Main.js'
-5. From here, it will print all variables from both, along with other information. Then, one by one it will iterate through prompting you to enter the match.
-6. In the terminal, once complete, it will print out the variables that remained unmatched and may need to be found elsewhere or created.
-7. Once complete, go over to NewFile.html and copy the contents out.
+5. From here, look inside the Txts folder. There will be two txts containing the extracted variables. Input the matches in userInput.txt and save.
+6. When done, run the command node .\dist\Main2.js.
+7. The contents of the new HTML file will be in the NewFile.html under HTML files.
+8. The contents of userInput will be overwritten, so if you would like, you may copy that txt and save it elsewhere.
