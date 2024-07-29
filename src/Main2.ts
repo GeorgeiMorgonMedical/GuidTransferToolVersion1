@@ -6,6 +6,8 @@ import { storeAsVariableInformation, cleanExtractedMvalueInfo } from './MValueMa
 import { extractMvalueInfoFromFile } from './GuidExtraction';
 import { createCopy, verifyResponse } from './Main';
 
+const AzureFilePath = path.resolve(__dirname, '../HTMLFiles/Azure.html');
+const TargetFilePath = path.resolve(__dirname, '../HTMLFiles/Other.html');
 const UserInputPath = path.resolve(__dirname, '../userInput.txt');
 const CopyFilePath = path.resolve(__dirname, '../HTMLFiles/NewFile.html');
 
@@ -58,3 +60,5 @@ function main2(AzureFilePath: string, TargetFilePath: string) {
         console.log(`${variable.name}\t${variable.guid}`);
     });
 }
+
+main2(AzureFilePath, TargetFilePath);
