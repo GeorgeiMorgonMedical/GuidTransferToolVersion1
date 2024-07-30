@@ -6,8 +6,8 @@ import { storeAsVariableInformation, cleanExtractedMvalueInfo } from './MValueMa
 import { extractMvalueInfoFromFile } from './GuidExtraction';
 
 const AzureMeasurementsFilePath = path.resolve(__dirname, '../HTMLFiles/AzureMeasurements.html');
-const AzureWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/AzureMeasurements.html');
-const AzureSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/AzureMeasurements.html');
+const AzureWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/AzureWorksheet.html');
+const AzureSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/AzureSummary.html');
 
 const UserInputPath = path.resolve(__dirname, '../Txts/userInput.txt');
 
@@ -50,9 +50,9 @@ function createMeasurementsCopy(matches: Match[], AzureVariables: VariableInform
         htmlFile = htmlFile.replace(regex, match.targetVarGuid);
     });
 
-    AzureVariables.forEach(target => {
-        if (!matches.some(match => match.targetVarName === target.name)) {
-            const regex = new RegExp(target.guid, 'g');
+    AzureVariables.forEach(azureVar => {
+        if (!matches.some(match => match.azureVarName === azureVar.name)) {
+            const regex = new RegExp(azureVar.guid, 'g');
             htmlFile = htmlFile.replace(regex, '');
         }
     });
@@ -67,12 +67,20 @@ function createMeasurementsCopy(matches: Match[], AzureVariables: VariableInform
 }
 
 // For worksheet and summary pages
-function createOtherCopies(matches: Match[]) {
+function createOtherCopies(matches: Match[], AzureVariables: VariableInformation[]) {
     let WorksheetFile = fs.readFileSync(AzureWorksheetFilePath, 'utf-8');
     matches.forEach((match: Match) => {
         const regex = new RegExp(match.azurevarGuid, 'g');
         WorksheetFile = WorksheetFile.replace(regex, match.targetVarGuid);
     });
+
+    AzureVariables.forEach(azureVar => {
+        if (!matches.some(match => match.azureVarName === azureVar.name)) {
+            const regex = new RegExp(azureVar.guid, 'g');
+            WorksheetFile = WorksheetFile.replace(regex, '');
+        }
+    });
+
     fs.writeFileSync(NewWorksheetFilePath, WorksheetFile, 'utf-8');
 
     let SummaryFile = fs.readFileSync(AzureSummaryFilePath, 'utf-8');
@@ -80,6 +88,14 @@ function createOtherCopies(matches: Match[]) {
         const regex = new RegExp(match.azurevarGuid, 'g');
         SummaryFile = SummaryFile.replace(regex, match.targetVarGuid);
     });
+
+    AzureVariables.forEach(azureVar => {
+        if (!matches.some(match => match.azureVarName === azureVar.name)) {
+            const regex = new RegExp(azureVar.guid, 'g');
+            SummaryFile = SummaryFile.replace(regex, '');
+        }
+    });
+
     fs.writeFileSync(NewSummaryFilePath, SummaryFile, 'utf-8');
 }
 
@@ -109,7 +125,7 @@ function main2(AzureMeasurementsFilePath: string, TargetMeasurementFilePath: str
     console.log(matches);
 
     let unused = createMeasurementsCopy(matches, AzureVariables);
-    createOtherCopies(matches);
+    createOtherCopies(matches, AzureVariables);
     
     console.log('\n\nThe following may potentially need to have a mapping created or found elsewhere due to being unmatched:\n');
     unused.forEach((variable: VariableInformation) => {
