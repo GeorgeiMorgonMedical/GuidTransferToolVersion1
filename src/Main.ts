@@ -4,12 +4,13 @@ import { extractMvalueInfoFromFile, removeParagraphTags, removeUnnecessaryCommen
 import { VariableInformation, Match } from './interfaces';
 import { cleanExtractedMvalueInfo, storeAsVariableInformation, narrowDownList } from './MValueMatching';
 
-const AzureFilePath = path.resolve(__dirname, '../HTMLFiles/Azure.html');
-const TargetFilePath = path.resolve(__dirname, '../HTMLFiles/Other.html');
-const CopyFilePath = path.resolve(__dirname, '../HTMLFiles/NewFile.html');
+const AzureFilePath = path.resolve(__dirname, '../HTMLFiles/AzureMeasurements.html');
+const TargetFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
+
 const UserInputPath = path.resolve(__dirname, '../Txts/userInput.txt');
 const AzureVariablesPath = path.resolve(__dirname, '../Txts/AzureVariables.txt');
 const TargetVariablesPath = path.resolve(__dirname, '../Txts/TargetVariables.txt');
+
 
 function formatOutput(azure: VariableInformation[], target: VariableInformation[]) {
     let azureTxt = 'AZURE VARIABLE INFORMATION\n';
