@@ -95,14 +95,16 @@ export function organOfInterest(variable: VariableInformation): string | null {
 
 
 
-export function isNodule(variable: VariableInformation) : boolean{
-    return (variable.name.toLowerCase().indexOf('_nod') != -1 || 
-            variable.table.toLowerCase().indexOf('node') != -1 || 
-            variable.table.toLowerCase().indexOf('nodule') != -1 ||
-            variable.row.toLowerCase().indexOf('node') != -1 || 
-            variable.row.toLowerCase().indexOf('nodule') != -1 ||
-            variable.column.toLowerCase().indexOf('node') != -1 || 
-            variable.column.toLowerCase().indexOf('nodule') != -1);
+export function isNodule(variable: VariableInformation): boolean {
+    return (
+        (variable.name !== null && variable.name.toLowerCase().indexOf('_nod') !== -1) ||
+        (variable.table !== null && (variable.table.toLowerCase().indexOf('node') !== -1 || 
+                                     variable.table.toLowerCase().indexOf('nodule') !== -1)) ||
+        (variable.row !== null && (variable.row.toLowerCase().indexOf('node') !== -1 || 
+                                   variable.row.toLowerCase().indexOf('nodule') !== -1)) ||
+        (variable.column !== null && (variable.column.toLowerCase().indexOf('node') !== -1 || 
+                                      variable.column.toLowerCase().indexOf('nodule') !== -1))
+    );
 }
 
 export function measurementOfInterest(variable: VariableInformation) : string | null {
