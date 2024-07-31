@@ -139,7 +139,7 @@ export function measurementOfInterest(variable: VariableInformation) : string | 
 
 export function cleanExtractedMvalueInfo(results: Map<string, string[]>): Map<string, string[]> {
     results.forEach((value: string[], key:string) => {
-        if (key.indexOf('<') !== -1) {
+        if (key.indexOf('<') !== -1 || key.indexOf('=') !== -1) {
             results.delete(key);
         }
     });
@@ -149,7 +149,7 @@ export function cleanExtractedMvalueInfo(results: Map<string, string[]>): Map<st
 export function storeAsVariableInformation(mvalueInfo: Map<string, string[]>) {
     let VariableList: VariableInformation[] = [];
     mvalueInfo.forEach((peripheralInfo: string[], varName: string) => {
-        VariableList.push({
+        VariableList.push({ 
             name: varName,
             guid: peripheralInfo[0],
             table: peripheralInfo[1],
