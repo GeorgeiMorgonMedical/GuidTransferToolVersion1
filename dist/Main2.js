@@ -31,6 +31,7 @@ const AzureMeasurementsFilePath = path.resolve(__dirname, '../HTMLFiles/AzureMea
 const AzureWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/AzureWorksheet.html');
 const AzureSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/AzureSummary.html');
 const UserInputPath = path.resolve(__dirname, '../Txts/userInput.txt');
+const AzureVariablesPath = path.resolve(__dirname, '../Txts/AzureVariables.csv');
 const TargetMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
 //const TargetWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/OtherWorksheet.html');
 //const TargetSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/OtherSummary.html');
@@ -109,6 +110,22 @@ function getUserAnswers(AzureVariables, TargetVariables) {
             let answerInformation = verifyResponse(answer, TargetVariables);
             if (answerInformation) {
                 let azureVarName = extractAzureVariable(line);
+                let azureVar = AzureVariables.find(variable => variable.name === azureVarName);
+                matches.push({ azureVarName: azureVar.name, azurevarGuid: azureVar.guid, targetVarName: answerInformation.name, targetVarGuid: answerInformation.guid });
+            }
+        }
+    });
+    return matches;
+}
+function getUserAnswers2(AzureVariables, TargetVariables) {
+    let userAnswers = fs.readFileSync(UserInputPath, 'utf-8').split('\n');
+    let matches = [];
+    userAnswers.forEach((line) => {
+        let answer = line.split(',')[5];
+        if (answer && answer.length > 0) {
+            let answerInformation = verifyResponse(answer, TargetVariables);
+            if (answerInformation) {
+                let azureVarName = line.split(',')[0];
                 let azureVar = AzureVariables.find(variable => variable.name === azureVarName);
                 matches.push({ azureVarName: azureVar.name, azurevarGuid: azureVar.guid, targetVarName: answerInformation.name, targetVarGuid: answerInformation.guid });
             }

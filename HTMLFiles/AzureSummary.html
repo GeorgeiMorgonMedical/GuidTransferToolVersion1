@@ -1,0 +1,889 @@
+<!--  Add 3 lymph nodes for right and 3 for left side.  
+	 	Lymph nodes have 2 dimensions (long/short axis), also have priors
+			A ratio of <2.0 is suspicious of malignancy, so we should calculate (except for Level 1 location where round is acceptable)
+		lymph nodes have 'Characteristics' of "Echogenic hylum", "Peripheral or Decentralized Perfusion"
+		https://radiologykey.com/neck-lymph-nodes/#c006_f003
+
+	Check for lobectomy snippet for left lobe and isthmus   		<p></p>
+ -->
+ <style type="text/css">.impression_text {
+    color: lightgreen;
+    font-size: 16px;
+}
+
+/* Use for generated text */
+.measurement_text {
+    color: rgb(133, 131, 127);
+    font-size: 16px;
+}
+
+.normal_text {
+    font-size: 16px;
+}
+
+.header_text {
+    font-size: 20px;
+}
+
+/* Use for major organs   */
+.header2_text {
+    font-size: 18px;
+}
+
+.header3_text {
+    text-align: right;
+    font-size: 18px;
+}
+
+/* .nested-table tr:nth-child(odd) {background-color: rgba(117, 117, 117, 0.329)}  */
+.custom_table {
+    border: 1px solid rgb(133, 131, 127);
+    width: 875px;
+}
+
+.custom_table td {
+    border: 1px solid rgb(133, 131, 127);
+}
+
+td:first-child {
+    width: 175px;
+}
+
+/* input, label { display: inline-block; margin-right: 0px; margin-left: 0px;} 	 Adjust the margin between input and label */
+</style>
+<table class="custom_table">
+<tbody>
+    <tr>
+        <td class="header3_text">Indication</td>
+        <td class="normal_text"><mvalue class="mapped" groupdesc="study_indication" groupguidkey="43dae253-1049-491d-9fde-addd2c9ab551" id="study_indication" title="study_indication">study_indication</mvalue></td>
+    </tr>
+    <tr>
+        <td class="header3_text">Prior Exams</td>
+        <td class="normal_text"><mvalue class="mapped" groupdesc="ws_studydate" groupguidkey="79d034a6-f3f2-4ff4-be61-88a4bc6ae5d4" i-name="ws_thyroid_priordate1" i-prior="1" title="ws_studydate">ws_studydate</mvalue> &nbsp;&nbsp; <mvalue class="mapped" groupdesc="ws_studydate" groupguidkey="79d034a6-f3f2-4ff4-be61-88a4bc6ae5d4" i-name="ws_thyroid_priordate2" i-prior="2" title="ws_studydate">ws_studydate</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="ws_studydate" groupguidkey="79d034a6-f3f2-4ff4-be61-88a4bc6ae5d4" i-name="ws_thyroid_priordate3" i-prior="3" title="ws_studydate">ws_studydate</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="ws_studydate" groupguidkey="79d034a6-f3f2-4ff4-be61-88a4bc6ae5d4" i-name="ws_thyroid_priordate4" i-prior="4" title="ws_studydate">ws_studydate</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="ws_studydate" groupguidkey="79d034a6-f3f2-4ff4-be61-88a4bc6ae5d4" i-name="ws_thyroid_priordate5" i-prior="5" title="ws_studydate">ws_studydate</mvalue>&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Comments</td>
+        <td class="normal_text"><mvalue class="mapped" groupdesc="sp_thyroid_comments" groupguidkey="c8b70e2d-4ad1-44c9-8c93-3ea403344255" id="sp_thyroid_comments" title="sp_thyroid_comments">sp_thyroid_comment...</mvalue>&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Sonographer</td>
+        <td class="normal_text"><mvalue class="mapped" groupdesc="sonographer" groupguidkey="61884439-3d55-4817-bf62-f272e98469b7" id="sonographer" title="sonographer(AH)">sonographer</mvalue></td>
+    </tr>
+</tbody>
+</table>
+<!---------------------------   Right Lobe ----------------------------------------------------------------->
+
+<p>&nbsp;&nbsp;</p>
+
+<div><i-snippet i-show="rt_thyroid_len;rt_thyroid_AP;rt_thyroid_trv" i-type="i-collapse" style=""> <i-snippet i-show="sp_thyroid_rt_lobe_cmt" i-showtargets="rt_lobe_cmts" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table">
+<tbody>
+    <tr>
+        <td class="header_text">Right Lobe</td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_len" groupguidkey="901aeb34-3732-4bbd-993a-c197ad67450e" i-imshowlabel="true" id="rt_thyroid_len" title="rt_thyroid_len(5.19 cm)">rt_thyroid_len</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_AP" groupguidkey="81f39100-95e2-4bef-9ce4-ea171635f6d5" i-imshowlabel="true" id="rt_thyroid_AP" title="rt_thyroid_AP(2.25 cm)">rt_thyroid_AP</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_trv" groupguidkey="78d992df-ca06-4173-aa66-c4fa98d50a11" i-imshowlabel="true" id="rt_thyroid_trv" title="rt_thyroid_trv(1.60 cm)">rt_thyroid_trv</mvalue>&nbsp;<br />
+        <!-- prior lobe measurements --> &nbsp; <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_len" groupguidkey="901aeb34-3732-4bbd-993a-c197ad67450e" i-prior="1" title="rt_thyroid_len">rt_thyroid_len</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_AP" groupguidkey="81f39100-95e2-4bef-9ce4-ea171635f6d5" i-imshowlabel="true" i-prior="1" title="rt_thyroid_AP">rt_thyroid_AP</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_trv" groupguidkey="78d992df-ca06-4173-aa66-c4fa98d50a11" i-imshowlabel="true" i-prior="1" title="rt_thyroid_trv">rt_thyroid_trv</mvalue> &nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_rt_lobe_finding1" groupguidkey="756223d2-d177-4fe0-8914-413c16008601" id="sp_thyroid_rt_lobe_finding1" psfield="imThy_rt_lobe_finding1" title="sp_thyroid_rt_lobe_finding1">sp_thyroid_rt_lobe...</mvalue>&nbsp;<mvalue class="mapped" groupdesc="sp_thyroid_rt_lobe_finding2" groupguidkey="cb002150-a642-4d37-b50b-5f1df676217d" id="sp_thyroid_rt_lobe_finding2" title="sp_thyroid_rt_lobe_finding2">sp_thyroid_rt_lobe...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="rt_lobe_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_rt_lobe_cmt" groupguidkey="1391fba3-30fa-45d5-9dd4-05726bf2fada" id="sp_thyroid_rt_lobe_cmt" psfield="imThy_rt_lobe_cmt" title="sp_thyroid_rt_lobe_cmt">sp_thyroid_rt_lobe...</mvalue>&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!----------------------------------Left Lobe --------------------------------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="lt_thyroid_len;lt_thyroid_trv;lt_thyroid_AP" i-type="i-collapse" style=""> <i-snippet i-show="sp_thyroid_lt_lobe_cmt" i-showtargets="lt_lobe_cmts" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table">
+<tbody>
+    <tr>
+        <td class="header_text">Left Lobe</td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_len" groupguidkey="b11df181-6991-40e0-b8b3-67e022604caf" i-imshowlabel="true" id="lt_thyroid_len" title="lt_thyroid_len(5.73 cm)">lt_thyroid_len</mvalue> x <mvalue class="mapped" groupdesc="lt_thyroid_AP" groupguidkey="70c1dc50-350c-4cdc-9909-56ee0550597a" i-imshowlabel="true" id="lt_thyroid_AP" title="lt_thyroid_AP(3.02 cm)">lt_thyroid_AP</mvalue>x <mvalue class="mapped" groupdesc="lt_thyroid_trv" groupguidkey="e088b121-014b-418f-9f02-9d57f3891706" i-imshowlabel="true" id="lt_thyroid_trv" title="lt_thyroid_trv(3.02 cm)">lt_thyroid_trv</mvalue> &nbsp;<br />
+        <!-- prior lobe measurements --> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_len" groupguidkey="b11df181-6991-40e0-b8b3-67e022604caf" i-prior="1" title="lt_thyroid_len">lt_thyroid_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_AP" groupguidkey="70c1dc50-350c-4cdc-9909-56ee0550597a" i-imshowlabel="true" i-prior="1" title="lt_thyroid_AP">lt_thyroid_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_trv" groupguidkey="e088b121-014b-418f-9f02-9d57f3891706" i-imshowlabel="true" i-prior="1" title="lt_thyroid_trv">lt_thyroid_trv</mvalue> &nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Finding</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lt_lobe_finding1" groupguidkey="b3c5d62c-cdbb-4a80-b3fe-97c7e1de33c2" id="sp_thyroid_lt_lobe_finding1" psfield="imThy_lt_lobe_finding1" title="sp_thyroid_lt_lobe_finding1">sp_thyroid_lt_lobe...</mvalue>&nbsp;<mvalue class="mapped" groupdesc="sp_thyroid_lt_lobe_finding2" groupguidkey="707ea1e0-2a25-47d7-b136-70629f67d1aa" id="sp_thyroid_lt_lobe_finding2" title="sp_thyroid_lt_lobe_finding2">sp_thyroid_lt_lobe...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="lt_lobe_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lt_lobe_cmt" groupguidkey="5aa954bf-66ca-4296-baa1-c042c33800ee" id="sp_thyroid_lt_lobe_cmt" psfield="imThy_lt_lobe_cmt" title="sp_thyroid_lt_lobe_cmt">sp_thyroid_lt_lobe...</mvalue> &nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!----------------------------------Isthmus --------------------------------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="isthmus_ap" i-type="i-collapse" style=""> <i-snippet i-show="sp_thyroid_isthmus_cmt" i-showtargets="isthmus_cmts" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table">
+<tbody>
+    <tr>
+        <td class="header_text">Isthmus</td>
+        <td class="measurement_text">&nbsp; <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_ap" groupguidkey="61a13b12-60a6-4fb2-80fc-f642b0c8d384" id="isthmus_ap" title="isthmus_ap(0.88 cm)">isthmus_ap</mvalue>&nbsp;<br />
+        <!-- prior measurements --> &nbsp; <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_ap_prior" groupguidkey="61a13b12-60a6-4fb2-80fc-f642b0c8d384" i-prior="1" id="isthmus_ap_prior" title="isthmus_ap_prior">isthmus_ap_prior</mvalue>&nbsp; <!-- <br />&nbsp; 
+    <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="2" title="study_date">study_date</mvalue>&nbsp;&nbsp; 
+    <mvalue class="mapped" groupdesc="isthmus_ap_prior" groupguidkey="61a13b12-60a6-4fb2-80fc-f642b0c8d384" i-prior="2" id="isthmus_ap_prior" title="isthmus_ap_prior">isthmus_ap_prior</mvalue>&nbsp;
+    <br />
+    &nbsp; 
+    <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="3" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_ap_prior" groupguidkey="61a13b12-60a6-4fb2-80fc-f642b0c8d384" i-prior="3" id="isthmus_ap_prior" title="isthmus_ap_prior">isthmus_ap_prior</mvalue> --></td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_isthmus_finding1" groupguidkey="fb99ddf5-8bb4-4d6d-ba39-70e99e84d04c" id="sp_thyroid_isthmus_finding1" psfield="imThy_isthmus_finding" title="sp_thyroid_isthmus_finding1">sp_thyroid_isthmus...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="isthmus_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_isthmus_cmt" groupguidkey="a1e4ef6d-c5d2-4990-8e6a-af03b4d2f07b" id="sp_thyroid_isthmus_cmt" psfield="imThy_isthmus_cmt" title="sp_thyroid_isthmus_cmt">sp_thyroid_isthmus...</mvalue> &nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-------------------------------------Right Nodule 1 -----------------------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-id1="ws_thyroid_rt_lobe_Lobectomy:1" i-type="i-collapse" style="display: block;">
+<div><i-snippet i-show="rt_thyroid_nodule1_len" i-type="i-collapse" style=""> <i-snippet i-show="sp_thyroid_rt_nodule1_cmt" i-showtargets="rt_node1_cmts" i-type="i-collapse" style="display: none;"> </i-snippet> <i-snippet i-hide="ws_thyroid_rt_nodule1_composition:1;ws_thyroid_rt_nodule1_composition:2" i-hidetargets="RtNode1Echogenicity;RtNode1TallerThanWide;RtNode1Margins;RtNode1EchogenicFoci" i-show="ws_thyroid_rt_nodule1_composition:3;ws_thyroid_rt_nodule1_composition:4" i-showtargets="RtNode1Echogenicity;RtNode1TallerThanWide;RtNode1Margins;RtNode1EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+<tbody>
+    <tr>
+        <td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Right Nodule %i1" i-type="i-string">Right Nodule 1</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_len" groupguidkey="d201b307-5765-48af-acca-6b831db0404b" i-imshowlabel="true" id="rt_thyroid_nodule1_len" title="rt_thyroid_nodule1_len(1.68 cm)">rt_thyroid_nodule1...</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_AP" groupguidkey="b1b03c25-0eca-401e-b3db-39316bd16803" i-imshowlabel="true" id="rt_thyroid_nodule1_AP" title="rt_thyroid_nodule1_AP(0.80 cm)">rt_thyroid_nodule1...</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_trv" groupguidkey="7af0e335-2c6b-4e0d-9f07-428057f9fc5e" i-imshowlabel="true" id="rt_thyroid_nodule1_trv" title="rt_thyroid_nodule1_trv(1.50 cm)">rt_thyroid_nodule1...</mvalue>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_rt_nodule1_finding1" groupguidkey="f6509ba3-c21f-4788-8cea-9cd1c24ca629" id="sp_thyroid_rt_nodule1_finding1" title="sp_thyroid_rt_nodule1_finding1">sp_thyroid_rt_nodu...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="rt_node1_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_rt_nodule1_cmt" groupguidkey="ee995965-4dba-4201-897d-d9fa7ae306fa" id="sp_thyroid_rt_nodule1_cmt" psfield="imThy_rt_lobe_nodule1_cmt" title="sp_thyroid_rt_nodule1_cmt">sp_thyroid_rt_nodu...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="RtNode1Echogenicity" style="display: none;">
+        <td class="header3_text">Echogenicity</td>
+        <td class="impression_text"><input alttext="Anechoic" i-name="ws_thyroid_rt_nodule1_echogenicity" i-tiradgroup="rt_nodule1" i-tiradscore="0" id="ws_thyroid_rt_nodule1_echogenicity:1" name="ws_thyroid_rt_nodule1_echogenicity" outputtext="Anechoic (+0pts)," type="radio" value="ws_thyroid_rt_nodule1_echogenicity:1" /><label for="ws_thyroid_rt_nodule1_echogenicity:1" id="ws_thyroid_rt_nodule1_echogenicity:1_label" name="ws_thyroid_rt_nodule1_echogenicity">Anechoic</label>&nbsp;&nbsp; <input alttext="Hyperechoic" i-name="ws_thyroid_rt_nodule1_echogenicity" i-tiradgroup="rt_nodule1" i-tiradscore="1" id="ws_thyroid_rt_nodule1_echogenicity:2" name="ws_thyroid_rt_nodule1_echogenicity" outputtext="Hyperechoic (+1pts)," type="radio" value="ws_thyroid_rt_nodule1_echogenicity:2" /><label for="ws_thyroid_rt_nodule1_echogenicity:2" id="ws_thyroid_rt_nodule1_echogenicity:2_label" name="ws_thyroid_rt_nodule1_echogenicity">Hyperechoic</label>&nbsp;&nbsp; <input alttext="Isoechoic" i-name="ws_thyroid_rt_nodule1_echogenicity" i-tiradgroup="rt_nodule1" i-tiradscore="1" id="ws_thyroid_rt_nodule1_echogenicity:3" name="ws_thyroid_rt_nodule1_echogenicity" outputtext="Isoechoic (+1pts)," type="radio" value="ws_thyroid_rt_nodule1_echogenicity:3" /><label for="ws_thyroid_rt_nodule1_echogenicity:3" id="ws_thyroid_rt_nodule1_echogenicity:3_label" name="ws_thyroid_rt_nodule1_echogenicity">Isoechoic</label>&nbsp;&nbsp; <input alttext="Hypoechoic" i-name="ws_thyroid_rt_nodule1_echogenicity" i-tiradgroup="rt_nodule1" i-tiradscore="2" id="ws_thyroid_rt_nodule1_echogenicity:4" name="ws_thyroid_rt_nodule1_echogenicity" outputtext="Hypoechoic (+2pts)," type="radio" value="ws_thyroid_rt_nodule1_echogenicity:4" /> <label for="ws_thyroid_rt_nodule1_echogenicity:4" id="ws_thyroid_rt_nodule1_echogenicity:4_label" name="ws_thyroid_rt_nodule1_echogenicity">Hypoechoic</label>&nbsp;&nbsp; <input alttext="Very Hypoechoic" i-name="ws_thyroid_rt_nodule1_echogenicity" i-tiradgroup="rt_nodule1" i-tiradscore="3" id="ws_thyroid_rt_nodule1_echogenicity:5" name="ws_thyroid_rt_nodule1_echogenicity" outputtext="Very Hypoechoic (+3pts)," type="radio" value="ws_thyroid_rt_nodule1_echogenicity:5" /> <label for="ws_thyroid_rt_nodule1_echogenicity:5" id="ws_thyroid_rt_nodule1_echogenicity:5_label" name="ws_thyroid_rt_nodule1_echogenicity">Very Hypoechoic</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="RtNode1TallerThanWide" style="display: none;">
+        <td class="header3_text">Taller-than Wide</td>
+        <td class="impression_text"><input i-name="ws_thyroid_rt_nodule1_tallwide" i-tiradgroup="rt_nodule1" i-tiradscore="0" id="ws_thyroid_rt_nodule1_tallwide:1" name="ws_thyroid_rt_nodule1_tallwide" outputtext="Not taller than wide (+0pts)," type="radio" value="ws_thyroid_rt_nodule1_tallwide:1" /><label for="ws_thyroid_rt_nodule1_tallwide:1" id="ws_thyroid_rt_nodule1_tallwide:1_label" name="ws_thyroid_rt_nodule1_tallwide">No</label>&nbsp; &nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule1_tallwide" i-tiradgroup="rt_nodule1" i-tiradscore="3" id="ws_thyroid_rt_nodule1_tallwide:2" name="ws_thyroid_rt_nodule1_tallwide" outputtext="Taller than wide (+3pts)," type="radio" value="ws_thyroid_rt_nodule1_tallwide:2" /><label for="ws_thyroid_rt_nodule1_tallwide:2" id="ws_thyroid_rt_nodule1_tallwide:2_label" name="ws_thyroid_rt_nodule1_tallwide">Yes (taller than wide)</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="RtNode1Margins" style="display: none;">
+        <td class="header3_text">Margins</td>
+        <td class="impression_text"><input i-name="ws_thyroid_rt_nodule1_margins" i-tiradgroup="rt_nodule1" i-tiradscore="0" id="ws_thyroid_rt_nodule1_margins:1" name="ws_thyroid_rt_nodule1_margins" outputtext="Smooth (+0pts)," type="radio" value="ws_thyroid_rt_nodule1_margins:1" /><label for="ws_thyroid_rt_nodule1_margins:1" id="ws_thyroid_rt_nodule1_margins:1_label" name="ws_thyroid_rt_nodule1_margins">Smooth</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule1_margins" i-tiradgroup="rt_nodule1" i-tiradscore="0" id="ws_thyroid_rt_nodule1_margins:2" name="ws_thyroid_rt_nodule1_margins" outputtext="Ill-defined (+0pts)," type="radio" value="ws_thyroid_rt_nodule1_margins:2" /><label for="ws_thyroid_rt_nodule1_margins:2" id="ws_thyroid_rt_nodule1_margins:2_label" name="ws_thyroid_rt_nodule1_margins">Ill-defined&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule1_margins" i-tiradgroup="rt_nodule1" i-tiradscore="2" id="ws_thyroid_rt_nodule1_margins:3" name="ws_thyroid_rt_nodule1_margins" outputtext="Lobulated (+2pts)," type="radio" value="ws_thyroid_rt_nodule1_margins:3" /><label for="ws_thyroid_rt_nodule1_margins:3" id="ws_thyroid_rt_nodule1_margins:3_label" name="ws_thyroid_rt_nodule1_margins">Lobulated&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule1_margins" i-tiradgroup="rt_nodule1" i-tiradscore="2" id="ws_thyroid_rt_nodule1_margins:4" name="ws_thyroid_rt_nodule1_margins" outputtext="Irregular (+2pts)," type="radio" value="ws_thyroid_rt_nodule1_margins:4" /><label for="ws_thyroid_rt_nodule1_margins:4" id="ws_thyroid_rt_nodule1_margins:4_label" name="ws_thyroid_rt_nodule1_margins">Irregular</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule1_margins" i-tiradgroup="rt_nodule1" i-tiradscore="3" id="ws_thyroid_rt_nodule1_margins:5" name="ws_thyroid_rt_nodule1_margins" outputtext="Extra-thyroidal ext (+3pts)," type="radio" value="ws_thyroid_rt_nodule1_margins:5" /><label for="ws_thyroid_rt_nodule1_margins:5" id="ws_thyroid_rt_nodule1_margins:5_label" name="ws_thyroid_rt_nodule1_margins">Extra-thyroidal ext</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="RtNode1EchogenicFoci" style="display: none;">
+        <td class="header3_text">Echogenic Foci</td>
+        <td class="impression_text"><input i-name="ws_thyroid_rt_nodule1_Foci" i-tiradgroup="rt_nodule1" i-tiradscore="0" id="ws_thyroid_rt_nodule1_Foci:1" name="ws_thyroid_rt_nodule1_Foci" outputtext="--" type="checkbox" value="ws_thyroid_rt_nodule1_Foci:1" /> <label for="ws_thyroid_rt_nodule1_Foci:1" id="ws_thyroid_rt_nodule1_Foci:1_label" name="ws_thyroid_rt_nodule1_Foci">None&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule1_Foci" i-tiradgroup="rt_nodule1" i-tiradscore="0" id="ws_thyroid_rt_nodule1_Foci:2" name="ws_thyroid_rt_nodule1_Foci" outputtext="Large Comet-tail (+0pts)" type="checkbox" value="ws_thyroid_rt_nodule1_Foci:2" /> <label for="ws_thyroid_rt_nodule1_Foci:2" id="ws_thyroid_rt_nodule1_Foci:2_label" name="ws_thyroid_rt_nodule1_Foci">Large Comet-tail&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule1_Foci" i-tiradgroup="rt_nodule1" i-tiradscore="1" id="ws_thyroid_rt_nodule1_Foci:3" name="ws_thyroid_rt_nodule1_Foci" outputtext="Macrocalc (+1pt)" type="checkbox" value="ws_thyroid_rt_nodule1_Foci:3" /> <label for="ws_thyroid_rt_nodule1_Foci:3" id="ws_thyroid_rt_nodule1_Foci:3_label" name="ws_thyroid_rt_nodule1_Foci">Macrocalc&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule1_Foci" i-tiradgroup="rt_nodule1" i-tiradscore="2" id="ws_thyroid_rt_nodule1_Foci:4" name="ws_thyroid_rt_nodule1_Foci" outputtext="Peripheral (rim) calc (+2pts)" type="checkbox" value="ws_thyroid_rt_nodule1_Foci:4" /><label for="ws_thyroid_rt_nodule1_Foci:4" id="ws_thyroid_rt_nodule1_Foci:4_label" name="ws_thyroid_rt_nodule1_Foci">Peripheral (rim) calc&nbsp;</label>&nbsp;&nbsp;<br />
+        <input i-name="ws_thyroid_rt_nodule1_Foci" i-tiradgroup="rt_nodule1" i-tiradscore="3" id="ws_thyroid_rt_nodule1_Foci:5" name="ws_thyroid_rt_nodule1_Foci" outputtext="Punctate foci (+3pts)" type="checkbox" value="ws_thyroid_rt_nodule1_Foci:5" /><label for="ws_thyroid_rt_nodule1_Foci:5" id="ws_thyroid_rt_nodule1_Foci:5_label" name="ws_thyroid_rt_nodule1_Foci">Punctate (&lt;1mm comet-tail)</label>&nbsp;&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!------------------------------Right Nodule 2 ------------------------------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="rt_thyroid_nodule2_len" i-type="i-collapse" style=""> <i-snippet i-show="sp_thyroid_rt_nodule2_cmt" i-showtargets="rt_node2_cmts" i-type="i-collapse" style="display: none;"> </i-snippet> <i-snippet i-hide="ws_thyroid_rt_nodule2_composition:1;ws_thyroid_rt_nodule2_composition:2" i-hidetargets="RtNode2Echogenicity;RtNode2TallerThanWide;RtNode2Margins;RtNode2EchogenicFoci" i-show="ws_thyroid_rt_nodule2_composition:3;ws_thyroid_rt_nodule2_composition:4" i-showtargets="RtNode2Echogenicity;RtNode2TallerThanWide;RtNode2Margins;RtNode2EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+<tbody>
+    <tr>
+        <td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Right Nodule %i1" i-type="i-string">Right Nodule 2</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_len" groupguidkey="c2563762-bb93-410d-9ecf-5208bd61418a" i-imshowlabel="true" id="rt_thyroid_nodule2_len" title="rt_thyroid_nodule2_len(1.46 cm)">rt_thyroid_nodule2...</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_AP" groupguidkey="172920d9-37f0-4840-a469-33d888ea7d35" i-imshowlabel="true" id="rt_thyroid_nodule2_AP" title="rt_thyroid_nodule2_AP(1.10 cm)">rt_thyroid_nodule2...</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_trv" groupguidkey="ef718407-a377-4de7-8d78-cf295beb9c4d" i-imshowlabel="true" id="rt_thyroid_nodule2_trv" title="rt_thyroid_nodule2_trv(1.21 cm)">rt_thyroid_nodule2...</mvalue>&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_rt_nodule2_finding1" groupguidkey="69c65273-b1ed-4fc2-838c-6b3ccca54d29" id="sp_thyroid_rt_nodule2_finding1" title="sp_thyroid_rt_nodule2_finding1">sp_thyroid_rt_nodu...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="rt_node2_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_rt_nodule2_cmt" groupguidkey="8a28427d-a201-4ef2-9476-79212da044c2" id="sp_thyroid_rt_nodule2_cmt" psfield="imThy_rt_lobe_nodule2_cmt" title="sp_thyroid_rt_nodule2_cmt">sp_thyroid_rt_nodu...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="RtNode2Echogenicity" style="display: none;">
+        <td class="header3_text">Echogenicity</td>
+        <td class="impression_text"><input i-name="ws_thyroid_rt_nodule2_echogenicity" i-tiradgroup="rt_nodule2" i-tiradscore="0" id="ws_thyroid_rt_nodule2_echogenicity:1" name="ws_thyroid_rt_nodule2_echogenicity" outputtext="Anechoic (+0pts)" type="radio" value="ws_thyroid_rt_nodule2_echogenicity:1" /><label for="ws_thyroid_rt_nodule2_echogenicity:1" id="ws_thyroid_rt_nodule2_echogenicity:1_label" name="ws_thyroid_rt_nodule2_echogenicity">Anechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule2_echogenicity" i-tiradgroup="rt_nodule2" i-tiradscore="1" id="ws_thyroid_rt_nodule2_echogenicity:2" name="ws_thyroid_rt_nodule2_echogenicity" outputtext="Hyperechoic (+1pts)" type="radio" value="ws_thyroid_rt_nodule2_echogenicity:2" /><label for="ws_thyroid_rt_nodule2_echogenicity:2" id="ws_thyroid_rt_nodule2_echogenicity:2_label" name="ws_thyroid_rt_nodule2_echogenicity">Hyperechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule2_echogenicity" i-tiradgroup="rt_nodule2" i-tiradscore="1" id="ws_thyroid_rt_nodule2_echogenicity:3" name="ws_thyroid_rt_nodule2_echogenicity" outputtext="Isoechoic (+1pts)" type="radio" value="ws_thyroid_rt_nodule2_echogenicity:3" /><label for="ws_thyroid_rt_nodule2_echogenicity:3" id="ws_thyroid_rt_nodule2_echogenicity:3_label" name="ws_thyroid_rt_nodule2_echogenicity">Isoechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule2_echogenicity" i-tiradgroup="rt_nodule2" i-tiradscore="2" id="ws_thyroid_rt_nodule2_echogenicity:4" name="ws_thyroid_rt_nodule2_echogenicity" outputtext="Hypoechoic (+2pts)" type="radio" value="ws_thyroid_rt_nodule2_echogenicity:4" /><label for="ws_thyroid_rt_nodule2_echogenicity:4" id="ws_thyroid_rt_nodule2_echogenicity:4_label" name="ws_thyroid_rt_nodule2_echogenicity">Hypoechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule2_echogenicity" i-tiradgroup="rt_nodule2" i-tiradscore="3" id="ws_thyroid_rt_nodule2_echogenicity:5" name="ws_thyroid_rt_nodule2_echogenicity" outputtext="Very Hypoechoic (+3pts)" type="radio" value="ws_thyroid_rt_nodule2_echogenicity:5" /><label for="ws_thyroid_rt_nodule2_echogenicity:5" id="ws_thyroid_rt_nodule2_echogenicity:5_label" name="ws_thyroid_rt_nodule2_echogenicity">Very Hypoechoic</label></td>
+    </tr>
+    <tr id="RtNode2TallerThanWide" style="display: none;">
+        <td class="header3_text">Taller-than Wide</td>
+        <td class="impression_text"><input i-name="ws_thyroid_rt_nodule2_tallwide" i-tiradgroup="rt_nodule2" i-tiradscore="0" id="ws_thyroid_rt_nodule2_tallwide:1" name="ws_thyroid_rt_nodule2_tallwide" outputtext="Not taller than wide (+0pts)" type="radio" value="ws_thyroid_rt_nodule2_tallwide:1" /><label for="ws_thyroid_rt_nodule2_tallwide:1" id="ws_thyroid_rt_nodule2_tallwide:1_label" name="ws_thyroid_rt_nodule2_tallwide">No&nbsp;&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule2_tallwide" i-tiradgroup="rt_nodule2" i-tiradscore="3" id="ws_thyroid_rt_nodule2_tallwide:2" name="ws_thyroid_rt_nodule2_tallwide" outputtext="Taller than wide (+3pts)" type="radio" value="ws_thyroid_rt_nodule2_tallwide:2" /><label for="ws_thyroid_rt_nodule2_tallwide:2" id="ws_thyroid_rt_nodule2_tallwide:2_label" name="ws_thyroid_rt_nodule2_tallwide">Yes (taller than wide)</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="RtNode2Margins" style="display: none;">
+        <td class="header3_text">Margins</td>
+        <td class="impression_text"><input i-name="ws_thyroid_rt_nodule2_margins" i-tiradgroup="rt_nodule2" i-tiradscore="0" id="ws_thyroid_rt_nodule2_margins:1" name="ws_thyroid_rt_nodule2_margins" outputtext="Smooth (+0pts)" type="radio" value="ws_thyroid_rt_nodule2_margins:1" /><label for="ws_thyroid_rt_nodule2_margins:1" id="ws_thyroid_rt_nodule2_margins:1_label" name="ws_thyroid_rt_nodule2_margins">Smooth&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule2_margins" i-tiradgroup="rt_nodule2" i-tiradscore="0" id="ws_thyroid_rt_nodule2_margins:2" name="ws_thyroid_rt_nodule2_margins" outputtext="Ill-defined (+0pts)" type="radio" value="ws_thyroid_rt_nodule2_margins:2" /><label for="ws_thyroid_rt_nodule2_margins:2" id="ws_thyroid_rt_nodule2_margins:2_label" name="ws_thyroid_rt_nodule2_margins">Ill-defined&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule2_margins" i-tiradgroup="rt_nodule2" i-tiradscore="2" id="ws_thyroid_rt_nodule2_margins:3" name="ws_thyroid_rt_nodule2_margins" outputtext="Lobulated (+2pts)" type="radio" value="ws_thyroid_rt_nodule2_margins:3" /><label for="ws_thyroid_rt_nodule2_margins:3" id="ws_thyroid_rt_nodule2_margins:3_label" name="ws_thyroid_rt_nodule2_margins">Lobulated&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule2_margins" i-tiradgroup="rt_nodule2" i-tiradscore="2" id="ws_thyroid_rt_nodule2_margins:4" name="ws_thyroid_rt_nodule2_margins" outputtext="Irregular (+2pts)" type="radio" value="ws_thyroid_rt_nodule2_margins:4" /><label for="ws_thyroid_rt_nodule2_margins:4" id="ws_thyroid_rt_nodule2_margins:4_label" name="ws_thyroid_rt_nodule2_margins">Irregular&nbsp;</label>&nbsp;&nbsp;<input i-name="ws_thyroid_rt_nodule2_margins" i-tiradgroup="rt_nodule2" i-tiradscore="3" id="ws_thyroid_rt_nodule2_margins:5" name="ws_thyroid_rt_nodule2_margins" outputtext="Extra-thyroidal ext (+3pts)" type="radio" value="ws_thyroid_rt_nodule2_margins:5" /><label for="ws_thyroid_rt_nodule2_margins:5" id="ws_thyroid_rt_nodule2_margins:5_label" name="ws_thyroid_rt_nodule2_margins">Extra-thyroidal ext</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="RtNode2EchogenicFoci" style="display: none;">
+        <td class="header3_text">Echogenic Foci</td>
+        <td class="impression_text"><input i-name="ws_thyroid_rt_nodule2_Foci" i-tiradgroup="rt_nodule2" i-tiradscore="0" id="ws_thyroid_rt_nodule2_Foci:1" name="ws_thyroid_rt_nodule2_Foci" outputtext="No foci" type="checkbox" value="ws_thyroid_rt_nodule2_Foci:1" />&nbsp;<label for="ws_thyroid_rt_nodule2_Foci:1" id="ws_thyroid_rt_nodule2_Foci:1_label" name="ws_thyroid_rt_nodule2_Foci">None</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule2_Foci" i-tiradgroup="rt_nodule2" i-tiradscore="0" id="ws_thyroid_rt_nodule2_Foci:2" name="ws_thyroid_rt_nodule2_Foci" outputtext="Large Comet-tail (+0pts)" type="checkbox" value="ws_thyroid_rt_nodule2_Foci:2" />&nbsp;<label for="ws_thyroid_rt_nodule2_Foci:2" id="ws_thyroid_rt_nodule2_Foci:2_label" name="ws_thyroid_rt_nodule2_Foci">Large Comet-tail</label>&nbsp;&nbsp;<input i-name="ws_thyroid_rt_nodule2_Foci" i-tiradgroup="rt_nodule2" i-tiradscore="1" id="ws_thyroid_rt_nodule2_Foci:3" name="ws_thyroid_rt_nodule2_Foci" outputtext="Macrocalc (+1pts)" type="checkbox" value="ws_thyroid_rt_nodule2_Foci:3" />&nbsp;<label for="ws_thyroid_rt_nodule2_Foci:3" id="ws_thyroid_rt_nodule2_Foci:3_label" name="ws_thyroid_rt_nodule2_Foci">Macrocalc</label>&nbsp;&nbsp;<input i-name="ws_thyroid_rt_nodule2_Foci" i-tiradgroup="rt_nodule2" i-tiradscore="2" id="ws_thyroid_rt_nodule2_Foci:4" name="ws_thyroid_rt_nodule2_Foci" outputtext="Peripheral (rim) calc (+2pts)" type="checkbox" value="ws_thyroid_rt_nodule2_Foci:4" />&nbsp;<label for="ws_thyroid_rt_nodule2_Foci:4" id="ws_thyroid_rt_nodule2_Foci:4_label" name="ws_thyroid_rt_nodule2_Foci">Peripheral (rim) calc</label><br />
+        &nbsp;&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule2_Foci" i-tiradgroup="rt_nodule2" i-tiradscore="3" id="ws_thyroid_rt_nodule2_Foci:5" name="ws_thyroid_rt_nodule2_Foci" outputtext="Punctate foci (+3pts)" type="checkbox" value="ws_thyroid_rt_nodule2_Foci:5" />&nbsp;<label for="ws_thyroid_rt_nodule2_Foci:5" id="ws_thyroid_rt_nodule2_Foci:5_label" name="ws_thyroid_rt_nodule2_Foci">Punctate (&lt;1mm comet-tail)</label>&nbsp;&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-------------------------Right nodule 3 ----------------------------------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="rt_thyroid_nodule3_len" i-type="i-collapse" style="display: none;"> <i-snippet i-show="sp_thyroid_rt_nodule3_cmt" i-showtargets="rt_node3_cmts" i-type="i-collapse" style="display: none;"> </i-snippet> <i-snippet i-hide="ws_thyroid_rt_nodule3_composition:1;ws_thyroid_rt_nodule3_composition:2" i-hidetargets="RtNode3Echogenicity;RtNode3TallerThanWide;RtNode3Margins;RtNode3EchogenicFoci" i-show="ws_thyroid_rt_nodule3_composition:3;ws_thyroid_rt_nodule3_composition:4" i-showtargets="RtNode3Echogenicity;RtNode3TallerThanWide;RtNode3Margins;RtNode3EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+<tbody>
+    <tr>
+        <td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Right Nodule %i1" i-type="i-string">Right Nodule 2</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule3_len" groupguidkey="77be1172-9e04-4765-af18-e7515d97984a" i-imshowlabel="true" id="rt_thyroid_nodule3_len" title="rt_thyroid_nodule3_len">rt_thyroid_nodule3...</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule3_AP" groupguidkey="664e5ad1-3eff-4609-80fe-a58299ee6c29" i-imshowlabel="true" id="rt_thyroid_nodule3_AP" title="rt_thyroid_nodule3_AP">rt_thyroid_nodule3...</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule3_trv" groupguidkey="5a07abea-ec68-4db1-bf7b-9bc8893d3d75" i-imshowlabel="true" id="rt_thyroid_nodule3_trv" title="rt_thyroid_nodule3_trv">rt_thyroid_nodule3...</mvalue>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_rt_nodule3_finding1" groupguidkey="a3a54480-6228-468b-b66f-b55d0a2dea3f" id="sp_thyroid_rt_nodule3_finding1" title="sp_thyroid_rt_nodule3_finding1">sp_thyroid_rt_nodu...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="rt_node3_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_rt_nodule3_cmt" groupguidkey="10dd2793-c01b-4073-bdc3-eb9bf2ad4672" id="sp_thyroid_rt_nodule3_cmt" psfield="imThy_rt_lobe_nodule3_cmt" title="sp_thyroid_rt_nodule3_cmt">sp_thyroid_rt_nodu...</mvalue>&nbsp;</td>
+    </tr>
+    <!-- id=  and style= below hide -->
+    <tr id="RtNode3Echogenicity" style="display: none;">
+        <td class="header3_text">Echogenicity</td>
+        <td class="impression_text"><input i-name="ws_thyroid_rt_Nodule3_echogenicity" i-tiradgroup="Nodule3" i-tiradscore="0" id="ws_thyroid_rt_Nodule3_echogenicity:1" name="ws_thyroid_rt_Nodule3_echogenicity" outputtext="Anechoic (+0pts)" type="radio" value="ws_thyroid_rt_Nodule3_echogenicity:1" /><label for="ws_thyroid_rt_Nodule3_echogenicity:1" id="ws_thyroid_rt_Nodule3_echogenicity:1_label" name="ws_thyroid_rt_Nodule3_echogenicity">Anechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_Nodule3_echogenicity" i-tiradgroup="Nodule3" i-tiradscore="1" id="ws_thyroid_rt_Nodule3_echogenicity:2" name="ws_thyroid_rt_Nodule3_echogenicity" outputtext="Hyperechoic (+1pts)" type="radio" value="ws_thyroid_rt_Nodule3_echogenicity:2" /><label for="ws_thyroid_rt_Nodule3_echogenicity:2" id="ws_thyroid_rt_Nodule3_echogenicity:2_label" name="ws_thyroid_rt_Nodule3_echogenicity">Hyperechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_Nodule3_echogenicity" i-tiradgroup="Nodule3" i-tiradscore="1" id="ws_thyroid_rt_Nodule3_echogenicity:3" name="ws_thyroid_rt_Nodule3_echogenicity" outputtext="Isoechoic (+1pts)" type="radio" value="ws_thyroid_rt_Nodule3_echogenicity:3" /><label for="ws_thyroid_rt_Nodule3_echogenicity:3" id="ws_thyroid_rt_Nodule3_echogenicity:3_label" name="ws_thyroid_rt_Nodule3_echogenicity">Isoechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_Nodule3_echogenicity" i-tiradgroup="Nodule3" i-tiradscore="2" id="ws_thyroid_rt_Nodule3_echogenicity:4" name="ws_thyroid_rt_Nodule3_echogenicity" outputtext="Hypoechoic (+2pts)" type="radio" value="ws_thyroid_rt_Nodule3_echogenicity:4" /><label for="ws_thyroid_rt_Nodule3_echogenicity:4" id="ws_thyroid_rt_Nodule3_echogenicity:4_label" name="ws_thyroid_rt_Nodule3_echogenicity">Hypoechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_Nodule3_echogenicity" i-tiradgroup="Nodule3" i-tiradscore="3" id="ws_thyroid_rt_Nodule3_echogenicity:5" name="ws_thyroid_rt_Nodule3_echogenicity" outputtext="Very Hypoechoic (+3pts)" type="radio" value="ws_thyroid_rt_Nodule3_echogenicity:5" /><label for="ws_thyroid_rt_Nodule3_echogenicity:5" id="ws_thyroid_rt_Nodule3_echogenicity:5_label" name="ws_thyroid_rt_Nodule3_echogenicity">Very Hypoechoic</label></td>
+    </tr>
+    <tr id="RtNode3TallerThanWide" style="display: none;">
+        <td class="header3_text">Taller-than Wide</td>
+        <td class="impression_text"><input i-name="ws_thyroid_rt_Nodule3_tallwide" i-tiradgroup="Nodule3" i-tiradscore="0" id="ws_thyroid_rt_Nodule3_tallwide:1" name="ws_thyroid_rt_Nodule3_tallwide" outputtext="Not taller than wide (+0pts)" type="radio" value="ws_thyroid_rt_Nodule3_tallwide:1" /><label for="ws_thyroid_rt_Nodule3_tallwide:1" id="ws_thyroid_rt_Nodule3_tallwide:1_label" name="ws_thyroid_rt_Nodule3_tallwide">No&nbsp;&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_Nodule3_tallwide" i-tiradgroup="Nodule3" i-tiradscore="3" id="ws_thyroid_rt_Nodule3_tallwide:2" name="ws_thyroid_rt_Nodule3_tallwide" outputtext="Taller than wide (+3pts)" type="radio" value="ws_thyroid_rt_Nodule3_tallwide:2" /><label for="ws_thyroid_rt_Nodule3_tallwide:2" id="ws_thyroid_rt_Nodule3_tallwide:2_label" name="ws_thyroid_rt_Nodule3_tallwide">Yes (taller than wide)</label></td>
+    </tr>
+    <tr id="RtNode3Margins" style="display: none;">
+        <td class="header3_text">Margins</td>
+        <td class="impression_text"><input i-name="ws_thyroid_rt_Nodule3_margins" i-tiradgroup="Nodule3" i-tiradscore="0" id="ws_thyroid_rt_Nodule3_margins:1" name="ws_thyroid_rt_Nodule3_margins" outputtext="Smooth (+0pts)" type="radio" value="ws_thyroid_rt_Nodule3_margins:1" /><label for="ws_thyroid_rt_Nodule3_margins:1" id="ws_thyroid_rt_Nodule3_margins:1_label" name="ws_thyroid_rt_Nodule3_margins">Smooth&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_Nodule3_margins" i-tiradgroup="Nodule3" i-tiradscore="0" id="ws_thyroid_rt_Nodule3_margins:2" name="ws_thyroid_rt_Nodule3_margins" outputtext="Ill-defined (+0pts)" type="radio" value="ws_thyroid_rt_Nodule3_margins:2" /><label for="ws_thyroid_rt_Nodule3_margins:2" id="ws_thyroid_rt_Nodule3_margins:2_label" name="ws_thyroid_rt_Nodule3_margins">Ill-defined&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_Nodule3_margins" i-tiradgroup="Nodule3" i-tiradscore="2" id="ws_thyroid_rt_Nodule3_margins:3" name="ws_thyroid_rt_Nodule3_margins" outputtext="Lobulated (+2pts)" type="radio" value="ws_thyroid_rt_Nodule3_margins:3" /><label for="ws_thyroid_rt_Nodule3_margins:3" id="ws_thyroid_rt_Nodule3_margins:3_label" name="ws_thyroid_rt_Nodule3_margins">Lobulated&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_Nodule3_margins" i-tiradgroup="Nodule3" i-tiradscore="2" id="ws_thyroid_rt_Nodule3_margins:4" name="ws_thyroid_rt_Nodule3_margins" outputtext="Irregular (+2pts)" type="radio" value="ws_thyroid_rt_Nodule3_margins:4" /><label for="ws_thyroid_rt_Nodule3_margins:4" id="ws_thyroid_rt_Nodule3_margins:4_label" name="ws_thyroid_rt_Nodule3_margins">Irregular&nbsp;</label>&nbsp;&nbsp;<input i-name="ws_thyroid_rt_Nodule3_margins" i-tiradgroup="Nodule3" i-tiradscore="3" id="ws_thyroid_rt_Nodule3_margins:5" name="ws_thyroid_rt_Nodule3_margins" outputtext="Extra-thyroidal ext (+3pts)" type="radio" value="ws_thyroid_rt_Nodule3_margins:5" /><label for="ws_thyroid_rt_Nodule3_margins:5" id="ws_thyroid_rt_Nodule3_margins:5_label" name="ws_thyroid_rt_Nodule3_margins">Extra-thyroidal ext</label></td>
+    </tr>
+    <tr id="RtNode3EchogenicFoci" style="display: none;">
+        <td class="header3_text">Echogenic Foci</td>
+        <td class="impression_text"><input i-name="ws_thyroid_rt_nodule3_Foci" i-tiradgroup="Nodule3" i-tiradscore="0" id="ws_thyroid_rt_nodule3_Foci:1" name="ws_thyroid_rt_nodule3_Foci" outputtext="No foci" type="checkbox" value="ws_thyroid_rt_nodule3_Foci:1" />&nbsp; <label for="ws_thyroid_rt_nodule3_Foci:1" id="ws_thyroid_rt_nodule3_Foci:1_label" name="ws_thyroid_rt_nodule3_Foci">None</label>&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule3_Foci" i-tiradgroup="Nodule3" i-tiradscore="0" id="ws_thyroid_rt_nodule3_Foci:2" name="ws_thyroid_rt_nodule3_Foci" outputtext="Large Comet-tail (+0pts)" type="checkbox" value="ws_thyroid_rt_nodule3_Foci:2" />&nbsp;<label for="ws_thyroid_rt_nodule3_Foci:2" id="ws_thyroid_rt_nodule3_Foci:2_label" name="ws_thyroid_rt_nodule3_Foci">Large Comet-tail</label>&nbsp;&nbsp;<input i-name="ws_thyroid_rt_nodule3_Foci" i-tiradgroup="Nodule3" i-tiradscore="1" id="ws_thyroid_rt_nodule3_Foci:3" name="ws_thyroid_rt_nodule3_Foci" outputtext="Macrocalc (+1pts)" type="checkbox" value="ws_thyroid_rt_nodule3_Foci:3" />&nbsp;<label for="ws_thyroid_rt_nodule3_Foci:3" id="ws_thyroid_rt_nodule3_Foci:3_label" name="ws_thyroid_rt_nodule3_Foci">Macrocalc</label>&nbsp;&nbsp;<input i-name="ws_thyroid_rt_nodule3_Foci" i-tiradgroup="Nodule3" i-tiradscore="2" id="ws_thyroid_rt_nodule3_Foci:4" name="ws_thyroid_rt_nodule3_Foci" outputtext="Peripheral (rim) calc (+2pts)" type="checkbox" value="ws_thyroid_rt_nodule3_Foci:4" />&nbsp;<label for="ws_thyroid_rt_nodule3_Foci:4" id="ws_thyroid_rt_nodule3_Foci:4_label" name="ws_thyroid_rt_nodule3_Foci">Peripheral (rim) calc</label><br />
+        &nbsp;&nbsp;&nbsp; <input i-name="ws_thyroid_rt_nodule3_Foci" i-tiradgroup="Nodule3" i-tiradscore="3" id="ws_thyroid_rt_nodule3_Foci:5" name="ws_thyroid_rt_nodule3_Foci" outputtext="Punctate foci (+3pts)" type="checkbox" value="ws_thyroid_rt_nodule3_Foci:5" />&nbsp;<label for="ws_thyroid_rt_nodule3_Foci:5" id="ws_thyroid_rt_nodule3_Foci:5_label" name="ws_thyroid_rt_nodule3_Foci">Punctate (&lt;1mm comet-tail)</label>&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-------------------------------------Isthmus Nodule 1 -----------------------------------------------></p>
+</i-snippet></div>
+</i-snippet></div>
+
+<div><i-snippet i-id1="ws_isthmus_Lobectomy:1" i-type="i-collapse" style="display: block;">
+<div><i-snippet i-show="isthmus_nodule1_len" i-type="i-collapse" style=""> <i-snippet i-show="sp_thyroid_isthmus_nodule1_cmt" i-showtargets="ist_node1_cmts" i-type="i-collapse" style="display: none;"> </i-snippet> <i-snippet i-hide="ws_isthmus_nodule1_composition:1;ws_isthmus_nodule1_composition:2" i-hidetargets="IsthmusNode1Echogenicity;IsthmusNode1TallerThanWide;IsthmusNode1Margins;IsthmusNode1EchogenicFoci" i-show="ws_isthmus_nodule1_composition:3;ws_isthmus_nodule1_composition:4" i-showtargets="IsthmusNode1Echogenicity;IsthmusNode1TallerThanWide;IsthmusNode1Margins;IsthmusNode1EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+<tbody>
+    <tr>
+        <td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Isthmus Nodule %i1" i-type="i-string">Isthmus Nodule 3</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_len" groupguidkey="7e339515-6a4c-4393-9bc7-e05486f239b5" i-imshowlabel="true" id="isthmus_nodule1_len" title="isthmus_nodule1_len(2.81 cm)">isthmus_nodule1_le...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_AP" groupguidkey="4ef753dd-fa72-4015-a039-f065767a5e24" i-imshowlabel="true" id="isthmus_nodule1_AP" title="isthmus_nodule1_AP(1.76 cm)">isthmus_nodule1_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_trv" groupguidkey="a7b6e4fe-07a3-48c9-892c-9a5a04ddc92b" i-imshowlabel="true" id="isthmus_nodule1_trv" title="isthmus_nodule1_trv(1.83 cm)">isthmus_nodule1_tr...</mvalue>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_isthmus_nodule1_finding1" groupguidkey="2d6e638b-e97b-46a4-a78f-35d3881660bd" id="sp_thyroid_isthmus_nodule1_finding1" title="sp_thyroid_isthmus_nodule1_finding1">sp_thyroid_isthmus...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="ist_node1_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_isthmus_nodule1_cmt" groupguidkey="1804978c-8d9d-47ef-949a-a741a7adb354" id="sp_thyroid_isthmus_nodule1_cmt" psfield="imThy_isthmus_nodule1_cmt" title="sp_thyroid_isthmus_nodule1_cmt">sp_thyroid_isthmus...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="IsthmusNode1Echogenicity" style="display: none;">
+        <td class="header3_text">Echogenicity</td>
+        <td class="impression_text">&nbsp; <input alttext="Anechoic" i-name="ws_isthmus_nodule1_echogenicity" i-tiradgroup="isthmus_nodule1" i-tiradscore="0" id="ws_isthmus_nodule1_echogenicity:1" name="ws_isthmus_nodule1_echogenicity" outputtext="Anechoic (+0pts)," type="radio" value="ws_isthmus_nodule1_echogenicity:1" /><label for="ws_isthmus_nodule1_echogenicity:1" id="ws_isthmus_nodule1_echogenicity:1_label" name="ws_isthmus_nodule1_echogenicity">Anechoic</label>&nbsp;&nbsp; <input alttext="Hyperechoic" i-name="ws_isthmus_nodule1_echogenicity" i-tiradgroup="isthmus_nodule1" i-tiradscore="1" id="ws_isthmus_nodule1_echogenicity:2" name="ws_isthmus_nodule1_echogenicity" outputtext="Hyperechoic (+1pts)," type="radio" value="ws_isthmus_nodule1_echogenicity:2" /><label for="ws_isthmus_nodule1_echogenicity:2" id="ws_isthmus_nodule1_echogenicity:2_label" name="ws_isthmus_nodule1_echogenicity">Hyperechoic</label>&nbsp;&nbsp; <input alttext="Isoechoic" i-name="ws_isthmus_nodule1_echogenicity" i-tiradgroup="isthmus_nodule1" i-tiradscore="1" id="ws_isthmus_nodule1_echogenicity:3" name="ws_isthmus_nodule1_echogenicity" outputtext="Isoechoic (+1pts)," type="radio" value="ws_isthmus_nodule1_echogenicity:3" /><label for="ws_isthmus_nodule1_echogenicity:3" id="ws_isthmus_nodule1_echogenicity:3_label" name="ws_isthmus_nodule1_echogenicity">Isoechoic</label>&nbsp;&nbsp; <input alttext="Hypoechoic" i-name="ws_isthmus_nodule1_echogenicity" i-tiradgroup="isthmus_nodule1" i-tiradscore="2" id="ws_isthmus_nodule1_echogenicity:4" name="ws_isthmus_nodule1_echogenicity" outputtext="Hypoechoic (+2pts)," type="radio" value="ws_isthmus_nodule1_echogenicity:4" /> <label for="ws_isthmus_nodule1_echogenicity:4" id="ws_isthmus_nodule1_echogenicity:4_label" name="ws_isthmus_nodule1_echogenicity">Hypoechoic</label>&nbsp;&nbsp; <input alttext="Very Hypoechoic" i-name="ws_isthmus_nodule1_echogenicity" i-tiradgroup="isthmus_nodule1" i-tiradscore="3" id="ws_isthmus_nodule1_echogenicity:5" name="ws_isthmus_nodule1_echogenicity" outputtext="Very Hypoechoic (+3pts)," type="radio" value="ws_isthmus_nodule1_echogenicity:5" /> <label for="ws_isthmus_nodule1_echogenicity:5" id="ws_isthmus_nodule1_echogenicity:5_label" name="ws_isthmus_nodule1_echogenicity">Very Hypoechoic</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="IsthmusNode1TallerThanWide" style="display: none;">
+        <td class="header3_text">Taller-than Wide</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_isthmus_nodule1_tallwide" i-tiradgroup="isthmus_nodule1" i-tiradscore="0" id="ws_isthmus_nodule1_tallwide:1" name="ws_isthmus_nodule1_tallwide" outputtext="Not taller than wide (+0pts)," type="radio" value="ws_isthmus_nodule1_tallwide:1" /><label for="ws_isthmus_nodule1_tallwide:1" id="ws_isthmus_nodule1_tallwide:1_label" name="ws_isthmus_nodule1_tallwide">No</label>&nbsp; &nbsp;&nbsp; <input i-name="ws_isthmus_nodule1_tallwide" i-tiradgroup="isthmus_nodule1" i-tiradscore="3" id="ws_isthmus_nodule1_tallwide:2" name="ws_isthmus_nodule1_tallwide" outputtext="Taller than wide (+3pts)," type="radio" value="ws_isthmus_nodule1_tallwide:2" /><label for="ws_isthmus_nodule1_tallwide:2" id="ws_isthmus_nodule1_tallwide:2_label" name="ws_isthmus_nodule1_tallwide">Yes (taller than wide)</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="IsthmusNode1Margins" style="display: none;">
+        <td class="header3_text">Margins</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_isthmus_nodule1_margins" i-tiradgroup="isthmus_nodule1" i-tiradscore="0" id="ws_isthmus_nodule1_margins:1" name="ws_isthmus_nodule1_margins" outputtext="Smooth (+0pts)," type="radio" value="ws_isthmus_nodule1_margins:1" /><label for="ws_isthmus_nodule1_margins:1" id="ws_isthmus_nodule1_margins:1_label" name="ws_isthmus_nodule1_margins">Smooth</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule1_margins" i-tiradgroup="isthmus_nodule1" i-tiradscore="0" id="ws_isthmus_nodule1_margins:2" name="ws_isthmus_nodule1_margins" outputtext="Ill-defined (+0pts)," type="radio" value="ws_isthmus_nodule1_margins:2" /><label for="ws_isthmus_nodule1_margins:2" id="ws_isthmus_nodule1_margins:2_label" name="ws_isthmus_nodule1_margins">Ill-defined&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule1_margins" i-tiradgroup="isthmus_nodule1" i-tiradscore="2" id="ws_isthmus_nodule1_margins:3" name="ws_isthmus_nodule1_margins" outputtext="Lobulated (+2pts)," type="radio" value="ws_isthmus_nodule1_margins:3" /><label for="ws_isthmus_nodule1_margins:3" id="ws_isthmus_nodule1_margins:3_label" name="ws_isthmus_nodule1_margins">Lobulated&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule1_margins" i-tiradgroup="isthmus_nodule1" i-tiradscore="2" id="ws_isthmus_nodule1_margins:4" name="ws_isthmus_nodule1_margins" outputtext="Irregular (+2pts)," type="radio" value="ws_isthmus_nodule1_margins:4" /><label for="ws_isthmus_nodule1_margins:4" id="ws_isthmus_nodule1_margins:4_label" name="ws_isthmus_nodule1_margins">Irregular</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule1_margins" i-tiradgroup="isthmus_nodule1" i-tiradscore="3" id="ws_isthmus_nodule1_margins:5" name="ws_isthmus_nodule1_margins" outputtext="Extra-thyroidal ext (+3pts)," type="radio" value="ws_isthmus_nodule1_margins:5" /><label for="ws_isthmus_nodule1_margins:5" id="ws_isthmus_nodule1_margins:5_label" name="ws_isthmus_nodule1_margins">Extra-thyroidal ext</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="IsthmusNode1EchogenicFoci" style="display: none;">
+        <td class="header3_text">Echogenic Foci</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_isthmus_nodule1_Foci" i-tiradgroup="isthmus_nodule1" i-tiradscore="0" id="ws_isthmus_nodule1_Foci:1" name="ws_isthmus_nodule1_Foci" outputtext="--" type="checkbox" value="ws_isthmus_nodule1_Foci:1" /> <label for="ws_isthmus_nodule1_Foci:1" id="ws_isthmus_nodule1_Foci:1_label" name="ws_isthmus_nodule1_Foci">None&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule1_Foci" i-tiradgroup="isthmus_nodule1" i-tiradscore="0" id="ws_isthmus_nodule1_Foci:2" name="ws_isthmus_nodule1_Foci" outputtext="Large Comet-tail (+0pts)" type="checkbox" value="ws_isthmus_nodule1_Foci:2" /> <label for="ws_isthmus_nodule1_Foci:2" id="ws_isthmus_nodule1_Foci:2_label" name="ws_isthmus_nodule1_Foci">Large Comet-tail&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule1_Foci" i-tiradgroup="isthmus_nodule1" i-tiradscore="1" id="ws_isthmus_nodule1_Foci:3" name="ws_isthmus_nodule1_Foci" outputtext="Macrocalc (+1pt)" type="checkbox" value="ws_isthmus_nodule1_Foci:3" /> <label for="ws_isthmus_nodule1_Foci:3" id="ws_isthmus_nodule1_Foci:3_label" name="ws_isthmus_nodule1_Foci">Macrocalc&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule1_Foci" i-tiradgroup="isthmus_nodule1" i-tiradscore="2" id="ws_isthmus_nodule1_Foci:4" name="ws_isthmus_nodule1_Foci" outputtext="Peripheral (rim) calc (+2pts)" type="checkbox" value="ws_isthmus_nodule1_Foci:4" /><label for="ws_isthmus_nodule1_Foci:4" id="ws_isthmus_nodule1_Foci:4_label" name="ws_isthmus_nodule1_Foci">Peripheral (rim) calc&nbsp;</label>&nbsp;&nbsp;<br />
+        <input i-name="ws_isthmus_nodule1_Foci" i-tiradgroup="isthmus_nodule1" i-tiradscore="3" id="ws_isthmus_nodule1_Foci:5" name="ws_isthmus_nodule1_Foci" outputtext="Punctate foci (+3pts)" type="checkbox" value="ws_isthmus_nodule1_Foci:5" /><label for="ws_isthmus_nodule1_Foci:5" id="ws_isthmus_nodule1_Foci:5_label" name="ws_isthmus_nodule1_Foci">Punctate (&lt;1mm comet-tail)</label>&nbsp;&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-------------------------------------Isthmus Nodule 2 -----------------------------------------------></p>
+</i-snippet></div>
+</i-snippet></div>
+
+<div><i-snippet i-id1="ws_isthmus_Lobectomy:1" i-type="i-collapse" style="display: block;">
+<div><i-snippet i-show="isthmus_nodule2_len" i-type="i-collapse" style="display: none;"> <i-snippet i-show="sp_thyroid_isthmus_nodule2_cmt" i-showtargets="ist_node2_cmts" i-type="i-collapse" style="display: none;"> </i-snippet> <i-snippet i-hide="ws_isthmus_nodule2_composition:1;ws_isthmus_nodule2_composition:2" i-hidetargets="IsthmusNode2Echogenicity;IsthmusNode2TallerThanWide;IsthmusNode2Margins;IsthmusNode2EchogenicFoci" i-show="ws_isthmus_nodule2_composition:3;ws_isthmus_nodule2_composition:4" i-showtargets="IsthmusNode2Echogenicity;IsthmusNode2TallerThanWide;IsthmusNode2Margins;IsthmusNode2EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+<tbody>
+    <tr>
+        <td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Isthmus Nodule %i1" i-type="i-string">Isthmus Nodule 3</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_len" groupguidkey="3d53be80-f0d6-43a3-8820-bd0717df7be5" i-imshowlabel="true" id="isthmus_nodule2_len" title="isthmus_nodule2_len">isthmus_nodule2_le...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_AP" groupguidkey="14294aa2-0c5f-406f-9bba-ed7c65023a7b" i-imshowlabel="true" id="isthmus_nodule2_AP" title="isthmus_nodule2_AP">isthmus_nodule2_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_trv" groupguidkey="9d81385a-3f79-4e19-aeaa-b87046516b4e" i-imshowlabel="true" id="isthmus_nodule2_trv" title="isthmus_nodule2_trv">isthmus_nodule2_tr...</mvalue>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_isthmus_nodule2_finding1" groupguidkey="fa986b0b-8290-4e29-b601-db1ff8921fb2" id="sp_thyroid_isthmus_nodule2_finding1" title="sp_thyroid_isthmus_nodule2_finding1">sp_thyroid_isthmus...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="ist_node2_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_isthmus_nodule2_cmt" groupguidkey="ce7c1fe9-8aa9-4547-bdb4-caeacdfd41ce" id="sp_thyroid_isthmus_nodule2_cmt" title="sp_thyroid_isthmus_nodule2_cmt">sp_thyroid_isthmus...</mvalue> &nbsp;</td>
+    </tr>
+    <tr id="IsthmusNode2Echogenicity" style="display: none;">
+        <td class="header3_text">Echogenicity</td>
+        <td class="impression_text">&nbsp; <input alttext="Anechoic" i-name="ws_isthmus_nodule2_echogenicity" i-tiradgroup="isthmus_nodule2" i-tiradscore="0" id="ws_isthmus_nodule2_echogenicity:1" name="ws_isthmus_nodule2_echogenicity" outputtext="Anechoic (+0pts)," type="radio" value="ws_isthmus_nodule2_echogenicity:1" /><label for="ws_isthmus_nodule2_echogenicity:1" id="ws_isthmus_nodule2_echogenicity:1_label" name="ws_isthmus_nodule2_echogenicity">Anechoic</label>&nbsp;&nbsp; <input alttext="Hyperechoic" i-name="ws_isthmus_nodule2_echogenicity" i-tiradgroup="isthmus_nodule2" i-tiradscore="1" id="ws_isthmus_nodule2_echogenicity:2" name="ws_isthmus_nodule2_echogenicity" outputtext="Hyperechoic (+1pts)," type="radio" value="ws_isthmus_nodule2_echogenicity:2" /><label for="ws_isthmus_nodule2_echogenicity:2" id="ws_isthmus_nodule2_echogenicity:2_label" name="ws_isthmus_nodule2_echogenicity">Hyperechoic</label>&nbsp;&nbsp; <input alttext="Isoechoic" i-name="ws_isthmus_nodule2_echogenicity" i-tiradgroup="isthmus_nodule2" i-tiradscore="1" id="ws_isthmus_nodule2_echogenicity:3" name="ws_isthmus_nodule2_echogenicity" outputtext="Isoechoic (+1pts)," type="radio" value="ws_isthmus_nodule2_echogenicity:3" /><label for="ws_isthmus_nodule2_echogenicity:3" id="ws_isthmus_nodule2_echogenicity:3_label" name="ws_isthmus_nodule2_echogenicity">Isoechoic</label>&nbsp;&nbsp; <input alttext="Hypoechoic" i-name="ws_isthmus_nodule2_echogenicity" i-tiradgroup="isthmus_nodule2" i-tiradscore="2" id="ws_isthmus_nodule2_echogenicity:4" name="ws_isthmus_nodule2_echogenicity" outputtext="Hypoechoic (+2pts)," type="radio" value="ws_isthmus_nodule2_echogenicity:4" /> <label for="ws_isthmus_nodule2_echogenicity:4" id="ws_isthmus_nodule2_echogenicity:4_label" name="ws_isthmus_nodule2_echogenicity">Hypoechoic</label>&nbsp;&nbsp; <input alttext="Very Hypoechoic" i-name="ws_isthmus_nodule2_echogenicity" i-tiradgroup="isthmus_nodule2" i-tiradscore="3" id="ws_isthmus_nodule2_echogenicity:5" name="ws_isthmus_nodule2_echogenicity" outputtext="Very Hypoechoic (+3pts)," type="radio" value="ws_isthmus_nodule2_echogenicity:5" /> <label for="ws_isthmus_nodule2_echogenicity:5" id="ws_isthmus_nodule2_echogenicity:5_label" name="ws_isthmus_nodule2_echogenicity">Very Hypoechoic</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="IsthmusNode2TallerThanWide" style="display: none;">
+        <td class="header3_text">Taller-than Wide</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_isthmus_nodule2_tallwide" i-tiradgroup="isthmus_nodule2" i-tiradscore="0" id="ws_isthmus_nodule2_tallwide:1" name="ws_isthmus_nodule2_tallwide" outputtext="Not taller than wide (+0pts)," type="radio" value="ws_isthmus_nodule2_tallwide:1" /><label for="ws_isthmus_nodule2_tallwide:1" id="ws_isthmus_nodule2_tallwide:1_label" name="ws_isthmus_nodule2_tallwide">No</label>&nbsp; &nbsp;&nbsp; <input i-name="ws_isthmus_nodule2_tallwide" i-tiradgroup="isthmus_nodule2" i-tiradscore="3" id="ws_isthmus_nodule2_tallwide:2" name="ws_isthmus_nodule2_tallwide" outputtext="Taller than wide (+3pts)," type="radio" value="ws_isthmus_nodule2_tallwide:2" /><label for="ws_isthmus_nodule2_tallwide:2" id="ws_isthmus_nodule2_tallwide:2_label" name="ws_isthmus_nodule2_tallwide">Yes (taller than wide)</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="IsthmusNode2Margins" style="display: none;">
+        <td class="header3_text">Margins</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_isthmus_nodule2_margins" i-tiradgroup="isthmus_nodule2" i-tiradscore="0" id="ws_isthmus_nodule2_margins:1" name="ws_isthmus_nodule2_margins" outputtext="Smooth (+0pts)," type="radio" value="ws_isthmus_nodule2_margins:1" /><label for="ws_isthmus_nodule2_margins:1" id="ws_isthmus_nodule2_margins:1_label" name="ws_isthmus_nodule2_margins">Smooth</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule2_margins" i-tiradgroup="isthmus_nodule2" i-tiradscore="0" id="ws_isthmus_nodule2_margins:2" name="ws_isthmus_nodule2_margins" outputtext="Ill-defined (+0pts)," type="radio" value="ws_isthmus_nodule2_margins:2" /><label for="ws_isthmus_nodule2_margins:2" id="ws_isthmus_nodule2_margins:2_label" name="ws_isthmus_nodule2_margins">Ill-defined&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule2_margins" i-tiradgroup="isthmus_nodule2" i-tiradscore="2" id="ws_isthmus_nodule2_margins:3" name="ws_isthmus_nodule2_margins" outputtext="Lobulated (+2pts)," type="radio" value="ws_isthmus_nodule2_margins:3" /><label for="ws_isthmus_nodule2_margins:3" id="ws_isthmus_nodule2_margins:3_label" name="ws_isthmus_nodule2_margins">Lobulated&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule2_margins" i-tiradgroup="isthmus_nodule2" i-tiradscore="2" id="ws_isthmus_nodule2_margins:4" name="ws_isthmus_nodule2_margins" outputtext="Irregular (+2pts)," type="radio" value="ws_isthmus_nodule2_margins:4" /><label for="ws_isthmus_nodule2_margins:4" id="ws_isthmus_nodule2_margins:4_label" name="ws_isthmus_nodule2_margins">Irregular</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule2_margins" i-tiradgroup="isthmus_nodule2" i-tiradscore="3" id="ws_isthmus_nodule2_margins:5" name="ws_isthmus_nodule2_margins" outputtext="Extra-thyroidal ext (+3pts)," type="radio" value="ws_isthmus_nodule2_margins:5" /><label for="ws_isthmus_nodule2_margins:5" id="ws_isthmus_nodule2_margins:5_label" name="ws_isthmus_nodule2_margins">Extra-thyroidal ext</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="IsthmusNode2EchogenicFoci" style="display: none;">
+        <td class="header3_text">Echogenic Foci</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_isthmus_nodule2_Foci" i-tiradgroup="isthmus_nodule2" i-tiradscore="0" id="ws_isthmus_nodule2_Foci:1" name="ws_isthmus_nodule2_Foci" outputtext="--" type="checkbox" value="ws_isthmus_nodule2_Foci:1" /> <label for="ws_isthmus_nodule2_Foci:1" id="ws_isthmus_nodule2_Foci:1_label" name="ws_isthmus_nodule2_Foci">None&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule2_Foci" i-tiradgroup="isthmus_nodule2" i-tiradscore="0" id="ws_isthmus_nodule2_Foci:2" name="ws_isthmus_nodule2_Foci" outputtext="Large Comet-tail (+0pts)" type="checkbox" value="ws_isthmus_nodule2_Foci:2" /> <label for="ws_isthmus_nodule2_Foci:2" id="ws_isthmus_nodule2_Foci:2_label" name="ws_isthmus_nodule2_Foci">Large Comet-tail&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule2_Foci" i-tiradgroup="isthmus_nodule2" i-tiradscore="1" id="ws_isthmus_nodule2_Foci:3" name="ws_isthmus_nodule2_Foci" outputtext="Macrocalc (+1pt)" type="checkbox" value="ws_isthmus_nodule2_Foci:3" /> <label for="ws_isthmus_nodule2_Foci:3" id="ws_isthmus_nodule2_Foci:3_label" name="ws_isthmus_nodule2_Foci">Macrocalc&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule2_Foci" i-tiradgroup="isthmus_nodule2" i-tiradscore="2" id="ws_isthmus_nodule2_Foci:4" name="ws_isthmus_nodule2_Foci" outputtext="Peripheral (rim) calc (+2pts)" type="checkbox" value="ws_isthmus_nodule2_Foci:4" /><label for="ws_isthmus_nodule2_Foci:4" id="ws_isthmus_nodule2_Foci:4_label" name="ws_isthmus_nodule2_Foci">Peripheral (rim) calc&nbsp;</label>&nbsp;&nbsp;<br />
+        <input i-name="ws_isthmus_nodule2_Foci" i-tiradgroup="isthmus_nodule2" i-tiradscore="3" id="ws_isthmus_nodule2_Foci:5" name="ws_isthmus_nodule2_Foci" outputtext="Punctate foci (+3pts)" type="checkbox" value="ws_isthmus_nodule2_Foci:5" /><label for="ws_isthmus_nodule2_Foci:5" id="ws_isthmus_nodule2_Foci:5_label" name="ws_isthmus_nodule2_Foci">Punctate (&lt;1mm comet-tail)</label>&nbsp;&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-------------------------------------Isthmus Nodule 3 -----------------------------------------------></p>
+</i-snippet></div>
+</i-snippet></div>
+
+<div><i-snippet i-id1="ws_isthmus_Lobectomy:1" i-type="i-collapse" style="display: block;">
+<div><i-snippet i-show="isthmus_nodule3_len" i-type="i-collapse" style="display: none;"> <i-snippet i-show="sp_thyroid_isthmus_nodule3_cmt" i-showtargets="ist_node3_cmts" i-type="i-collapse" style="display: none;"> </i-snippet> <i-snippet i-hide="ws_isthmus_nodule3_composition:1;ws_isthmus_nodule3_composition:2" i-hidetargets="IsthmusNode3Echogenicity;IsthmusNode3TallerThanWide;IsthmusNode3Margins;IsthmusNode3EchogenicFoci" i-show="ws_isthmus_nodule3_composition:3;ws_isthmus_nodule3_composition:4" i-showtargets="IsthmusNode3Echogenicity;IsthmusNode3TallerThanWide;IsthmusNode3Margins;IsthmusNode3EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+<tbody>
+    <tr>
+        <td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Isthmus Nodule %i1" i-type="i-string">Isthmus Nodule 3</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_len" groupguidkey="02c5932b-0300-48bd-a9e6-bb4bdf9ebe09" i-imshowlabel="true" id="isthmus_nodule3_len" title="isthmus_nodule3_len">isthmus_nodule3_le...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_AP" groupguidkey="12379046-77cd-43a2-a516-ef5d512ff358" i-imshowlabel="true" id="isthmus_nodule3_AP" title="isthmus_nodule3_AP">isthmus_nodule3_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_trv" groupguidkey="23e70bb4-1aa9-4b61-a108-6fa29a63c94f" i-imshowlabel="true" id="isthmus_nodule3_trv" title="isthmus_nodule3_trv">isthmus_nodule3_tr...</mvalue>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_isthmus_nodule3_finding1" groupguidkey="f61a60f8-8a19-4eb2-9372-5e623f144fe1" id="sp_thyroid_isthmus_nodule3_finding1" title="sp_thyroid_isthmus_nodule3_finding1">sp_thyroid_isthmus...</mvalue> &nbsp;</td>
+    </tr>
+    <tr id="ist_node3_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_isthmus_nodule3_cmt" groupguidkey="28b3f67a-a4d3-4cda-abd8-79fa1e4182c8" id="sp_thyroid_isthmus_nodule3_cmt" psfield="imThy_isthmus_nodule3_cmt" title="sp_thyroid_isthmus_nodule3_cmt">sp_thyroid_isthmus...</mvalue> &nbsp;</td>
+    </tr>
+    <tr id="IsthmusNode3Echogenicity" style="display: none;">
+        <td class="header3_text">Echogenicity</td>
+        <td class="impression_text">&nbsp; <input alttext="Anechoic" i-name="ws_isthmus_nodule3_echogenicity" i-tiradgroup="isthmus_nodule3" i-tiradscore="0" id="ws_isthmus_nodule3_echogenicity:1" name="ws_isthmus_nodule3_echogenicity" outputtext="Anechoic (+0pts)," type="radio" value="ws_isthmus_nodule3_echogenicity:1" /><label for="ws_isthmus_nodule3_echogenicity:1" id="ws_isthmus_nodule3_echogenicity:1_label" name="ws_isthmus_nodule3_echogenicity">Anechoic</label>&nbsp;&nbsp; <input alttext="Hyperechoic" i-name="ws_isthmus_nodule3_echogenicity" i-tiradgroup="isthmus_nodule3" i-tiradscore="1" id="ws_isthmus_nodule3_echogenicity:2" name="ws_isthmus_nodule3_echogenicity" outputtext="Hyperechoic (+1pts)," type="radio" value="ws_isthmus_nodule3_echogenicity:2" /><label for="ws_isthmus_nodule3_echogenicity:2" id="ws_isthmus_nodule3_echogenicity:2_label" name="ws_isthmus_nodule3_echogenicity">Hyperechoic</label>&nbsp;&nbsp; <input alttext="Isoechoic" i-name="ws_isthmus_nodule3_echogenicity" i-tiradgroup="isthmus_nodule3" i-tiradscore="1" id="ws_isthmus_nodule3_echogenicity:3" name="ws_isthmus_nodule3_echogenicity" outputtext="Isoechoic (+1pts)," type="radio" value="ws_isthmus_nodule3_echogenicity:3" /><label for="ws_isthmus_nodule3_echogenicity:3" id="ws_isthmus_nodule3_echogenicity:3_label" name="ws_isthmus_nodule3_echogenicity">Isoechoic</label>&nbsp;&nbsp; <input alttext="Hypoechoic" i-name="ws_isthmus_nodule3_echogenicity" i-tiradgroup="isthmus_nodule3" i-tiradscore="2" id="ws_isthmus_nodule3_echogenicity:4" name="ws_isthmus_nodule3_echogenicity" outputtext="Hypoechoic (+2pts)," type="radio" value="ws_isthmus_nodule3_echogenicity:4" /> <label for="ws_isthmus_nodule3_echogenicity:4" id="ws_isthmus_nodule3_echogenicity:4_label" name="ws_isthmus_nodule3_echogenicity">Hypoechoic</label>&nbsp;&nbsp; <input alttext="Very Hypoechoic" i-name="ws_isthmus_nodule3_echogenicity" i-tiradgroup="isthmus_nodule3" i-tiradscore="3" id="ws_isthmus_nodule3_echogenicity:5" name="ws_isthmus_nodule3_echogenicity" outputtext="Very Hypoechoic (+3pts)," type="radio" value="ws_isthmus_nodule3_echogenicity:5" /> <label for="ws_isthmus_nodule3_echogenicity:5" id="ws_isthmus_nodule3_echogenicity:5_label" name="ws_isthmus_nodule3_echogenicity">Very Hypoechoic</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="IsthmusNode3TallerThanWide" style="display: none;">
+        <td class="header3_text">Taller-than Wide</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_isthmus_nodule3_tallwide" i-tiradgroup="isthmus_nodule3" i-tiradscore="0" id="ws_isthmus_nodule3_tallwide:1" name="ws_isthmus_nodule3_tallwide" outputtext="Not taller than wide (+0pts)," type="radio" value="ws_isthmus_nodule3_tallwide:1" /><label for="ws_isthmus_nodule3_tallwide:1" id="ws_isthmus_nodule3_tallwide:1_label" name="ws_isthmus_nodule3_tallwide">No</label>&nbsp; &nbsp;&nbsp; <input i-name="ws_isthmus_nodule3_tallwide" i-tiradgroup="isthmus_nodule3" i-tiradscore="3" id="ws_isthmus_nodule3_tallwide:2" name="ws_isthmus_nodule3_tallwide" outputtext="Taller than wide (+3pts)," type="radio" value="ws_isthmus_nodule3_tallwide:2" /><label for="ws_isthmus_nodule3_tallwide:2" id="ws_isthmus_nodule3_tallwide:2_label" name="ws_isthmus_nodule3_tallwide">Yes (taller than wide)</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="IsthmusNode3Margins" style="display: none;">
+        <td class="header3_text">Margins</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_isthmus_nodule3_margins" i-tiradgroup="isthmus_nodule3" i-tiradscore="0" id="ws_isthmus_nodule3_margins:1" name="ws_isthmus_nodule3_margins" outputtext="Smooth (+0pts)," type="radio" value="ws_isthmus_nodule3_margins:1" /><label for="ws_isthmus_nodule3_margins:1" id="ws_isthmus_nodule3_margins:1_label" name="ws_isthmus_nodule3_margins">Smooth</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule3_margins" i-tiradgroup="isthmus_nodule3" i-tiradscore="0" id="ws_isthmus_nodule3_margins:2" name="ws_isthmus_nodule3_margins" outputtext="Ill-defined (+0pts)," type="radio" value="ws_isthmus_nodule3_margins:2" /><label for="ws_isthmus_nodule3_margins:2" id="ws_isthmus_nodule3_margins:2_label" name="ws_isthmus_nodule3_margins">Ill-defined&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule3_margins" i-tiradgroup="isthmus_nodule3" i-tiradscore="2" id="ws_isthmus_nodule3_margins:3" name="ws_isthmus_nodule3_margins" outputtext="Lobulated (+2pts)," type="radio" value="ws_isthmus_nodule3_margins:3" /><label for="ws_isthmus_nodule3_margins:3" id="ws_isthmus_nodule3_margins:3_label" name="ws_isthmus_nodule3_margins">Lobulated&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule3_margins" i-tiradgroup="isthmus_nodule3" i-tiradscore="2" id="ws_isthmus_nodule3_margins:4" name="ws_isthmus_nodule3_margins" outputtext="Irregular (+2pts)," type="radio" value="ws_isthmus_nodule3_margins:4" /><label for="ws_isthmus_nodule3_margins:4" id="ws_isthmus_nodule3_margins:4_label" name="ws_isthmus_nodule3_margins">Irregular</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule3_margins" i-tiradgroup="isthmus_nodule3" i-tiradscore="3" id="ws_isthmus_nodule3_margins:5" name="ws_isthmus_nodule3_margins" outputtext="Extra-thyroidal ext (+3pts)," type="radio" value="ws_isthmus_nodule3_margins:5" /><label for="ws_isthmus_nodule3_margins:5" id="ws_isthmus_nodule3_margins:5_label" name="ws_isthmus_nodule3_margins">Extra-thyroidal ext</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="IsthmusNode3EchogenicFoci" style="display: none;">
+        <td class="header3_text">Echogenic Foci</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_isthmus_nodule3_Foci" i-tiradgroup="isthmus_nodule3" i-tiradscore="0" id="ws_isthmus_nodule3_Foci:1" name="ws_isthmus_nodule3_Foci" outputtext="--" type="checkbox" value="ws_isthmus_nodule3_Foci:1" /> <label for="ws_isthmus_nodule3_Foci:1" id="ws_isthmus_nodule3_Foci:1_label" name="ws_isthmus_nodule3_Foci">None&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule3_Foci" i-tiradgroup="isthmus_nodule3" i-tiradscore="0" id="ws_isthmus_nodule3_Foci:2" name="ws_isthmus_nodule3_Foci" outputtext="Large Comet-tail (+0pts)" type="checkbox" value="ws_isthmus_nodule3_Foci:2" /> <label for="ws_isthmus_nodule3_Foci:2" id="ws_isthmus_nodule3_Foci:2_label" name="ws_isthmus_nodule3_Foci">Large Comet-tail&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule3_Foci" i-tiradgroup="isthmus_nodule3" i-tiradscore="1" id="ws_isthmus_nodule3_Foci:3" name="ws_isthmus_nodule3_Foci" outputtext="Macrocalc (+1pt)" type="checkbox" value="ws_isthmus_nodule3_Foci:3" /> <label for="ws_isthmus_nodule3_Foci:3" id="ws_isthmus_nodule3_Foci:3_label" name="ws_isthmus_nodule3_Foci">Macrocalc&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_isthmus_nodule3_Foci" i-tiradgroup="isthmus_nodule3" i-tiradscore="2" id="ws_isthmus_nodule3_Foci:4" name="ws_isthmus_nodule3_Foci" outputtext="Peripheral (rim) calc (+2pts)" type="checkbox" value="ws_isthmus_nodule3_Foci:4" /><label for="ws_isthmus_nodule3_Foci:4" id="ws_isthmus_nodule3_Foci:4_label" name="ws_isthmus_nodule3_Foci">Peripheral (rim) calc&nbsp;</label>&nbsp;&nbsp;<br />
+        <input i-name="ws_isthmus_nodule3_Foci" i-tiradgroup="isthmus_nodule3" i-tiradscore="3" id="ws_isthmus_nodule3_Foci:5" name="ws_isthmus_nodule3_Foci" outputtext="Punctate foci (+3pts)" type="checkbox" value="ws_isthmus_nodule3_Foci:5" /><label for="ws_isthmus_nodule3_Foci:5" id="ws_isthmus_nodule3_Foci:5_label" name="ws_isthmus_nodule3_Foci">Punctate (&lt;1mm comet-tail)</label>&nbsp;&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!---------------------left nodule 1 ----------------------------------------------------------------></p>
+</i-snippet></div>
+</i-snippet></div>
+
+<div><i-snippet i-show="lt_thyroid_nodule1_len" i-type="i-collapse" style=""> <i-snippet i-show="sp_thyroid_lt_nodule1_cmt" i-showtargets="lt_node1_cmts" i-type="i-collapse" style="display: none;"> </i-snippet> <i-snippet i-hide="ws_thyroid_lt_nodule1_composition:1;ws_thyroid_lt_nodule1_composition:2" i-hidetargets="LtNode1Echogenicity;LtNode1TallerThanWide;LtNode1Margins;LtNode1EchogenicFoci" i-show="ws_thyroid_lt_nodule1_composition:3;ws_thyroid_lt_nodule1_composition:4" i-showtargets="LtNode1Echogenicity;LtNode1TallerThanWide;LtNode1Margins;LtNode1EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+<tbody>
+    <tr>
+        <td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Left Nodule %i1" i-type="i-string">Left Nodule 4</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_len" groupguidkey="b26606c3-a79a-4d60-8377-c77d601deb2f" i-imshowlabel="true" id="lt_thyroid_nodule1_len" title="lt_thyroid_nodule1_len(1.22 cm)">lt_thyroid_nodule1...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_AP" groupguidkey="d04a6557-e209-4e17-a897-973759678ce4" i-imshowlabel="true" id="lt_thyroid_nodule1_AP" title="lt_thyroid_nodule1_AP(1.07 cm)">lt_thyroid_nodule1...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_trv" groupguidkey="dcbc194d-7062-479c-b134-12385f37de68" i-imshowlabel="true" id="lt_thyroid_nodule1_trv" title="lt_thyroid_nodule1_trv(1.12 cm)">lt_thyroid_nodule1...</mvalue>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lt_nodule1_finding1" groupguidkey="1703f70a-5014-4d2d-9e18-32a165b60f39" id="sp_thyroid_lt_nodule1_finding1" title="sp_thyroid_lt_nodule1_finding1">sp_thyroid_lt_nodu...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="lt_node1_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lt_nodule1_cmt" groupguidkey="83ca760e-7466-436d-b905-b41d2ff898f7" id="sp_thyroid_lt_nodule1_cmt" psfield="imThy_lt_lobe_nodule1_cmt" title="sp_thyroid_lt_nodule1_cmt">sp_thyroid_lt_nodu...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="LtNode1Echogenicity" style="display: none;">
+        <td class="header3_text">Echogenicity</td>
+        <td class="impression_text">&nbsp; <input alttext="Anechoic" i-name="ws_thyroid_lt_nodule1_echogenicity" i-tiradgroup="lt_nodule1" i-tiradscore="0" id="ws_thyroid_lt_nodule1_echogenicity:1" name="ws_thyroid_lt_nodule1_echogenicity" outputtext="Anechoic (+0pts)" type="radio" value="ws_thyroid_lt_nodule1_echogenicity:1" /><label for="ws_thyroid_lt_nodule1_echogenicity:1" id="ws_thyroid_lt_nodule1_echogenicity:1_label" name="ws_thyroid_lt_nodule1_echogenicity">Anechoic</label>&nbsp;&nbsp; <input alttext="Hyperechoic" i-name="ws_thyroid_lt_nodule1_echogenicity" i-tiradgroup="lt_nodule1" i-tiradscore="1" id="ws_thyroid_lt_nodule1_echogenicity:2" name="ws_thyroid_lt_nodule1_echogenicity" outputtext="Hyperechoic (+1pts)" type="radio" value="ws_thyroid_lt_nodule1_echogenicity:2" /><label for="ws_thyroid_lt_nodule1_echogenicity:2" id="ws_thyroid_lt_nodule1_echogenicity:2_label" name="ws_thyroid_lt_nodule1_echogenicity">Hyperechoic</label>&nbsp;&nbsp; <input alttext="Isoechoic" i-name="ws_thyroid_lt_nodule1_echogenicity" i-tiradgroup="lt_nodule1" i-tiradscore="1" id="ws_thyroid_lt_nodule1_echogenicity:3" name="ws_thyroid_lt_nodule1_echogenicity" outputtext="Isoechoic (+1pts)" type="radio" value="ws_thyroid_lt_nodule1_echogenicity:3" /><label for="ws_thyroid_lt_nodule1_echogenicity:3" id="ws_thyroid_lt_nodule1_echogenicity:3_label" name="ws_thyroid_lt_nodule1_echogenicity">Isoechoic</label>&nbsp;&nbsp; <input alttext="Hypoechoic" i-name="ws_thyroid_lt_nodule1_echogenicity" i-tiradgroup="lt_nodule1" i-tiradscore="2" id="ws_thyroid_lt_nodule1_echogenicity:4" name="ws_thyroid_lt_nodule1_echogenicity" outputtext="Hypoechoic (+2pts)" type="radio" value="ws_thyroid_lt_nodule1_echogenicity:4" /><label for="ws_thyroid_lt_nodule1_echogenicity:4" id="ws_thyroid_lt_nodule1_echogenicity:4_label" name="ws_thyroid_lt_nodule1_echogenicity">Hypoechoic</label>&nbsp;&nbsp; <input alttext="Very Hypoechoic" i-name="ws_thyroid_lt_nodule1_echogenicity" i-tiradgroup="lt_nodule1" i-tiradscore="3" id="ws_thyroid_lt_nodule1_echogenicity:5" name="ws_thyroid_lt_nodule1_echogenicity" outputtext="Very Hypoechoic (+3pts)" type="radio" value="ws_thyroid_lt_nodule1_echogenicity:5" /><label for="ws_thyroid_lt_nodule1_echogenicity:5" id="ws_thyroid_lt_nodule1_echogenicity:5_label" name="ws_thyroid_lt_nodule1_echogenicity">Very Hypoechoic</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="LtNode1TallerThanWide" style="display: none;">
+        <td class="header3_text">Taller-than Wide</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_thyroid_lt_nodule1_tallwide" i-tiradgroup="lt_nodule1" i-tiradscore="0" id="ws_thyroid_lt_nodule1_tallwide:1" name="ws_thyroid_lt_nodule1_tallwide" outputtext="Not taller than wide (+0pts)" type="radio" value="ws_thyroid_lt_nodule1_tallwide:1" /><label for="ws_thyroid_lt_nodule1_tallwide:1" id="ws_thyroid_lt_nodule1_tallwide:1_label" name="ws_thyroid_lt_nodule1_tallwide">No</label>&nbsp; &nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule1_tallwide" i-tiradgroup="lt_nodule1" i-tiradscore="3" id="ws_thyroid_lt_nodule1_tallwide:2" name="ws_thyroid_lt_nodule1_tallwide" outputtext="Taller than wide (+3pts)" type="radio" value="ws_thyroid_lt_nodule1_tallwide:2" /><label for="ws_thyroid_lt_nodule1_tallwide:2" id="ws_thyroid_lt_nodule1_tallwide:2_label" name="ws_thyroid_lt_nodule1_tallwide">Yes (taller than wide)</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="LtNode1Margins" style="display: none;">
+        <td class="header3_text">Margins:</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_thyroid_lt_nodule1_margins" i-tiradgroup="lt_nodule1" i-tiradscore="0" id="ws_thyroid_lt_nodule1_margins:1" name="ws_thyroid_lt_nodule1_margins" outputtext="Smooth (+0pts)" type="radio" value="ws_thyroid_lt_nodule1_margins:1" /><label for="ws_thyroid_lt_nodule1_margins:1" id="ws_thyroid_lt_nodule1_margins:1_label" name="ws_thyroid_lt_nodule1_margins">Smooth</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule1_margins" i-tiradgroup="lt_nodule1" i-tiradscore="0" id="ws_thyroid_lt_nodule1_margins:2" name="ws_thyroid_lt_nodule1_margins" outputtext="Ill-defined (+0pts)" type="radio" value="ws_thyroid_lt_nodule1_margins:2" /><label for="ws_thyroid_lt_nodule1_margins:2" id="ws_thyroid_lt_nodule1_margins:2_label" name="ws_thyroid_lt_nodule1_margins">Ill-defined&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule1_margins" i-tiradgroup="lt_nodule1" i-tiradscore="2" id="ws_thyroid_lt_nodule1_margins:3" name="ws_thyroid_lt_nodule1_margins" outputtext="Lobulated (+2pts)" type="radio" value="ws_thyroid_lt_nodule1_margins:3" /><label for="ws_thyroid_lt_nodule1_margins:3" id="ws_thyroid_lt_nodule1_margins:3_label" name="ws_thyroid_lt_nodule1_margins">Lobulated&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule1_margins" i-tiradgroup="lt_nodule1" i-tiradscore="2" id="ws_thyroid_lt_nodule1_margins:4" name="ws_thyroid_lt_nodule1_margins" outputtext="Irregular (+2pts)" type="radio" value="ws_thyroid_lt_nodule1_margins:4" /><label for="ws_thyroid_lt_nodule1_margins:4" id="ws_thyroid_lt_nodule1_margins:4_label" name="ws_thyroid_lt_nodule1_margins">Irregular</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule1_margins" i-tiradgroup="lt_nodule1" i-tiradscore="3" id="ws_thyroid_lt_nodule1_margins:5" name="ws_thyroid_lt_nodule1_margins" outputtext="Extra-thyroidal ext (+3pts)" type="radio" value="ws_thyroid_lt_nodule1_margins:5" /><label for="ws_thyroid_lt_nodule1_margins:5" id="ws_thyroid_lt_nodule1_margins:5_label" name="ws_thyroid_lt_nodule1_margins">Extra-thyroidal ext</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="LtNode1EchogenicFoci" style="display: none;">
+        <td class="header3_text">Echogenic Foci</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_thyroid_lt_nodule1_Foci" i-tiradgroup="lt_nodule1" i-tiradscore="0" id="ws_thyroid_lt_nodule1_Foci:1" name="ws_thyroid_lt_nodule1_Foci" outputtext="None (+0pts)" type="checkbox" value="ws_thyroid_lt_nodule1_Foci:1" /> <label for="ws_thyroid_lt_nodule1_Foci:1" id="ws_thyroid_lt_nodule1_Foci:1_label" name="ws_thyroid_lt_nodule1_Foci">None&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule1_Foci" i-tiradgroup="lt_nodule1" i-tiradscore="0" id="ws_thyroid_lt_nodule1_Foci:2" name="ws_thyroid_lt_nodule1_Foci" outputtext="Large Comet-tail (+0pts)" type="checkbox" value="ws_thyroid_lt_nodule1_Foci:2" /> <label for="ws_thyroid_lt_nodule1_Foci:2" id="ws_thyroid_lt_nodule1_Foci:2_label" name="ws_thyroid_lt_nodule1_Foci">Large Comet-tail&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule1_Foci" i-tiradgroup="lt_nodule1" i-tiradscore="1" id="ws_thyroid_lt_nodule1_Foci:3" name="ws_thyroid_lt_nodule1_Foci" outputtext="Macrocalc (+1pt)" type="checkbox" value="ws_thyroid_lt_nodule1_Foci:3" /> <label for="ws_thyroid_lt_nodule1_Foci:3" id="ws_thyroid_lt_nodule1_Foci:3_label" name="ws_thyroid_lt_nodule1_Foci">Macrocalc&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule1_Foci" i-tiradgroup="lt_nodule1" i-tiradscore="2" id="ws_thyroid_lt_nodule1_Foci:4" name="ws_thyroid_lt_nodule1_Foci" outputtext="Peripheral (rim) calc (+2pts)" type="checkbox" value="ws_thyroid_lt_nodule1_Foci:4" /> <label for="ws_thyroid_lt_nodule1_Foci:4" id="ws_thyroid_lt_nodule1_Foci:4_label" name="ws_thyroid_lt_nodule1_Foci">Peripheral (rim) calc&nbsp;</label><br />
+        &nbsp;&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule1_Foci" i-tiradgroup="lt_nodule1" i-tiradscore="3" id="ws_thyroid_lt_nodule1_Foci:5" name="ws_thyroid_lt_nodule1_Foci" outputtext="Punctate foci (+3pts)" type="checkbox" value="ws_thyroid_lt_nodule1_Foci:5" /> <label for="ws_thyroid_lt_nodule1_Foci:5" id="ws_thyroid_lt_nodule1_Foci:5_label" name="ws_thyroid_lt_nodule1_Foci">Punctate (&lt;1mm comet-tail)</label>&nbsp;&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!---------------------left nodule 2 ----------------------------------------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="lt_thyroid_nodule2_len" i-type="i-collapse" style=""> <i-snippet i-show="sp_thyroid_lt_nodule2_cmt" i-showtargets="lt_node2_cmts" i-type="i-collapse" style="display: none;"> </i-snippet> <i-snippet i-hide="ws_thyroid_lt_nodule2_composition:1;ws_thyroid_lt_nodule2_composition:2" i-hidetargets="LtNode2Echogenicity;LtNode2TallerThanWide;LtNode2Margins;LtNode2EchogenicFoci" i-show="ws_thyroid_lt_nodule2_composition:3;ws_thyroid_lt_nodule2_composition:4" i-showtargets="LtNode2Echogenicity;LtNode2TallerThanWide;LtNode2Margins;LtNode2EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+<tbody>
+    <tr>
+        <td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Left Nodule %i1" i-type="i-string">Left Nodule 5</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule2_len" groupguidkey="50880a3f-56c4-40fe-b93c-4c2ae797e23e" i-imshowlabel="true" id="lt_thyroid_nodule2_len" title="lt_thyroid_nodule2_len(1.38 cm)">lt_thyroid_nodule2...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule2_AP" groupguidkey="5ab630b0-08c3-44c7-848d-86e308560b64" i-imshowlabel="true" id="lt_thyroid_nodule2_AP" title="lt_thyroid_nodule2_AP(0.87 cm)">lt_thyroid_nodule2...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule2_trv" groupguidkey="83bff7ad-bfe2-4fb0-9503-7a5547cd8be3" i-imshowlabel="true" id="lt_thyroid_nodule2_trv" title="lt_thyroid_nodule2_trv(0.94 cm)">lt_thyroid_nodule2...</mvalue>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lt_nodule2_finding1" groupguidkey="a96f62ce-5f85-401a-af28-8143382aeb29" id="sp_thyroid_lt_nodule2_finding1" title="sp_thyroid_lt_nodule2_finding1">sp_thyroid_lt_nodu...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="lt_node2_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lt_nodule2_cmt" groupguidkey="812ad86e-dc17-4018-bb52-28975aafba91" id="sp_thyroid_lt_nodule2_cmt" psfield="imThy_lt_lobe_nodule2_cmt" title="sp_thyroid_lt_nodule2_cmt">sp_thyroid_lt_nodu...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="LtNode2Echogenicity" style="display: none;">
+        <td class="header3_text">Echogenicity</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_thyroid_lt_nodule2_echogenicity" i-tiradgroup="lt_nodule2" i-tiradscore="0" id="ws_thyroid_lt_nodule2_echogenicity:1" name="ws_thyroid_lt_nodule2_echogenicity" outputtext="Anechoic (+0pts)" type="radio" value="ws_thyroid_lt_nodule2_echogenicity:1" /><label for="ws_thyroid_lt_nodule2_echogenicity:1" id="ws_thyroid_lt_nodule2_echogenicity:1_label" name="ws_thyroid_lt_nodule2_echogenicity">Anechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule2_echogenicity" i-tiradgroup="lt_nodule2" i-tiradscore="1" id="ws_thyroid_lt_nodule2_echogenicity:2" name="ws_thyroid_lt_nodule2_echogenicity" outputtext="Hyperechoic (+1pts)" type="radio" value="ws_thyroid_lt_nodule2_echogenicity:2" /><label for="ws_thyroid_lt_nodule2_echogenicity:2" id="ws_thyroid_lt_nodule2_echogenicity:2_label" name="ws_thyroid_lt_nodule2_echogenicity">Hyperechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule2_echogenicity" i-tiradgroup="lt_nodule2" i-tiradscore="1" id="ws_thyroid_lt_nodule2_echogenicity:3" name="ws_thyroid_lt_nodule2_echogenicity" outputtext="Isoechoic (+1pts)" type="radio" value="ws_thyroid_lt_nodule2_echogenicity:3" /><label for="ws_thyroid_lt_nodule2_echogenicity:3" id="ws_thyroid_lt_nodule2_echogenicity:3_label" name="ws_thyroid_lt_nodule2_echogenicity">Isoechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule2_echogenicity" i-tiradgroup="lt_nodule2" i-tiradscore="2" id="ws_thyroid_lt_nodule2_echogenicity:4" name="ws_thyroid_lt_nodule2_echogenicity" outputtext="Hypoechoic (+2pts)" type="radio" value="ws_thyroid_lt_nodule2_echogenicity:4" /><label for="ws_thyroid_lt_nodule2_echogenicity:4" id="ws_thyroid_lt_nodule2_echogenicity:4_label" name="ws_thyroid_lt_nodule2_echogenicity">Hypoechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule2_echogenicity" i-tiradgroup="lt_nodule2" i-tiradscore="3" id="ws_thyroid_lt_nodule2_echogenicity:5" name="ws_thyroid_lt_nodule2_echogenicity" outputtext="Very Hypoechoic (+3pts)" type="radio" value="ws_thyroid_lt_nodule2_echogenicity:5" /><label for="ws_thyroid_lt_nodule2_echogenicity:5" id="ws_thyroid_lt_nodule2_echogenicity:5_label" name="ws_thyroid_lt_nodule2_echogenicity">Very Hypoechoic</label></td>
+    </tr>
+    <tr id="LtNode2TallerThanWide" style="display: none;">
+        <td class="header3_text">Taller-than Wide</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_thyroid_lt_nodule2_tallwide" i-tiradgroup="lt_nodule2" i-tiradscore="0" id="ws_thyroid_lt_nodule2_tallwide:1" name="ws_thyroid_lt_nodule2_tallwide" outputtext="Not taller than wide (+0pts)" type="radio" value="ws_thyroid_lt_nodule2_tallwide:1" /><label for="ws_thyroid_lt_nodule2_tallwide:1" id="ws_thyroid_lt_nodule2_tallwide:1_label" name="ws_thyroid_lt_nodule2_tallwide">No&nbsp;&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule2_tallwide" i-tiradgroup="lt_nodule2" i-tiradscore="3" id="ws_thyroid_lt_nodule2_tallwide:2" name="ws_thyroid_lt_nodule2_tallwide" outputtext="Taller than wide (+3pts)" type="radio" value="ws_thyroid_lt_nodule2_tallwide:2" /><label for="ws_thyroid_lt_nodule2_tallwide:2" id="ws_thyroid_lt_nodule2_tallwide:2_label" name="ws_thyroid_lt_nodule2_tallwide">Yes (taller than wide)</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="LtNode2Margins" style="display: none;">
+        <td class="header3_text">Margins</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_thyroid_lt_nodule2_margins" i-tiradgroup="lt_nodule2" i-tiradscore="0" id="ws_thyroid_lt_nodule2_margins:1" name="ws_thyroid_lt_nodule2_margins" outputtext="Smooth (+0pts)" type="radio" value="ws_thyroid_lt_nodule2_margins:1" /><label for="ws_thyroid_lt_nodule2_margins:1" id="ws_thyroid_lt_nodule2_margins:1_label" name="ws_thyroid_lt_nodule2_margins">Smooth&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule2_margins" i-tiradgroup="lt_nodule2" i-tiradscore="0" id="ws_thyroid_lt_nodule2_margins:2" name="ws_thyroid_lt_nodule2_margins" outputtext="Ill-defined (+0pts)" type="radio" value="ws_thyroid_lt_nodule2_margins:2" /><label for="ws_thyroid_lt_nodule2_margins:2" id="ws_thyroid_lt_nodule2_margins:2_label" name="ws_thyroid_lt_nodule2_margins">Ill-defined&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule2_margins" i-tiradgroup="lt_nodule2" i-tiradscore="2" id="ws_thyroid_lt_nodule2_margins:3" name="ws_thyroid_lt_nodule2_margins" outputtext="Lobulated (+2pts)" type="radio" value="ws_thyroid_lt_nodule2_margins:3" /><label for="ws_thyroid_lt_nodule2_margins:3" id="ws_thyroid_lt_nodule2_margins:3_label" name="ws_thyroid_lt_nodule2_margins">Lobulated&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule2_margins" i-tiradgroup="lt_nodule2" i-tiradscore="2" id="ws_thyroid_lt_nodule2_margins:4" name="ws_thyroid_lt_nodule2_margins" outputtext="Irregular (+2pts)" type="radio" value="ws_thyroid_lt_nodule2_margins:4" /><label for="ws_thyroid_lt_nodule2_margins:4" id="ws_thyroid_lt_nodule2_margins:4_label" name="ws_thyroid_lt_nodule2_margins">Irregular&nbsp;</label>&nbsp;&nbsp;<input i-name="ws_thyroid_lt_nodule2_margins" i-tiradgroup="lt_nodule2" i-tiradscore="3" id="ws_thyroid_lt_nodule2_margins:5" name="ws_thyroid_lt_nodule2_margins" outputtext="Extra-thyroidal ext (+3pts)" type="radio" value="ws_thyroid_lt_nodule2_margins:5" /><label for="ws_thyroid_lt_nodule2_margins:5" id="ws_thyroid_lt_nodule2_margins:5_label" name="ws_thyroid_lt_nodule2_margins">Extra-thyroidal ext</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="LtNode2EchogenicFoci" style="display: none;">
+        <td class="header3_text">Echogenic Foci</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_thyroid_lt_nodule2_Foci" i-tiradgroup="lt_nodule2" i-tiradscore="0" id="ws_thyroid_lt_nodule2_Foci:1" name="ws_thyroid_lt_nodule2_Foci" outputtext="No foci" type="checkbox" value="ws_thyroid_lt_nodule2_Foci:1" />&nbsp;<label for="ws_thyroid_lt_nodule2_Foci:1" id="ws_thyroid_lt_nodule2_Foci:1_label" name="ws_thyroid_lt_nodule2_Foci">None</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule2_Foci" i-tiradgroup="lt_nodule2" i-tiradscore="0" id="ws_thyroid_lt_nodule2_Foci:2" name="ws_thyroid_lt_nodule2_Foci" outputtext="Large Comet-tail (+0pts)" type="checkbox" value="ws_thyroid_lt_nodule2_Foci:2" />&nbsp;<label for="ws_thyroid_lt_nodule2_Foci:2" id="ws_thyroid_lt_nodule2_Foci:2_label" name="ws_thyroid_lt_nodule2_Foci">Large Comet-tail</label>&nbsp;&nbsp;<input i-name="ws_thyroid_lt_nodule2_Foci" i-tiradgroup="lt_nodule2" i-tiradscore="1" id="ws_thyroid_lt_nodule2_Foci:3" name="ws_thyroid_lt_nodule2_Foci" outputtext="Macrocalc (+1pts)" type="checkbox" value="ws_thyroid_lt_nodule2_Foci:3" />&nbsp;<label for="ws_thyroid_lt_nodule2_Foci:3" id="ws_thyroid_lt_nodule2_Foci:3_label" name="ws_thyroid_lt_nodule2_Foci">Macrocalc</label>&nbsp;&nbsp;<input i-name="ws_thyroid_lt_nodule2_Foci" i-tiradgroup="lt_nodule2" i-tiradscore="2" id="ws_thyroid_lt_nodule2_Foci:4" name="ws_thyroid_lt_nodule2_Foci" outputtext="Peripheral (rim) calc (+2pts)" type="checkbox" value="ws_thyroid_lt_nodule2_Foci:4" />&nbsp;<label for="ws_thyroid_lt_nodule2_Foci:4" id="ws_thyroid_lt_nodule2_Foci:4_label" name="ws_thyroid_lt_nodule2_Foci">Peripheral (rim) calc</label><br />
+        &nbsp;&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule2_Foci" i-tiradgroup="lt_nodule2" i-tiradscore="3" id="ws_thyroid_lt_nodule2_Foci:5" name="ws_thyroid_lt_nodule2_Foci" outputtext="Punctate foci (+3pts)" type="checkbox" value="ws_thyroid_lt_nodule2_Foci:5" />&nbsp;<label for="ws_thyroid_lt_nodule2_Foci:5" id="ws_thyroid_lt_nodule2_Foci:5_label" name="ws_thyroid_lt_nodule2_Foci">Punctate (&lt;1mm comet-tail)</label>&nbsp;&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!---------------------left nodule 3 ----------------------------------------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="lt_thyroid_nodule3_len" i-type="i-collapse" style=""> <i-snippet i-show="sp_thyroid_lt_nodule3_cmt" i-showtargets="lt_node3_cmts" i-type="i-collapse" style="display: none;"> </i-snippet> <i-snippet i-hide="ws_thyroid_lt_nodule3_composition:1;ws_thyroid_lt_nodule3_composition:2" i-hidetargets="LtNode3Echogenicity;LtNode3TallerThanWide;LtNode3Margins;LtNode3EchogenicFoci" i-show="ws_thyroid_lt_nodule3_composition:3;ws_thyroid_lt_nodule3_composition:4" i-showtargets="LtNode3Echogenicity;LtNode3TallerThanWide;LtNode3Margins;LtNode3EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+<tbody>
+    <tr>
+        <td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Left Nodule %i1" i-type="i-string">Left Nodule 6</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule3_len" groupguidkey="cf623255-c9f8-4678-8dec-3583c1ce6391" i-imshowlabel="true" id="lt_thyroid_nodule3_len" title="lt_thyroid_nodule3_len(2.70 cm)">lt_thyroid_nodule3...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule3_AP" groupguidkey="35557f26-ad5d-4586-9766-92ddcab059cc" i-imshowlabel="true" id="lt_thyroid_nodule2_AP" title="lt_thyroid_nodule3_AP(2.67 cm)">lt_thyroid_nodule3...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule3_trv" groupguidkey="7fe6c44a-7c1e-49c4-ac87-a7fad8dc0e9d" i-imshowlabel="true" id="lt_thyroid_nodule3_trv" title="lt_thyroid_nodule3_trv(2.68 cm)">lt_thyroid_nodule3...</mvalue>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lt_nodule3_finding1" groupguidkey="016d90c7-c6db-4ca2-aa34-85608a01f8c2" id="sp_thyroid_lt_nodule3_finding1" title="sp_thyroid_lt_nodule3_finding1">sp_thyroid_lt_nodu...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="lt_node3_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lt_nodule3_cmt" groupguidkey="ab682cfd-dd25-4a2e-bbe2-72c3ea6128d8" id="sp_thyroid_lt_nodule3_cmt" psfield="imThy_lt_lobe_nodule3_cmt" title="sp_thyroid_lt_nodule3_cmt">sp_thyroid_lt_nodu...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="LtNode3Echogenicity" style="display: none;">
+        <td class="header3_text">Echogenicity</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_thyroid_lt_nodule3_echogenicity" i-tiradgroup="lt_nodule2" i-tiradscore="0" id="ws_thyroid_lt_nodule3_echogenicity:1" name="ws_thyroid_lt_nodule3_echogenicity" outputtext="Anechoic (+0pts)" type="radio" value="ws_thyroid_lt_nodule3_echogenicity:1" /><label for="ws_thyroid_lt_nodule3_echogenicity:1" id="ws_thyroid_lt_nodule3_echogenicity:1_label" name="ws_thyroid_lt_nodule3_echogenicity">Anechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule3_echogenicity" i-tiradgroup="lt_nodule2" i-tiradscore="1" id="ws_thyroid_lt_nodule3_echogenicity:2" name="ws_thyroid_lt_nodule3_echogenicity" outputtext="Hyperechoic (+1pts)" type="radio" value="ws_thyroid_lt_nodule3_echogenicity:2" /><label for="ws_thyroid_lt_nodule3_echogenicity:2" id="ws_thyroid_lt_nodule3_echogenicity:2_label" name="ws_thyroid_lt_nodule3_echogenicity">Hyperechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule3_echogenicity" i-tiradgroup="lt_nodule2" i-tiradscore="1" id="ws_thyroid_lt_nodule3_echogenicity:3" name="ws_thyroid_lt_nodule3_echogenicity" outputtext="Isoechoic (+1pts)" type="radio" value="ws_thyroid_lt_nodule3_echogenicity:3" /><label for="ws_thyroid_lt_nodule3_echogenicity:3" id="ws_thyroid_lt_nodule3_echogenicity:3_label" name="ws_thyroid_lt_nodule3_echogenicity">Isoechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule3_echogenicity" i-tiradgroup="lt_nodule2" i-tiradscore="2" id="ws_thyroid_lt_nodule3_echogenicity:4" name="ws_thyroid_lt_nodule3_echogenicity" outputtext="Hypoechoic (+2pts)" type="radio" value="ws_thyroid_lt_nodule3_echogenicity:4" /><label for="ws_thyroid_lt_nodule3_echogenicity:4" id="ws_thyroid_lt_nodule3_echogenicity:4_label" name="ws_thyroid_lt_nodule3_echogenicity">Hypoechoic</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule3_echogenicity" i-tiradgroup="lt_nodule2" i-tiradscore="3" id="ws_thyroid_lt_nodule3_echogenicity:5" name="ws_thyroid_lt_nodule3_echogenicity" outputtext="Very Hypoechoic (+3pts)" type="radio" value="ws_thyroid_lt_nodule3_echogenicity:5" /><label for="ws_thyroid_lt_nodule3_echogenicity:5" id="ws_thyroid_lt_nodule3_echogenicity:5_label" name="ws_thyroid_lt_nodule3_echogenicity">Very Hypoechoic</label></td>
+    </tr>
+    <tr id="LtNode3TallerThanWide" style="display: none;">
+        <td class="header3_text">Taller-than Wide</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_thyroid_lt_nodule3_tallwide" i-tiradgroup="lt_nodule2" i-tiradscore="0" id="ws_thyroid_lt_nodule3_tallwide:1" name="ws_thyroid_lt_nodule3_tallwide" outputtext="Not taller than wide (+0pts)" type="radio" value="ws_thyroid_lt_nodule3_tallwide:1" /><label for="ws_thyroid_lt_nodule3_tallwide:1" id="ws_thyroid_lt_nodule3_tallwide:1_label" name="ws_thyroid_lt_nodule3_tallwide">No&nbsp;&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule3_tallwide" i-tiradgroup="lt_nodule2" i-tiradscore="3" id="ws_thyroid_lt_nodule3_tallwide:2" name="ws_thyroid_lt_nodule3_tallwide" outputtext="Taller than wide (+3pts)" type="radio" value="ws_thyroid_lt_nodule3_tallwide:2" /><label for="ws_thyroid_lt_nodule3_tallwide:2" id="ws_thyroid_lt_nodule3_tallwide:2_label" name="ws_thyroid_lt_nodule3_tallwide">Yes (taller than wide)</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="LtNode3Margins" style="display: none;">
+        <td class="header3_text">Margins</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_thyroid_lt_nodule3_margins" i-tiradgroup="lt_nodule2" i-tiradscore="0" id="ws_thyroid_lt_nodule3_margins:1" name="ws_thyroid_lt_nodule3_margins" outputtext="Smooth (+0pts)" type="radio" value="ws_thyroid_lt_nodule3_margins:1" /><label for="ws_thyroid_lt_nodule3_margins:1" id="ws_thyroid_lt_nodule3_margins:1_label" name="ws_thyroid_lt_nodule3_margins">Smooth&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule3_margins" i-tiradgroup="lt_nodule2" i-tiradscore="0" id="ws_thyroid_lt_nodule3_margins:2" name="ws_thyroid_lt_nodule3_margins" outputtext="Ill-defined (+0pts)" type="radio" value="ws_thyroid_lt_nodule3_margins:2" /><label for="ws_thyroid_lt_nodule3_margins:2" id="ws_thyroid_lt_nodule3_margins:2_label" name="ws_thyroid_lt_nodule3_margins">Ill-defined&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule3_margins" i-tiradgroup="lt_nodule2" i-tiradscore="2" id="ws_thyroid_lt_nodule3_margins:3" name="ws_thyroid_lt_nodule3_margins" outputtext="Lobulated (+2pts)" type="radio" value="ws_thyroid_lt_nodule3_margins:3" /><label for="ws_thyroid_lt_nodule3_margins:3" id="ws_thyroid_lt_nodule3_margins:3_label" name="ws_thyroid_lt_nodule3_margins">Lobulated&nbsp;</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule3_margins" i-tiradgroup="lt_nodule2" i-tiradscore="2" id="ws_thyroid_lt_nodule3_margins:4" name="ws_thyroid_lt_nodule3_margins" outputtext="Irregular (+2pts)" type="radio" value="ws_thyroid_lt_nodule3_margins:4" /><label for="ws_thyroid_lt_nodule3_margins:4" id="ws_thyroid_lt_nodule3_margins:4_label" name="ws_thyroid_lt_nodule3_margins">Irregular&nbsp;</label>&nbsp;&nbsp;<input i-name="ws_thyroid_lt_nodule3_margins" i-tiradgroup="lt_nodule2" i-tiradscore="3" id="ws_thyroid_lt_nodule3_margins:5" name="ws_thyroid_lt_nodule3_margins" outputtext="Extra-thyroidal ext (+3pts)" type="radio" value="ws_thyroid_lt_nodule3_margins:5" /><label for="ws_thyroid_lt_nodule3_margins:5" id="ws_thyroid_lt_nodule3_margins:5_label" name="ws_thyroid_lt_nodule3_margins">Extra-thyroidal ext</label>&nbsp;&nbsp;</td>
+    </tr>
+    <tr id="LtNode3EchogenicFoci" style="display: none;">
+        <td class="header3_text">Echogenic Foci</td>
+        <td class="impression_text">&nbsp; <input i-name="ws_thyroid_lt_nodule3_Foci" i-tiradgroup="lt_nodule2" i-tiradscore="0" id="ws_thyroid_lt_nodule3_Foci:1" name="ws_thyroid_lt_nodule3_Foci" outputtext="No foci" type="checkbox" value="ws_thyroid_lt_nodule3_Foci:1" />&nbsp;<label for="ws_thyroid_lt_nodule3_Foci:1" id="ws_thyroid_lt_nodule3_Foci:1_label" name="ws_thyroid_lt_nodule3_Foci">None</label>&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule3_Foci" i-tiradgroup="lt_nodule2" i-tiradscore="0" id="ws_thyroid_lt_nodule3_Foci:2" name="ws_thyroid_lt_nodule3_Foci" outputtext="Large Comet-tail (+0pts)" type="checkbox" value="ws_thyroid_lt_nodule3_Foci:2" />&nbsp;<label for="ws_thyroid_lt_nodule3_Foci:2" id="ws_thyroid_lt_nodule3_Foci:2_label" name="ws_thyroid_lt_nodule3_Foci">Large Comet-tail</label>&nbsp;&nbsp;<input i-name="ws_thyroid_lt_nodule3_Foci" i-tiradgroup="lt_nodule2" i-tiradscore="1" id="ws_thyroid_lt_nodule3_Foci:3" name="ws_thyroid_lt_nodule3_Foci" outputtext="Macrocalc (+1pts)" type="checkbox" value="ws_thyroid_lt_nodule3_Foci:3" />&nbsp;<label for="ws_thyroid_lt_nodule3_Foci:3" id="ws_thyroid_lt_nodule3_Foci:3_label" name="ws_thyroid_lt_nodule3_Foci">Macrocalc</label>&nbsp;&nbsp;<input i-name="ws_thyroid_lt_nodule3_Foci" i-tiradgroup="lt_nodule2" i-tiradscore="2" id="ws_thyroid_lt_nodule3_Foci:4" name="ws_thyroid_lt_nodule3_Foci" outputtext="Peripheral (rim) calc (+2pts)" type="checkbox" value="ws_thyroid_lt_nodule3_Foci:4" />&nbsp;<label for="ws_thyroid_lt_nodule3_Foci:4" id="ws_thyroid_lt_nodule3_Foci:4_label" name="ws_thyroid_lt_nodule3_Foci">Peripheral (rim) calc</label><br />
+        &nbsp;&nbsp;&nbsp; <input i-name="ws_thyroid_lt_nodule3_Foci" i-tiradgroup="lt_nodule2" i-tiradscore="3" id="ws_thyroid_lt_nodule3_Foci:5" name="ws_thyroid_lt_nodule3_Foci" outputtext="Punctate foci (+3pts)" type="checkbox" value="ws_thyroid_lt_nodule3_Foci:5" />&nbsp;<label for="ws_thyroid_lt_nodule3_Foci:5" id="ws_thyroid_lt_nodule3_Foci:5_label" name="ws_thyroid_lt_nodule3_Foci">Punctate (&lt;1mm comet-tail)</label>&nbsp;&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-----------------  Neck lymph node default statement w no nodes ---------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-hide="rt_neck_node1_len;rt_neck_node1_AP;lt_neck_node1_len;lt_neck_node1_AP" i-type="i-collapse" style="">
+<table class="custom_table">
+<tbody>
+    <tr>
+        <td class="header_text">Neck Lymph</td>
+        <td class="impression_text"><i-snippet i-defaultstring="No suspicious nodes in the lateral compartment of the neck bilaterally." i-name="ws_lymph1_finding1" i-options="defaultvalue:;saveempty:false" i-template="" i-type="i-string" i-variables="rt_neck_node1_len" style="i-showlabel:false;">No suspicious nodes in the lateral compartment of the neck bilaterally.</i-snippet></td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-----------------right Neck lymph node 1 --------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="rt_neck_node1_len;rt_neck_node1_AP" i-type="i-collapse" style="display: none;"> <i-snippet i-show="sp_thyroid_lymphnode1_cmt" i-showtargets="rt_lymph1" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="lymph">
+<tbody>
+    <tr>
+        <td class="header3_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph" i-template="Right Lymph Node %i1" i-type="i-string">Right Lymph Node 0</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="rt_neck_node1_len" groupguidkey="61265442-cc65-4c3c-9f9b-7566b3e4c56e" id="rt_neck_node1_len" title="rt_neck_node1_len">rt_neck_node1_len</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node1_AP" groupguidkey="f01eac83-dc6a-4bcc-9c1d-257a62718a33" id="rt_neck_node1_AP" title="rt_neck_node1_AP">rt_neck_node1_AP</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node1_trv" groupguidkey="9aa867d5-e70c-42bd-a0c3-272b43654f49" id="rt_neck_node1_trv" title="rt_neck_node1_trv">rt_neck_node1_trv</mvalue></td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lymph1_finding1" groupguidkey="ebcb8198-2be4-423f-bbca-dd57326f0765" id="sp_thyroid_lymph1_finding1" title="sp_thyroid_lymph1_finding1">sp_thyroid_lymph1_...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="rt_lymph1" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lymphnode1_cmt" groupguidkey="95f665f1-2643-4271-a8fd-2cf15f122b7d" id="sp_thyroid_lymphnode1_cmt" title="sp_thyroid_lymphnode1_cmt">sp_thyroid_lymphno...</mvalue>&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-----------------  Right Neck lymph node 2 --------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="rt_neck_node2_len;rt_neck_node2_AP" i-type="i-collapse" style="display: none;"> <i-snippet i-show="sp_thyroid_lymphnode2_cmt" i-showtargets="rt_lymph2" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="lymph">
+<tbody>
+    <tr>
+        <td class="header3_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph" i-template="Right Lymph Node %i1" i-type="i-string">Right Lymph Node 0</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="rt_neck_node2_len" groupguidkey="3ce356e0-f2e4-44d5-80ef-e05544342062" id="rt_neck_node2_len" title="rt_neck_node2_len">rt_neck_node2_len</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node2_AP" groupguidkey="a82a0641-2bb5-4405-9fbf-632e43b4b56f" id="rt_neck_node2_AP" title="rt_neck_node2_AP">rt_neck_node2_AP</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node2_trv" groupguidkey="d3bc0776-668b-44ca-9356-5340c5ee880b" id="rt_neck_node2_trv" title="rt_neck_node2_trv">rt_neck_node2_trv</mvalue></td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lymph2_finding1" groupguidkey="bc452f2d-41da-4eb9-b03c-2d3f1c372034" id="sp_thyroid_lymph2_finding1" title="sp_thyroid_lymph2_finding1">sp_thyroid_lymph2_...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="rt_lymph2" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lymphnode2_cmt" groupguidkey="bde33915-245b-496e-b32c-c4fbf0f3ffa1" id="sp_thyroid_lymphnode2_cmt" title="sp_thyroid_lymphnode2_cmt">sp_thyroid_lymphno...</mvalue>&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-----------------  Right Neck lymph node 3 --------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="rt_neck_node3_len;rt_neck_node3_AP" i-type="i-collapse" style="display: none;"> <i-snippet i-show="sp_thyroid_lymphnode3_cmt" i-showtargets="rt_lymph3" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="lymph">
+<tbody>
+    <tr>
+        <td class="header3_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph" i-template="Right Lymph Node %i1" i-type="i-string">Right Lymph Node 0</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="rt_neck_node3_len" groupguidkey="af91ad34-90a4-41a8-a894-67e9aa489b9a" id="rt_neck_node3_len" title="rt_neck_node3_len">rt_neck_node3_len</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node3_AP" groupguidkey="1b156ec7-c1d7-478b-b607-2d56ed18129e" id="rt_neck_node3_AP" title="rt_neck_node3_AP">rt_neck_node3_AP</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node3_trv" groupguidkey="17a444b0-43f7-468f-a404-8ec0e7998ee3" id="rt_neck_node3_trv" title="rt_neck_node3_trv">rt_neck_node3_trv</mvalue></td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lymph3_finding1" groupguidkey="fbf6b40d-7b02-4453-8653-cfc3b19b5c03" id="sp_thyroid_lymph3_finding1" title="sp_thyroid_lymph3_finding1">sp_thyroid_lymph3_...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="rt_lymph3" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lymphnode3_cmt" groupguidkey="13316df0-0e49-420c-838c-633a7f5f5608" id="sp_thyroid_lymphnode3_cmt" title="sp_thyroid_lymphnode3_cmt">sp_thyroid_lymphno...</mvalue>&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p></p>
+</i-snippet></div>
+<!----
+<div>
+<p>&nbsp;<!-----------------Midline Neck lymph node 4 --------------------------------</p>
+<i-snippet i-show="mid_neck_node1_len;mid_neck_node1_AP" i-type="i-collapse" style="">
+<table class="custom_table" i-index="lymph">
+<tbody>
+<tr>
+    <td class="header3_text">Lymph Node 4</td>
+    <td class="measurement_text">
+        <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(4/19/2024)">study_date </mvalue>&nbsp; 
+        <mvalue class="highlighted" groupdesc="mid_neck_node1_len" groupguidkey="5d363316-2c18-4cfd-b856-d67654ab4052" id="mid_neck_node1_len" title="mid_neck_node1_len">mid_neck_node1_len</mvalue> x 
+        <mvalue class="highlighted" groupdesc="mid_neck_node1_ap" groupguidkey="43a57c05-b504-4887-b323-042e5942afa9" id="mid_neck_node1_ap" title="mid_neck_node1_ap">mid_neck_node1_ap</mvalue> x 
+        <mvalue class="highlighted" groupdesc="mid_neck_node1_trv" groupguidkey="834ba329-3883-44c5-a941-ef7a18ca3810" id="mid_neck_node1_trv" title="mid_neck_node1_trv">mid_neck_node1_trv</mvalue>
+    </td>
+</tr>
+<tr>
+    <td class="header3_text">Findings</td>
+    <td class="impression_text"><mvalue class="highlighted" groupdesc="sp_thyroid_lymph4_finding1" groupguidkey="2d82fd53-faa1-458f-8ff8-042ea6460f3b" id="sp_thyroid_lymph4_finding1" title="sp_thyroid_lymph4_finding1">sp_thyroid_lymph4_finding1</mvalue>&nbsp;</td>
+</tr>
+<tr>
+    <td class="header3_text">Comments</td>
+    <td class="impression_text"></td>
+</tr>
+</tbody>
+</table>
+</i-snippet></div>
+
+<div>
+<p>&nbsp;<!-----------------  Midline Neck lymph node 5 --------------------------------</p>
+<i-snippet i-show="mid_neck_node2_len;mid_neck_node2_AP" i-type="i-collapse" style="">
+<table class="custom_table" i-index="lymph">
+<tbody>
+<tr>
+    <td class="header3_text">Lymph Node 5</td>
+    <td class="measurement_text">
+        <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(4/19/2024)">study_date </mvalue>&nbsp; 
+        <mvalue class="highlighted" groupdesc="mid_neck_node2_len" groupguidkey="46ddb1e4-bf38-4331-906b-eabc61623980" id="mid_neck_node2_len" title="mid_neck_node2_len">mid_neck_node2_len</mvalue> x 
+        <mvalue class="highlighted" groupdesc="mid_neck_node2_AP" groupguidkey="ffaee46c-4606-41fd-beb9-e8dc98fe4b64" id="mid_neck_node2_AP" title="mid_neck_node2_AP">mid_neck_node2_AP</mvalue> x 
+        <mvalue class="highlighted" groupdesc="mid_neck_node2_trv" groupguidkey="0ea4f6ac-cab0-4075-9a89-8ac950d43f1f" id="mid_neck_node2_trv" title="mid_neck_node2_trv">mid_neck_node2_trv</mvalue>
+    </td>
+</tr>
+<tr>
+    <td class="header3_text">Findings</td>
+    <td class="impression_text"><mvalue class="highlighted" groupdesc="sp_thyroid_lymph5_finding1" groupguidkey="acbf691a-4e30-4743-b81e-dadac9dd2279" id="sp_thyroid_lymph5_finding1" title="sp_thyroid_lymph5_finding1">sp_thyroid_lymph5_finding1</mvalue>&nbsp;</td>
+</tr>
+<tr>
+    <td class="header3_text">Comments</td>
+    <td class="impression_text"></td>
+</tr>
+</tbody>
+</table>
+</i-snippet></div>
+
+<div>
+<p>&nbsp;<!-----------------  Midline Neck lymph node 6 --------------------------------</p>
+<i-snippet i-show="mid_neck_node3_len;mid_neck_node3_AP" i-type="i-collapse" style="">
+<table class="custom_table" i-index="lymph">
+<tbody>
+<tr>
+    <td class="header3_text">Lymph Node 6</td>
+    <td class="measurement_text">
+        <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(4/19/2024)">study_date </mvalue>&nbsp; 
+        <mvalue class="highlighted" groupdesc="mid_neck_node3_len" groupguidkey="36a8a4a3-3958-46d1-a388-f8171cc0e16a" id="mid_neck_node3_len" title="mid_neck_node3_len">mid_neck_node3_len</mvalue> x 
+        <mvalue class="highlighted" groupdesc="mid_neck_node3_AP" groupguidkey="4aa3e324-9ec6-4e31-9bae-abc170e0ca80" id="mid_neck_node3_AP" title="mid_neck_node3_AP">mid_neck_node3_AP</mvalue> x 
+        <mvalue class="highlighted" groupdesc="mid_neck_node3_trv" groupguidkey="0c7931f0-7202-4b5b-b566-23b2cd807f5d" id="mid_neck_node3_trv" title="mid_neck_node3_trv">mid_neck_node3_trv</mvalue><br />
+    </td>
+</tr>
+<tr>
+    <td class="header3_text">Findings</td>
+    <td class="impression_text"><mvalue class="highlighted" groupdesc="sp_thyroid_lymph6_finding1" groupguidkey="3ff746fe-ad23-4339-84f7-7f64c3d04154" id="sp_thyroid_lymph6_finding1" title="sp_thyroid_lymph6_finding1">sp_thyroid_lymph6_finding1</mvalue>&nbsp;</td>
+</tr>
+<tr>
+    <td class="header3_text">Comments</td>
+    <td class="impression_text"></td>
+</tr>
+</tbody>
+</table>
+</i-snippet></div>
+---------------------------------------------><!------------------------------------------------Left Neck lymph node 1 -------------------------------->
+
+<div><i-snippet i-show="lt_neck_node1_len;lt_neck_node1_AP" i-type="i-collapse" style="display: none;"> <i-snippet i-show="sp_thyroid_lymphnode4_cmt" i-showtargets="lt_lymph1" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="lymph">
+<tbody>
+    <tr>
+        <td class="header3_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph" i-template="Left Lymph Node %i1" i-type="i-string">Left Lymph Node 0</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="lt_neck_node1_len" groupguidkey="79024074-8800-41fc-841c-0a45fa927c69" id="lt_neck_node1_len" title="lt_neck_node1_len">lt_neck_node1_len</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node1_ap" groupguidkey="c1bfa4ef-4d70-46a5-ba4a-3d754341bdb8" id="lt_neck_node1_ap" title="lt_neck_node1_ap">lt_neck_node1_ap</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node1_trv" groupguidkey="0e694728-9c88-46f5-bb96-cd65bcf7a4dc" id="lt_neck_node1_trv" title="lt_neck_node1_trv">lt_neck_node1_trv</mvalue></td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lymph4_finding1" groupguidkey="2d82fd53-faa1-458f-8ff8-042ea6460f3b" id="sp_thyroid_lymph4_finding1" title="sp_thyroid_lymph4_finding1">sp_thyroid_lymph4_...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="lt_lymph1" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lymphnode4_cmt" groupguidkey="4fb4e54f-ffec-4cdc-9fe2-17287daaa275" id="sp_thyroid_lymphnode4_cmt" title="sp_thyroid_lymphnode4_cmt">sp_thyroid_lymphno...</mvalue>&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-----------------  Left Neck lymph node 2 --------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="lt_neck_node2_len;lt_neck_node2_AP" i-type="i-collapse" style="display: none;"> <i-snippet i-show="sp_thyroid_lymphnode5_cmt" i-showtargets="lt_lymph2" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="lymph">
+<tbody>
+    <tr>
+        <td class="header3_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph" i-template="Left Lymph Node %i1" i-type="i-string">Left Lymph Node 0</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="lt_neck_node2_len" groupguidkey="c6dedcbd-eaae-48b2-aaaf-d58e11d244b4" id="lt_neck_node2_len" title="lt_neck_node2_len">lt_neck_node2_len</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node2_AP" groupguidkey="cad24369-149e-45a2-9eac-88afde6972b5" id="lt_neck_node2_AP" title="lt_neck_node2_AP">lt_neck_node2_AP</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node2_trv" groupguidkey="9d171d42-6d96-417b-afb1-40f55eb197b3" id="lt_neck_node2_trv" title="lt_neck_node2_trv">lt_neck_node2_trv</mvalue></td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lymph5_finding1" groupguidkey="acbf691a-4e30-4743-b81e-dadac9dd2279" id="sp_thyroid_lymph5_finding1" title="sp_thyroid_lymph5_finding1">sp_thyroid_lymph5_...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="lt_lymph2" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lymphnode5_cmt" groupguidkey="e34b86c1-30fe-4fe0-b863-55ee5d0f2abd" id="sp_thyroid_lymphnode5_cmt" title="sp_thyroid_lymphnode5_cmt">sp_thyroid_lymphno...</mvalue>&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-----------------  Left Neck lymph node 3 --------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="lt_neck_node3_len;lt_neck_node3_AP" i-type="i-collapse" style="display: none;"> <i-snippet i-show="sp_thyroid_lymphnode6_cmt" i-showtargets="lt_lymph3" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="lymph">
+<tbody>
+    <tr>
+        <td class="header3_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph" i-template="Left Lymph Node %i1" i-type="i-string">Left Lymph Node 0</i-snippet></td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="lt_neck_node3_len" groupguidkey="e2225fe6-40a6-4ae4-80c7-06dcce3f1887" id="lt_neck_node3_len" title="lt_neck_node3_len">lt_neck_node3_len</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node3_AP" groupguidkey="6428f7a9-854d-47f9-af31-b2a7dd154ce2" id="lt_neck_node3_AP" title="lt_neck_node3_AP">lt_neck_node3_AP</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node3_trv" groupguidkey="3d38a3bc-cd36-4385-896d-77c5fb4e433a" id="lt_neck_node3_trv" title="lt_neck_node3_trv">lt_neck_node3_trv</mvalue></td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lymph6_finding1" groupguidkey="3ff746fe-ad23-4339-84f7-7f64c3d04154" id="sp_thyroid_lymph6_finding1" title="sp_thyroid_lymph6_finding1">sp_thyroid_lymph6_...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="lt_lymph3" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lymphnode6_cmt" groupguidkey="049e27de-8ae1-463a-9da0-26ec826425c1" id="sp_thyroid_lymphnode6_cmt" title="sp_thyroid_lymphnode6_cmt">sp_thyroid_lymphno...</mvalue>&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-----------------right Parotid Nodule --------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="rt_parotid_nodule_len;rt_parotid_nodule_AP" i-type="i-collapse" style="display: none;"> <i-snippet i-show="sp_thyroid_rt_parotid_cmt" i-showtargets="rt_paro_cmts" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="lymph">
+<tbody>
+    <tr>
+        <td class="header_text">Right Parotid Nodule</td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="rt_parotid_nodule_len" groupguidkey="c397b60e-a214-44e5-9552-e5c03818d028" id="rt_parotid_nodule_len" title="rt_parotid_nodule_len">rt_parotid_nodule_...</mvalue> x <mvalue class="mapped" groupdesc="rt_parotid_nodule_AP" groupguidkey="07ce13b0-5e59-448e-a7a9-f4fb64a2435f" id="rt_parotid_nodule_AP" title="rt_parotid_nodule_AP">rt_parotid_nodule_...</mvalue> x <mvalue class="mapped" groupdesc="rt_parotid_nodule_trv" groupguidkey="b261caab-c07e-4622-8131-438a1eee74aa" id="rt_parotid_nodule_trv" title="rt_parotid_nodule_trv">rt_parotid_nodule_...</mvalue></td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_rt_parotid_finding1" groupguidkey="edb5778b-f345-492b-a6ab-f4c27cf9e2dd" id="sp_thyroid_rt_parotid_finding1" title="sp_thyroid_rt_parotid_finding1">sp_thyroid_rt_paro...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="rt_paro_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_rt_parotid_cmt" groupguidkey="3e4f1d5c-887e-4868-a657-19604fe37b79" id="sp_thyroid_rt_parotid_cmt" title="sp_thyroid_rt_parotid_cmt">sp_thyroid_rt_paro...</mvalue>&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+<p>&nbsp;<!-----------------Left Parotid Nodule --------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="lt_parotid_nodule_len;lt_parotid_nodule_AP" i-type="i-collapse" style="display: none;"> <i-snippet i-show="sp_thyroid_lt_parotid_cmt" i-showtargets="lt_paro_cmts" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="lymph">
+<tbody>
+    <tr>
+        <td class="header_text">Left Parotid Nodule</td>
+        <td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="lt_parotid_nodule_len" groupguidkey="143cf1d7-b0ed-4e03-84e6-cd944d943b94" id="lt_parotid_nodule_len" title="lt_parotid_nodule_len">lt_parotid_nodule_...</mvalue> x <mvalue class="mapped" groupdesc="lt_parotid_nodule_AP" groupguidkey="28d27cd2-36e5-41e8-82e5-1007dda84d58" id="lt_parotid_nodule_AP" title="lt_parotid_nodule_AP">lt_parotid_nodule_...</mvalue> x <mvalue class="mapped" groupdesc="lt_parotid_nodule_trv" groupguidkey="8268cd8b-e13d-476d-96ea-38a543453bea" id="lt_parotid_nodule_trv" title="lt_parotid_nodule_trv">lt_parotid_nodule_...</mvalue></td>
+    </tr>
+    <tr>
+        <td class="header3_text">Findings</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lt_parotid_finding1" groupguidkey="5b058404-aa9e-44e1-a386-55f39844febd" id="sp_thyroid_lt_parotid_finding1" title="sp_thyroid_lt_parotid_finding1">sp_thyroid_lt_paro...</mvalue>&nbsp;</td>
+    </tr>
+    <tr id="lt_paro_cmts" style="display: none;">
+        <td class="header3_text">Comments</td>
+        <td class="impression_text"><mvalue class="mapped" groupdesc="sp_thyroid_lt_parotid_cmt" groupguidkey="557b71fc-e425-428c-9e90-2c7af98275d4" id="sp_thyroid_lt_parotid_cmt" title="sp_thyroid_lt_parotid_cmt">sp_thyroid_lt_paro...</mvalue>&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+</i-snippet></div>
+<!----
+<div><span class="normal_text">
+<!-----------------Setting up for single m-value snippet for R/I/L Nodules----------
+<i-snippet i-show="rt_thyroid_nodule1_len;rt_thyroid_nodule1_AP;rt_thyroid_nodule1_trv" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_rt1_nodule_impression" id="sp_rt1_nodule_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_rt_nodule1_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+<i-snippet i-show="rt_thyroid_nodule2_len;rt_thyroid_nodule2_AP;rt_thyroid_nodule2_trv" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_rt2_nodule_impression" id="sp_rt2_nodule_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_rt_nodule2_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+<i-snippet i-show="rt_thyroid_nodule3_len;rt_thyroid_nodule3_AP;rt_thyroid_nodule3_trv" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_rt3_nodule_impression" id="sp_rt3_nodule_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_rt_nodule3_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+
+<i-snippet i-show="isthmus_nodule1_len;isthmus_nodule1_AP;isthmus_nodule1_trv" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_ist1_nodule_impression" id="sp_ist1_nodule_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_isthmus_nodule1_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+<i-snippet i-show="isthmus_nodule2_len;isthmus_nodule2_AP;isthmus_nodule2_trv" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_ist2_nodule_impression" id="sp_ist2_nodule_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_isthmus_nodule2_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+<i-snippet i-show="isthmus_nodule3_len;isthmus_nodule3_AP;isthmus_nodule3_trv" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_ist3_nodule_impression" id="sp_ist3_nodule_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_isthmus_nodule3_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+
+<i-snippet i-show="lt_thyroid_nodule1_len;lt_thyroid_nodule1_AP;lt_thyroid_nodule1_trv" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_lt1_nodule_impression" id="sp_lt1_nodule_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_lt_nodule1_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+<i-snippet i-show="lt_thyroid_nodule2_len;lt_thyroid_nodule2_AP;lt_thyroid_nodule2_trv" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_lt2_nodule_impression" id="sp_lt2_nodule_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_lt_nodule2_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+<i-snippet i-show="lt_thyroid_nodule3_len;lt_thyroid_nodule3_AP;lt_thyroid_nodule3_trv" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_lt3_nodule_impression" id="sp_lt3_nodule_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_lt_nodule3_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+
+<i-snippet i-name="ws_thyroid_nodules_impression" i-options="defaultvalue:;saveempty:false" i-template="- %s1 %s2 %s3 %s4 %s5 %s6 %s7 %s8 %s9" i-type="i-string" i-variables="sp_rt1_nodule_impression;sp_rt2_nodule_impression;sp_rt3_nodule_impression;sp_ist1_nodule_impression;sp_ist2_nodule_impression;sp_ist3_nodule_impression;sp_lt1_nodule_impression;sp_lt2_nodule_impression;sp_lt3_nodule_impression" style="i-showlabel:false;"></i-snippet>
+
+</span></div>
+
+
+<!-----------------Setting up for single m-value snippet for Neck Nodes----------
+<div><span class="normal_text">
+<i-snippet i-show="rt_neck_node1_len;rt_neck_node1_AP;lt_neck_node1_len;lt_neck_node1_ap" i-type="i-collapse" style="">
+
+<i-snippet i-show="rt_neck_node1_len" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_rt_node1_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_lymph1_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+<i-snippet i-show="rt_neck_node2_len" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_rt_node2_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_lymph2_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+<i-snippet i-show="rt_neck_node3_len" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_rt_node3_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_lymph3_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+
+<i-snippet i-show="lt_neck_node1_len" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_lt_node1_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_lymph4_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+<i-snippet i-show="lt_neck_node2_len" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_lt_node2_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_lymph5_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+<i-snippet i-show="lt_neck_node3_len" i-type="i-collapse" style="">
+    <i-snippet i-name="sp_lt_node3_impression" i-options="defaultvalue:;saveempty:false"
+        i-template="%s1 \n-" i-type="i-string"
+        i-variables="sp_thyroid_lymph6_finding1"
+        style="i-showlabel:false;"></i-snippet>
+</i-snippet>
+
+<i-snippet i-name="ws_lymph1_finding1" i-options="defaultvalue:;saveempty:false" i-template="- %s1 %s2 %s3 %s4 %s5 %s6" i-type="i-string" i-variables="sp_rt_node1_impression;sp_rt_node2_impression;sp_rt_node3_impression;sp_lt_node1_impression;sp_lt_node2_impression;sp_lt_node3_impression" style="i-showlabel:false;"></i-snippet>
+
+</i-snippet>
+</span>
+</div>
+-->
