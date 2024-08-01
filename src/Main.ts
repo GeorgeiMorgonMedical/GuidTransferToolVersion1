@@ -42,9 +42,9 @@ function main(AzureFilePath: string, TargetFilePath: string) {
     AzureVariables.forEach((variable: VariableInformation) => {
         let possibleMatch = allPossibleMatches.get(variable.name);
         if (possibleMatch && possibleMatch.length > 0) {
-            txtFile += `\nEnter matching variable name for ${variable.name} (Recommended: ${possibleMatch}) (Leave blank if no match): []`;
+            txtFile += `\n${variable.name} (Recommended: ${possibleMatch}): []`;
         } else {
-            txtFile += `\nEnter matching variable name for ${variable.name} (Leave blank if no match): []`;
+            txtFile += `\n${variable.name}: []`;
         }
     });
     
