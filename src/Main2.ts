@@ -10,6 +10,7 @@ const AzureWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/AzureWorksh
 const AzureSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/AzureSummary.html');
 
 const UserInputPath = path.resolve(__dirname, '../Txts/userInput.txt');
+const AzureVariablesPath = path.resolve(__dirname, '../Txts/AzureVariables.csv');
 
 const TargetMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
 //const TargetWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/OtherWorksheet.html');
@@ -109,6 +110,24 @@ function getUserAnswers(AzureVariables: VariableInformation[], TargetVariables: 
             let answerInformation = verifyResponse(answer, TargetVariables);
             if (answerInformation) {
                 let azureVarName = extractAzureVariable(line);
+                let azureVar: VariableInformation = AzureVariables.find(variable => variable.name === azureVarName)!;
+                matches.push({ azureVarName: azureVar.name, azurevarGuid: azureVar.guid, targetVarName: answerInformation.name, targetVarGuid:answerInformation.guid });
+            }
+        }
+    });
+    return matches;
+}
+
+function getUserAnswers2(AzureVariables: VariableInformation[], TargetVariables: VariableInformation[]) {
+    let userAnswers: string[] = fs.readFileSync(UserInputPath, 'utf-8').split('\n');
+    let matches: Match[] = [];
+
+    userAnswers.forEach((line: string) => {
+        let answer = line.split(',')[5];
+        if (answer && answer.length > 0) {
+            let answerInformation = verifyResponse(answer, TargetVariables);
+            if (answerInformation) {
+                let azureVarName = line.split(',')[0];
                 let azureVar: VariableInformation = AzureVariables.find(variable => variable.name === azureVarName)!;
                 matches.push({ azureVarName: azureVar.name, azurevarGuid: azureVar.guid, targetVarName: answerInformation.name, targetVarGuid:answerInformation.guid });
             }
