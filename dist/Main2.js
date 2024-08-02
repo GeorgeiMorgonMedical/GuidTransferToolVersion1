@@ -124,16 +124,11 @@ function getUserAnswers2(AzureVariables, TargetVariables) {
     userAnswers.forEach((line) => {
         let answer = line.split(',')[5];
         answer = answer.substring(1, answer.length - 1);
-        console.log(answer);
-        console.log('checkpoint 1');
         if (answer && answer.length > 0) {
             let answerInformation = verifyResponse(answer, TargetVariables);
-            console.log('checkpoint 2');
             if (answerInformation) {
-                console.log('checkpoint 3');
                 let azureVarName = line.split(',')[0];
                 azureVarName = azureVarName.substring(1, azureVarName.length - 1);
-                console.log(azureVarName);
                 let azureVar = AzureVariables.find(variable => variable.name === azureVarName);
                 matches.push({ azureVarName: azureVar.name, azurevarGuid: azureVar.guid, targetVarName: answerInformation.name, targetVarGuid: answerInformation.guid });
             }
@@ -145,7 +140,6 @@ function main2(AzureMeasurementsFilePath, TargetMeasurementFilePath) {
     let AzureVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(AzureMeasurementsFilePath)));
     let TargetVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(TargetMeasurementFilePath)));
     let matches = getUserAnswers2(AzureVariables, TargetVariables);
-    console.log(matches);
     let unused = createMeasurementsCopy(matches, AzureVariables);
     createOtherCopies(matches, AzureVariables);
     console.log('\n\nThe following may potentially need to have a mapping created or found elsewhere due to being unmatched:\n');

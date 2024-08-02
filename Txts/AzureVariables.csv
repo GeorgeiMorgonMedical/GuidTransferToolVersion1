@@ -1,7 +1,7 @@
 name,guid,table,row,column,Other ID
 "rt_thyroid_trv","78d992df-ca06-4173-aa66-c4fa98d50a11","Thyroid","TRV","Right",""
 "isthmus_ap","61a13b12-60a6-4fb2-80fc-f642b0c8d384","Thyroid","TRV","Isthmus AP","isth_ap"
-"lt_thyroid_trv","e088b121-014b-418f-9f02-9d57f3891706","Thyroid","TRV","Left","lt_thyroid_h"
+"lt_thyroid_trv","e088b121-014b-418f-9f02-9d57f3891706","Thyroid","TRV","Left",""
 "rt_thyroid_AP","81f39100-95e2-4bef-9ce4-ea171635f6d5","Thyroid","AP","Right",""
 "lt_thyroid_AP","70c1dc50-350c-4cdc-9909-56ee0550597a","Thyroid","AP","Isthmus AP",""
 "rt_thyroid_len","901aeb34-3732-4bbd-993a-c197ad67450e","Thyroid","Length","Right",""

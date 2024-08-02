@@ -83,18 +83,6 @@ function azureJsonToCsv(variables) {
     return csvRows.join('\n');
 }
 function formatOutput(azure, target) {
-    let azureTxt = 'AZURE VARIABLE INFORMATION\n';
-    azure.forEach((azureVar) => {
-        azureTxt += azureVar.name + '\t' + azureVar.guid + '\t' + azureVar.table + '\t' + azureVar.column + '\t' + azureVar.row + '\n';
-    });
-    fs.writeFileSync(AzureVariablesPath, azureTxt, 'utf-8');
-    let targetTxt = 'TARGET VARIABLE INFORMATION\n';
-    target.forEach((targetVar) => {
-        targetTxt += targetVar.name + '\t' + targetVar.guid + '\t' + targetVar.table + '\t' + targetVar.column + '\t' + targetVar.row + '\n';
-    });
-    fs.writeFileSync(TargetVariablesPath, targetTxt, 'utf-8');
-}
-function formatOutput2(azure, target) {
     let azureCsv = azureJsonToCsv(azure);
     fs.writeFileSync(AzureVariablesPath, azureCsv, 'utf-8');
     let targetCsv = targetJsonToCsv(target);
@@ -103,22 +91,25 @@ function formatOutput2(azure, target) {
 function main(AzureFilePath, TargetFilePath) {
     let AzureVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(AzureFilePath)));
     let TargetVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(TargetFilePath)));
-    formatOutput2(AzureVariables, TargetVariables);
-    let allPossibleMatches = new Map();
-    AzureVariables.forEach((AzureVar) => {
-        allPossibleMatches.set(AzureVar.name, (0, MValueMatching_1.narrowDownList)(AzureVar, TargetVariables));
+    formatOutput(AzureVariables, TargetVariables);
+    /*
+
+    let allPossibleMatches : Map<string, string[]> = new Map();
+    AzureVariables.forEach((AzureVar: VariableInformation) => {
+        allPossibleMatches.set(AzureVar.name, narrowDownList(AzureVar, TargetVariables));
     });
-    let txtFile = 'Enter the following matches in the [answer] brackets. If a match does not exist, leave it blank.';
-    AzureVariables.forEach((variable) => {
+
+    AzureVariables.forEach((variable: VariableInformation) => {
         let possibleMatch = allPossibleMatches.get(variable.name);
         if (possibleMatch && possibleMatch.length > 0) {
             txtFile += `\n${variable.name} (Recommended: ${possibleMatch}): []`;
-        }
-        else {
+        } else {
             txtFile += `\n${variable.name}: []`;
         }
     });
+    
     fs.writeFileSync(UserInputPath, txtFile, 'utf-8');
+    */
 }
 main(AzureFilePath, TargetFilePath);
 //# sourceMappingURL=Main.js.map

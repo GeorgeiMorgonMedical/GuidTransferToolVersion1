@@ -65,22 +65,7 @@ export function azureJsonToCsv(variables: any[]): string {
     return csvRows.join('\n');
 }
 
-
 function formatOutput(azure: VariableInformation[], target: VariableInformation[]) {
-    let azureTxt = 'AZURE VARIABLE INFORMATION\n';
-    azure.forEach((azureVar: VariableInformation) => {
-        azureTxt += azureVar.name + '\t' + azureVar.guid + '\t' + azureVar.table + '\t' + azureVar.column + '\t' + azureVar.row + '\n';
-    });
-    fs.writeFileSync(AzureVariablesPath, azureTxt, 'utf-8');
-
-    let targetTxt = 'TARGET VARIABLE INFORMATION\n';
-    target.forEach((targetVar: VariableInformation) => {
-        targetTxt += targetVar.name + '\t' + targetVar.guid + '\t' + targetVar.table + '\t' + targetVar.column + '\t' + targetVar.row + '\n';
-    });
-    fs.writeFileSync(TargetVariablesPath, targetTxt, 'utf-8');
-}
-
-function formatOutput2(azure: VariableInformation[], target: VariableInformation[]) {
     let azureCsv = azureJsonToCsv(azure);
     fs.writeFileSync(AzureVariablesPath, azureCsv, 'utf-8');
 
@@ -92,14 +77,14 @@ function main(AzureFilePath: string, TargetFilePath: string) {
     let AzureVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(AzureFilePath)));
     let TargetVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(TargetFilePath)));
 
-    formatOutput2(AzureVariables, TargetVariables);
+    formatOutput(AzureVariables, TargetVariables);
+
+    /*
 
     let allPossibleMatches : Map<string, string[]> = new Map();
     AzureVariables.forEach((AzureVar: VariableInformation) => {
         allPossibleMatches.set(AzureVar.name, narrowDownList(AzureVar, TargetVariables));
     });
-
-    let txtFile = 'Enter the following matches in the [answer] brackets. If a match does not exist, leave it blank.';
 
     AzureVariables.forEach((variable: VariableInformation) => {
         let possibleMatch = allPossibleMatches.get(variable.name);
@@ -111,6 +96,7 @@ function main(AzureFilePath: string, TargetFilePath: string) {
     });
     
     fs.writeFileSync(UserInputPath, txtFile, 'utf-8');
+    */
 }
 
 
