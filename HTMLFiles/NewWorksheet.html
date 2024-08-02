@@ -1,0 +1,1096 @@
+<!-- Last update 14Mar2024  
+	Add 3 lymph nodes for right and 3 for left side.  
+	 	Lymph nodes have 2 dimensions (long/short axis), also have priors
+			A ratio of <2.0 is suspicious of malignancy, so we should calculate (except for Level 1 location where round is acceptable)
+		lymph nodes have 'Characteristics' of "Echogenic hylum", "Peripheral or Decentralized Perfusion"
+		https://radiologykey.com/neck-lymph-nodes/#c006_f003
+
+	<p></p>
+ -->
+ <style type="text/css">.impression_text {
+	color: lightgreen;	font-size: 16px;}
+
+/* Use for generated text */
+.measurement_text {
+	color: rgb(133, 131, 127);	font-size: 16px;}
+
+.normal_text {
+	font-size: 16px;}
+
+.hidden_text {color: rgba(133, 131, 127, .10); font-size: 1px;}
+
+.header_text {
+	font-size: 20px; padding-left: 5px}
+
+/* Use for major organs   */
+.header2_text {
+	font-size: 18px;}
+
+.header3_text {
+	text-align: right; font-size: 18px;}
+
+/* .nested-table tr:nth-child(odd) {background-color: rgba(117, 117, 117, 0.329)}  */
+.custom_table {
+	border: 1px solid rgb(133, 131, 127);	width: 875px;}
+
+.custom_table td {
+	border: 1px solid rgb(133, 131, 127);}
+
+td:first-child {
+	width: 175px;}
+
+/* input, label { display: inline-block; margin-right: 0px; margin-left: 0px;} 	 Adjust the margin between input and label */
+</style>
+<table class="custom_table">
+	<tbody>
+		<tr>
+			<td class="header3_text">Indication</td>
+			<td class="normal_text"><mvalue class="mapped" groupdesc="study_indication" groupguidkey="43dae253-1049-491d-9fde-addd2c9ab551" id="study_indication" title="study_indication">study_indication</mvalue></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Prior Exams</td>
+			<td class="normal_text"><mvalue class="mapped" groupdesc="ws_studydate" groupguidkey="79d034a6-f3f2-4ff4-be61-88a4bc6ae5d4" i-name="ws_thyroid_priordate1" i-prior="1" title="ws_studydate">ws_studydate</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="ws_studydate" groupguidkey="79d034a6-f3f2-4ff4-be61-88a4bc6ae5d4" i-name="ws_thyroid_priordate2" i-prior="2" title="ws_studydate">ws_studydate</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="ws_studydate" groupguidkey="79d034a6-f3f2-4ff4-be61-88a4bc6ae5d4" i-name="ws_thyroid_priordate3" i-prior="3" title="ws_studydate">ws_studydate</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="ws_studydate" groupguidkey="79d034a6-f3f2-4ff4-be61-88a4bc6ae5d4" i-name="ws_thyroid_priordate4" i-prior="4" title="ws_studydate">ws_studydate</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="ws_studydate" groupguidkey="79d034a6-f3f2-4ff4-be61-88a4bc6ae5d4" i-name="ws_thyroid_priordate5" i-prior="5" title="ws_studydate">ws_studydate</mvalue>&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="normal_text"><input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_comments" id="ws_thyroid_comments" name="ws_thyroid_comments" size="53" spellcheck="false" type="text" /></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Sonographer</td>
+			<td class="normal_text"><mvalue class="mapped" groupdesc="sonographer" groupguidkey="61884439-3d55-4817-bf62-f272e98469b7" id="sonographer" title="sonographer(AH)">sonographer</mvalue></td>
+		</tr>
+	</tbody>
+</table>
+<!---------------------------   Right Lobe ----------------------------------------------------------------->
+
+<p>&nbsp;&nbsp;</p>
+<i-snippet i-show="rt_thyroid_len;rt_thyroid_AP;rt_thyroid_trv" i-type="i-collapse" style="">
+<table class="custom_table">
+	<tbody>
+		<tr>
+			<td class="header_text">Right Lobe</td>
+			<td class="normal_text"><span class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_len" groupguidkey="" i-imshowlabel="true" id="rt_thyroid_len" title="rt_thyroid_len(5.19 cm)">rt_thyroid_len</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_AP" groupguidkey="" i-imshowlabel="true" id="rt_thyroid_AP" title="rt_thyroid_AP(2.25 cm)">rt_thyroid_AP</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_trv" groupguidkey="" i-imshowlabel="true" id="rt_thyroid_trv" title="rt_thyroid_trv(1.60 cm)">rt_thyroid_trv</mvalue> &nbsp;&nbsp;( <i-calc calc="ProlateVolume" i-name="Right_Lobe_Volume" id="rt_lobe_volume" tantpos="" tlength="" ttranv="">9.78 cm3</i-calc>&nbsp;)&nbsp;&nbsp;&nbsp; </span> <input i-name="ws_thyroid_rt_lobe_Lobectomy" id="ws_thyroid_rt_lobe_Lobectomy:1" name="ws_thyroid_rt_lobe_Lobectomy" outputtext="Right Lobectomy." type="checkbox" value="ws_thyroid_rt_lobe_Lobectomy:1" />&nbsp; <label for="ws_thyroid_rt_lobe_Lobectomy:1" id="ws_thyroid_rt_lobe_Lobectomy:1_label" name="ws_thyroid_rt_lobe_Lobectomy">Lobectomy</label><br />
+			<!-- prior lobe measurements --> &nbsp; <span class="measurement_text"> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_len" groupguidkey="" i-prior="1" title="rt_thyroid_len">rt_thyroid_len</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_AP" groupguidkey="" i-imshowlabel="true" i-prior="1" title="rt_thyroid_AP">rt_thyroid_AP</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_trv" groupguidkey="" i-imshowlabel="true" i-prior="1" title="rt_thyroid_trv">rt_thyroid_trv</mvalue> &nbsp;</span></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Echotexture</td>
+			<td class="normal_text"><input checked="checked" id="ws_thyroid_rt_lobe_appear:1" name="ws_thyroid_rt_lobe_appear" outputtext="Homogeneous echotexture." type="radio" value="ws_thyroid_rt_lobe_appear:1" /> <label for="ws_thyroid_rt_lobe_appear:1" id="ws_thyroid_rt_lobe_appear:1_label" name="ws_thyroid_rt_lobe_appear">Homogeneous&nbsp;</label>&nbsp; <input id="ws_thyroid_rt_lobe_appear:2" name="ws_thyroid_rt_lobe_appear" outputtext="Heterogeneous echotexture." type="radio" value="ws_thyroid_rt_lobe_appear:2" /> <label for="ws_thyroid_rt_lobe_appear:2" id="ws_thyroid_rt_lobe_appear:2_label" name="ws_thyroid_rt_lobe_appear">Heterogeneous&nbsp;</label></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<!-- right lobe findings --------------------------------->
+			<td class="impression_text"><input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_rt_lobe_cmts" id="ws_thyroid_rt_lobe_cmts" name="ws_thyroid_rt_lobe_cmts" size="45" spellcheck="false" type="text" /><br />
+			<i-snippet i-hide="ws_thyroid_rt_lobe_Lobectomy:1" i-type="i-collapse" style=""> <i-snippet i-defaultstring="" i-name="ws_rightlobe_finding1" i-options="defaultvalue:;saveempty:false" i-template="Lobe measures %s1 x %s2 x %s3.  %s4 " i-type="i-string" i-variables="rt_thyroid_len;rt_thyroid_AP;rt_thyroid_trv;ws_thyroid_rt_lobe_appear:1" id="ws_rightlobe_finding1" style="i-showlabel:false;">Lobe measures 5.19 cm x 2.25 cm x 1.60 cm (L x AP x TRV). Heterogeneous echotexture.</i-snippet> <i-snippet i-defaultstring="No nodules." i-name="ws_rightlobe_finding2" i-options="defaultvalue:;saveempty:false" i-template="" i-type="i-string" i-variables="rt_thyroid_nodule1_len" id="ws_rightlobe_finding2"></i-snippet> </i-snippet> <i-snippet i-defaultstring="" i-name="ws_rightlobe_finding1" i-options="defaultvalue:;saveempty:false" i-template="%s1" i-type="i-string" i-variables="ws_thyroid_rt_lobe_Lobectomy:1" id="ws_rightlobe_finding1" style="i-showlabel:false;">Lobe measures 5.19 cm x 2.25 cm x 1.60 cm (L x AP x TRV). Heterogeneous echotexture.</i-snippet> <!--<i-snippet i-defaultstring="" i-name="ws_rightlobe_finding2" id="ws_rightlobe_finding2" i-options="defaultvalue:;saveempty:false"
+				i-template="" i-type="i-string" i-variables="rt_thyroid_len"
+				style="i-showlabel:false;">Lobe measures 1.74 cm x 1.12 cm x 0.64 cm. Homogeneous echotexture.
+			</i-snippet>--></td>
+		</tr>
+		<!--
+	<tr>
+		<td class="header3_text">String Combo</td>
+		<td class="normal_text">
+			<!----------------------------------Testing combining strings for single string impressions -------------------------------------------
+			<i-snippet i-show="ws_thyroid_lt_lobe_appear:1;ws_thyroid_lt_lobe_appear:2;ws_thyroid_rt_lobe_Lobectomy:1">
+			<i-snippet i-defaultstring="" i-name="ws_rightlobe_findings" id="ws_rightlobe_findings"i-options="defaultvalue:;saveempty:false" i-template="Right Lobe test:\n %s1 %s2" i-type="i-string" i-variables="ws_rightlobe_finding1;ws_rightlobe_finding2" style="i-showlabel:false;"> Lobe measures 1.74 cm x 1.12 cm x 0.64 cm. Homogeneous echotexture.</i-snippet></i-snippet>
+
+		</td>
+	</tr>-->
+	</tbody>
+</table>
+
+<p>&nbsp; <!----------------------------------Left Lobe --------------------------------------------------------></p>
+</i-snippet>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-show="lt_thyroid_len;lt_thyroid_trv;lt_thyroid_AP" i-type="i-collapse" style="">
+<table class="custom_table">
+	<tbody>
+		<tr>
+			<td class="header_text">Left Lobe</td>
+			<td class="normal_text"><span class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_len" groupguidkey="" i-imshowlabel="true" id="lt_thyroid_len" title="lt_thyroid_len(5.73 cm)">lt_thyroid_len</mvalue>x <mvalue class="mapped" groupdesc="lt_thyroid_AP" groupguidkey="" i-imshowlabel="true" id="lt_thyroid_AP" title="lt_thyroid_AP(3.02 cm)">lt_thyroid_AP</mvalue>x <mvalue class="mapped" groupdesc="lt_thyroid_trv" groupguidkey="40c1e56b-a360-42bb-bcd2-d5b9520021ba" i-imshowlabel="true" id="lt_thyroid_trv" title="lt_thyroid_trv(3.02 cm)">lt_thyroid_trv</mvalue>&nbsp;&nbsp; &nbsp;(&nbsp; <i-calc calc="ProlateVolume" i-name="Left Lobe Volume" id="lf_lobe_volume" tantpos="" tlength="" ttranv="40c1e56b-a360-42bb-bcd2-d5b9520021ba">27.36 cm3</i-calc>&nbsp;)&nbsp;&nbsp;&nbsp;</span> <input i-name="ws_thyroid_lt_lobe_Lobectomy" id="ws_thyroid_lt_lobe_Lobectomy:1" name="ws_thyroid_lt_lobe_Lobectomy" outputtext="Left lobectomy." type="checkbox" value="ws_thyroid_lt_lobe_Lobectomy:1" />&nbsp; <label for="ws_thyroid_lt_lobe_Lobectomy:1" id="ws_thyroid_lt_lobe_Lobectomy:1_label" name="ws_thyroid_lt_lobe_Lobectomy">Lobectomy</label><br />
+			<!-- prior lobe measurements --> <span class="measurement_text"> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_len" groupguidkey="" i-prior="1" title="lt_thyroid_len">lt_thyroid_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_AP" groupguidkey="" i-imshowlabel="true" i-prior="1" title="lt_thyroid_AP">lt_thyroid_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_trv" groupguidkey="40c1e56b-a360-42bb-bcd2-d5b9520021ba" i-imshowlabel="true" i-prior="1" title="lt_thyroid_trv">lt_thyroid_trv</mvalue> &nbsp;</span></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Echotexture</td>
+			<td class="normal_text">&nbsp; <input checked="checked" id="ws_thyroid_lt_lobe_appear:1" name="ws_thyroid_lt_lobe_appear" outputtext="Homogeneous echotexture." type="radio" value="ws_thyroid_lt_lobe_appear:1" /><label for="ws_thyroid_lt_lobe_appear:1" id="ws_thyroid_lt_lobe_appear:1_label" name="ws_thyroid_lt_lobe_appear">Homogeneous</label>&nbsp; <input id="ws_thyroid_lt_lobe_appear:2" name="ws_thyroid_lt_lobe_appear" outputtext="Heterogeneous echotexture." type="radio" value="ws_thyroid_lt_lobe_appear:2" /><label for="ws_thyroid_lt_lobe_appear:2" id="ws_thyroid_lt_lobe_appear:2_label" name="ws_thyroid_lt_lobe_appear">Heterogeneous</label>&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<!-- left lobe findings --------------------------------->
+			<td class="impression_text"><input data-ms-editor="true" i-imshowlabel="true" i-name="ws_imorgon_thyroid_lt_lobe_cmts" id="ws_imorgon_thyroid_lt_lobe_cmts" name="ws_imorgon_thyroid_lt_lobe_cmts" size="45" spellcheck="false" type="text" /><br />
+			<i-snippet i-hide="ws_thyroid_lt_lobe_Lobectomy:1" i-type="i-collapse" style=""> <i-snippet i-defaultstring="" i-name="ws_leftlobe_finding1" i-options="defaultvalue:;saveempty:false" i-template="Lobe measures %s1 x %s2 x %s3.  %s4 " i-type="i-string" i-variables="lt_thyroid_len;lt_thyroid_AP;lt_thyroid_trv;ws_thyroid_lt_lobe_appear:1" style="i-showlabel:false;">Lobe measures 5.73 cm x 3.02 cm x 3.02 cm (L x AP x TRV). Homogeneous echotexture.</i-snippet> <i-snippet i-defaultstring="No nodules." i-name="ws_leftlobe_finding2" i-options="defaultvalue:;saveempty:false" i-template="" i-type="i-string" i-variables="rt_thyroid_nodule1_len"></i-snippet> </i-snippet> <i-snippet i-defaultstring="" i-name="ws_leftlobe_finding1" i-options="defaultvalue:;saveempty:false" i-template="%s1" i-type="i-string" i-variables="ws_thyroid_lt_lobe_Lobectomy:1" style="i-showlabel:false;">Lobe measures 5.73 cm x 3.02 cm x 3.02 cm (L x AP x TRV). Homogeneous echotexture.</i-snippet></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!----------------------------------Isthmus ---------------------------------------------------------------></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-show="isthmus_ap" i-type="i-collapse" style="">
+<table class="custom_table">
+	<tbody>
+		<tr>
+			<td class="header_text">Isthmus</td>
+			<td class="normal_text">&nbsp; <span class="measurement_text"> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_ap" groupguidkey="0a07c149-f712-48ef-8fc6-840cb1e26a89" id="isthmus_ap" title="isthmus_ap(0.88 cm)">isthmus_ap</mvalue>&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;</span> <input i-name="ws_isthmus_Lobectomy" id="ws_isthmus_Lobectomy:1" name="ws_isthmus_Lobectomy" outputtext="Surgically removed" type="checkbox" value="ws_isthmus_Lobectomy:1" />&nbsp; <label for="ws_isthmus_Lobectomy:1" id="ws_isthmus_Lobectomy:1_label" name="ws_isthmus_Lobectomy">Surgically Removed</label><br />
+			<!-- prior measurements --> &nbsp; <span class="measurement_text"> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_ap_prior" groupguidkey="0a07c149-f712-48ef-8fc6-840cb1e26a89" i-prior="1" id="isthmus_ap_prior" title="isthmus_ap_prior">isthmus_ap_prior</mvalue>&nbsp;</span> <!-- <br />&nbsp; 
+		<mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="2" title="study_date">study_date</mvalue>&nbsp;&nbsp; 
+		<mvalue class="mapped" groupdesc="isthmus_ap_prior" groupguidkey="0a07c149-f712-48ef-8fc6-840cb1e26a89" i-prior="2" id="isthmus_ap_prior" title="isthmus_ap_prior">isthmus_ap_prior</mvalue>&nbsp;
+		<br />
+		&nbsp; 
+		<mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="3" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_ap_prior" groupguidkey="0a07c149-f712-48ef-8fc6-840cb1e26a89" i-prior="3" id="isthmus_ap_prior" title="isthmus_ap_prior">isthmus_ap_prior</mvalue> --></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Echotexture</td>
+			<td class="normal_text">&nbsp; <input checked="checked" id="ws_isthmus_appear:1" name="ws_isthmus_appear" outputtext="with homogeneous echotexture" type="radio" value="ws_isthmus_appear:1" /> <label for="ws_isthmus_appear:1" id="ws_isthmus_appear:1_label" name="ws_isthmus_appear">Homogeneous</label>&nbsp; <input id="ws_isthmus_appear:2" name="ws_isthmus_appear" outputtext="with heterogeneous echotexture" type="radio" value="ws_isthmus_appear:2" /><label for="ws_isthmus_appear:2" id="ws_isthmus_appear:2_label" name="ws_isthmus_appear">Heterogeneous</label>&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="impression_text"><input data-ms-editor="true" i-imshowlabel="true" i-name="ws_isthmus_cmts" id="ws_isthmus_cmts" name="ws_isthmus_cmts" size="45" spellcheck="false" type="text" /><br />
+			<!------------------Isthmus Findings Text ------------------------------------------> <i-snippet i-hide="ws_isthmus_Lobectomy:1" i-type="i-collapse" style=""> <i-snippet i-defaultstring="" i-name="ws_isthmus_finding1" i-options="defaultvalue:;saveempty:false" i-template="Isthmus measures %s1 %s2." i-type="i-string" i-variables="isthmus_ap;ws_isthmus_appear:1" style="i-showlabel:false;">Isthmus measures 0.88 cm with heterogeneous echotexture.</i-snippet> </i-snippet> <i-snippet i-defaultstring="" i-name="ws_isthmus_finding1" i-options="defaultvalue:;saveempty:false" i-template="%s1." i-type="i-string" i-variables="ws_isthmus_Lobectomy:1" style="i-showlabel:false;">Isthmus measures 0.88 cm with heterogeneous echotexture.</i-snippet></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-------------------------------------Right Nodule 1 -----------------------------------------------></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-id1="ws_thyroid_rt_lobe_Lobectomy:1" i-type="i-collapse" style="display: block;">
+<div><i-snippet i-show="rt_thyroid_nodule1_len" i-type="i-collapse" style=""> <i-snippet i-hide="ws_thyroid_rt_nodule1_composition:1;ws_thyroid_rt_nodule1_composition:2" i-hidetargets="RtNode1Echogenicity;RtNode1TallerThanWide;RtNode1Margins;RtNode1EchogenicFoci" i-show="ws_thyroid_rt_nodule1_composition:3;ws_thyroid_rt_nodule1_composition:4" i-showtargets="RtNode1Echogenicity;RtNode1TallerThanWide;RtNode1Margins;RtNode1EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Right Nodule %i1" i-type="i-string">Right Nodule 1</i-snippet></td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_len" groupguidkey="" i-imshowlabel="true" id="rt_thyroid_nodule1_len" title="rt_thyroid_nodule1_len(1.68 cm)">rt_thyroid_nodule1...</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_AP" groupguidkey="" i-imshowlabel="true" id="rt_thyroid_nodule1_AP" title="rt_thyroid_nodule1_AP(0.80 cm)">rt_thyroid_nodule1...</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_trv" groupguidkey="" i-imshowlabel="true" id="rt_thyroid_nodule1_trv" title="rt_thyroid_nodule1_trv(1.50 cm)">rt_thyroid_nodule1...</mvalue>&nbsp;&nbsp;&nbsp;(&nbsp; <i-calc calc="ProlateVolume" i-name="RightNod1Volume" id="rt_nod1_volume" tantpos="" tlength="" ttranv="">1.06 cm3</i-calc>&nbsp; -14% )&nbsp;<br />
+			<!--start prior1 measurements-->&nbsp; <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_len" groupguidkey="" i-prior="1" title="rt_thyroid_nodule1_len">rt_thyroid_nodule1_len</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_AP" groupguidkey="" i-imshowlabel="true" i-prior="1" title="rt_thyroid_nodule1_AP">rt_thyroid_nodule1_AP</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_trv" groupguidkey="" i-imshowlabel="true" i-prior="1" title="rt_thyroid_nodule1_trv">rt_thyroid_nodule1_trv</mvalue> &nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="RtNod1ProlateVolumne" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="1" title="RtNod1ProlateVolumne">RtNod1ProlateVolumne</mvalue> &nbsp; <i-calc calc="Interval Growth" class="pinterval" i-precision="1" im-new="a9144a03-e37e-4d87-857f-e0d319934022:1" im-old="a9144a03-e37e-4d87-857f-e0d319934022:2">--</i-calc>)&nbsp;<br />
+			<!--start prior2 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="2" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_len" groupguidkey="" i-prior="2" title="rt_thyroid_nodule1_len">rt_thyroid_nodule1_len</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_AP" groupguidkey="" i-imshowlabel="true" i-prior="2" title="rt_thyroid_nodule1_AP">rt_thyroid_nodule1_AP</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_trv" groupguidkey="" i-imshowlabel="true" i-prior="2" title="rt_thyroid_nodule1_trv">rt_thyroid_nodule1_trv</mvalue> &nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="RtNod1ProlateVolumne" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="2" title="RtNod1ProlateVolumne">RtNod1ProlateVolumne</mvalue> &nbsp; <i-calc calc="Interval Growth" class="ninterval" i-precision="1" im-new="a9144a03-e37e-4d87-857f-e0d319934022:2" im-old="a9144a03-e37e-4d87-857f-e0d319934022:3">--</i-calc>)&nbsp;<br />
+			<!--start prior3 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="3" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_len" groupguidkey="" i-prior="3" title="rt_thyroid_nodule1_len">rt_thyroid_nodule1_len</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_AP" groupguidkey="" i-imshowlabel="true" i-prior="3" title="rt_thyroid_nodule1_AP">rt_thyroid_nodule1_AP</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule1_trv" groupguidkey="" i-imshowlabel="true" i-prior="3" title="rt_thyroid_nodule1_trv">rt_thyroid_nodule1_trv</mvalue> &nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="RtNod1ProlateVolumne" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="3" title="RtNod1ProlateVolumne">RtNod1ProlateVolumne</mvalue> &nbsp;)&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text"><select i-name="ws_thyroid_rt_nodule1_loc" id="ws_thyroid_rt_nodule1_loc" name="ws_thyroid_rt_nodule1_loc" style=" display: inline-block;"><option selected="selected" value=""></option><option value=" superior">Superior</option><option value=" superior mid">Superior Mid</option><option value=" mid">Mid</option><option value=" mid inferior">Mid Inferior</option><option value=" inferior">Inferior</option> </select> <!--<select i-name="ws_thyroid_rt_nodule1_lat" id="ws_thyroid_rt_nodule1_lat" name="ws_thyroid_rt_nodule1_lat" style="">
+				<option selected="selected" value=" "></option><option value="Lateral">Lateral</option><option value="Mid">Mid</option><option value="Medial">Medial</option> 
+			</select>&nbsp;&nbsp; &nbsp; 
+			<select i-name="ws_thyroid_rt_nodule1_depth" id="ws_thyroid_rt_nodule1_depth" name="ws_thyroid_rt_nodule1_depth" style="">
+				<option selected="selected" value=" "></option>
+				<option value="Anterior">Anterior</option>
+				<option value="Mid">Mid</option>
+				<option value="Posterior">Posterior</option> 
+			</select></td> --></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Composition</td>
+			<td class="normal_text"><input alttext="cystic" i-name="ws_thyroid_rt_nodule1_composition" i-tiradgroup="rt_nodule1" i-tiradscore="-1" id="ws_thyroid_rt_nodule1_composition:1" name="ws_thyroid_rt_nodule1_composition" outputtext=" has cystic composition and" type="radio" value="ws_thyroid_rt_nodule1_composition:1" /> <label for="ws_thyroid_rt_nodule1_composition:1" id="ws_thyroid_rt_nodule1_composition:1_label" name="ws_thyroid_rt_nodule1_composition">Cystic&nbsp;</label>&nbsp;&nbsp; <input alttext="spongiform" i-name="ws_thyroid_rt_nodule1_composition" i-tiradgroup="rt_nodule1" i-tiradscore="-1" id="ws_thyroid_rt_nodule1_composition:2" name="ws_thyroid_rt_nodule1_composition" outputtext=" has spongiform composition and" type="radio" value="ws_thyroid_rt_nodule1_composition:2" /> <label for="ws_thyroid_rt_nodule1_composition:2" id="ws_thyroid_rt_nodule1_composition:2_label" name="ws_thyroid_rt_nodule1_composition">Spongiform</label>&nbsp;&nbsp; <input alttext="mixed (cystic/solid)" i-name="ws_thyroid_rt_nodule1_composition" i-tiradgroup="rt_nodule1" i-tiradscore="1" id="ws_thyroid_rt_nodule1_composition:3" name="ws_thyroid_rt_nodule1_composition" outputtext=" has mixed solid/cystic composition and" type="radio" value="ws_thyroid_rt_nodule1_composition:3" /> <label for="ws_thyroid_rt_nodule1_composition:3" id="ws_thyroid_rt_nodule1_composition:3_label" name="ws_thyroid_rt_nodule1_composition">Mixed (solid/cystic)&nbsp;</label>&nbsp;&nbsp; <input alttext="solid" i-name="ws_thyroid_rt_nodule1_composition" i-tiradgroup="rt_nodule1" i-tiradscore="2" id="ws_thyroid_rt_nodule1_composition:4" name="ws_thyroid_rt_nodule1_composition" outputtext=" has solid composition and" type="radio" value="ws_thyroid_rt_nodule1_composition:4" /> <label for="ws_thyroid_rt_nodule1_composition:4" id="ws_thyroid_rt_nodule1_composition:4_label" name="ws_thyroid_rt_nodule1_composition">Solid</label>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td><i-snippet class="impression_text" i-defaultstring="" i-diffvaluehigh="49.99" i-diffvaluelow="49.98" i-greaterthantemplate="Nodule %i1 right lobe%s6%s7 measures %s1 x %s2 x %s3 with significant growth (%s4) since %s5.\n-" i-indexes="nodules" i-lessthantemplate="Nodule %i1 right lobe%s6%s7 measures %s1 x %s2 x %s3 insignificant size change (%s4) since %s5.\n-" i-name="ws_nodule_finding_1" i-options="defaultvalue:;saveempty:false;delimstr:, ;" i-template="Nodule %i1 right lobe%s6%s7 measures %s1 x %s2 x %s3.\n-" i-testvar="rt_nod1_percentgrowth" i-type="i-string" i-variables="rt_thyroid_nodule1_len;rt_thyroid_nodule1_AP;rt_thyroid_nodule1_trv;rt_nod1_percentgrowth;study_date_p1;ws_thyroid_rt_nodule1_loc;ws_thyroid_rt_nodule1_composition:1" id="ws_nodule_finding_1" style="i-showlabel:false;">Nodule 1 right lobe mid has cystic composition and measures 1.68 cm x 0.80 cm x 1.50 cm (L x AP x TRV). ACR TI-RADS: -</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_rt_nodule1_cmts" id="ws_thyroid_rt_nodule1_cmts" name="ws_thyroid_rt_nodule1_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!------------------------------Right Nodule 2 ------------------------------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="rt_thyroid_nodule2_len" i-type="i-collapse" style=""> <i-snippet i-hide="ws_thyroid_rt_nodule2_composition:1;ws_thyroid_rt_nodule2_composition:2" i-hidetargets="RtNode2Echogenicity;RtNode2TallerThanWide;RtNode2Margins;RtNode2EchogenicFoci" i-show="ws_thyroid_rt_nodule2_composition:3;ws_thyroid_rt_nodule2_composition:4" i-showtargets="RtNode2Echogenicity;RtNode2TallerThanWide;RtNode2Margins;RtNode2EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Right Nodule %i1" i-type="i-string">Right Nodule 2</i-snippet></td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_len" groupguidkey="" i-imshowlabel="true" id="rt_thyroid_nodule2_len" title="rt_thyroid_nodule2_len(1.46 cm)">rt_thyroid_nodule2...</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_AP" groupguidkey="" i-imshowlabel="true" id="rt_thyroid_nodule2_AP" title="rt_thyroid_nodule2_AP(1.10 cm)">rt_thyroid_nodule2...</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_trv" groupguidkey="" i-imshowlabel="true" id="rt_thyroid_nodule2_trv" title="rt_thyroid_nodule2_trv(1.21 cm)">rt_thyroid_nodule2...</mvalue>&nbsp;&nbsp;(&nbsp; <i-calc calc="ProlateVolume" i-name="RightNod2Volume" id="rt_nod2_volume" tantpos="" tlength="" ttranv="">1.02 cm3</i-calc> <i-calc calc="Interval Growth" class="ninterval pinterval" i-precision="1" id-new="rt_nod2_volume" im-old="a9144a03-e37e-4d87-857f-e0d319934022:1">--</i-calc>&nbsp;)&nbsp;<br />
+			<!--fix volume im-old above--> <!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_len" groupguidkey="" i-prior="1" title="rt_thyroid_nodule2_len">rt_thyroid_nodule2_len</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_AP" groupguidkey="" i-imshowlabel="true" i-prior="1" title="rt_thyroid_nodule2_AP">rt_thyroid_nodule2_AP</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_trv" groupguidkey="" i-imshowlabel="true" i-prior="1" title="rt_thyroid_nodule2_trv">rt_thyroid_nodule2_trv</mvalue> &nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="RtNod1ProlateVolumne" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="1" title="RtNod1ProlateVolumne">RtNod1ProlateVolumne</mvalue>&nbsp; <i-calc calc="Interval Growth" class="pinterval" i-precision="1" im-new="a9144a03-e37e-4d87-857f-e0d319934022:1" im-old="a9144a03-e37e-4d87-857f-e0d319934022:2">--</i-calc>)&nbsp;<br />
+			<!--start prior2 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="2" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_len" groupguidkey="" i-prior="2" title="rt_thyroid_nodule2_len">rt_thyroid_nodule2_len</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_AP" groupguidkey="" i-imshowlabel="true" i-prior="2" title="rt_thyroid_nodule2_AP">rt_thyroid_nodule2_AP</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_trv" groupguidkey="" i-imshowlabel="true" i-prior="2" title="rt_thyroid_nodule2_trv">rt_thyroid_nodule2_trv</mvalue> &nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="RtNod1ProlateVolumne" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="2" title="RtNod1ProlateVolumne">RtNod1ProlateVolumne</mvalue> &nbsp; <i-calc calc="Interval Growth" class="ninterval" i-precision="1" im-new="a9144a03-e37e-4d87-857f-e0d319934022:2" im-old="a9144a03-e37e-4d87-857f-e0d319934022:3">--</i-calc>)&nbsp;<br />
+			<!--start prior3 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="3" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_len" groupguidkey="" i-prior="3" title="rt_thyroid_nodule2_len">rt_thyroid_nodule2_len</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_AP" groupguidkey="" i-imshowlabel="true" i-prior="3" title="rt_thyroid_nodule2_AP">rt_thyroid_nodule2_AP</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule2_trv" groupguidkey="" i-imshowlabel="true" i-prior="3" title="rt_thyroid_nodule2_trv">rt_thyroid_nodule2_trv</mvalue> &nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="RtNod1ProlateVolumne" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="3" title="RtNod1ProlateVolumne">RtNod1ProlateVolumne</mvalue> &nbsp;)&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text"><select i-name="ws_thyroid_rt_nodule2_loc" id="ws_thyroid_rt_nodule2_loc" name="ws_thyroid_rt_nodule2_loc" style=" display: inline-block;"><option selected="selected" value=""></option><option value=" superior">Superior</option><option value=" superior mid">Superior Mid</option><option value=" mid">Mid</option><option value=" mid inferior">Mid Inferior</option><option value=" inferior">Inferior</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Composition</td>
+			<td class="normal_text"><input alttext="cystic" i-name="ws_thyroid_rt_nodule2_composition" i-tiradgroup="rt_nodule2" i-tiradscore="-1" id="ws_thyroid_rt_nodule2_composition:1" name="ws_thyroid_rt_nodule2_composition" outputtext=" has cystic composition and" type="radio" value="ws_thyroid_rt_nodule2_composition:1" /> <label for="ws_thyroid_rt_nodule2_composition:1" id="ws_thyroid_rt_nodule2_composition:1_label" name="ws_thyroid_rt_nodule2_composition">Cystic</label>&nbsp; &nbsp; <input alttext="spongiform" i-name="ws_thyroid_rt_nodule2_composition" i-tiradgroup="rt_nodule2" i-tiradscore="-1" id="ws_thyroid_rt_nodule2_composition:2" name="ws_thyroid_rt_nodule2_composition" outputtext=" has spongiform composition and" type="radio" value="ws_thyroid_rt_nodule2_composition:2" /> <label for="ws_thyroid_rt_nodule2_composition:2" id="ws_thyroid_rt_nodule2_composition:2_label" name="ws_thyroid_rt_nodule2_composition">Spongiform</label>&nbsp;&nbsp; <input alttext="mixed (cystic/solid)" i-name="ws_thyroid_rt_nodule2_composition" i-tiradgroup="rt_nodule2" i-tiradscore="1" id="ws_thyroid_rt_nodule2_composition:3" name="ws_thyroid_rt_nodule2_composition" outputtext=" has mixed solid/cystic composition and" type="radio" value="ws_thyroid_rt_nodule2_composition:3" /> <label for="ws_thyroid_rt_nodule2_composition:3" id="ws_thyroid_rt_nodule2_composition:3_label" name="ws_thyroid_rt_nodule2_composition">Mixed (solid/cystic)</label>&nbsp;&nbsp; <input alttext="solid" i-name="ws_thyroid_rt_nodule2_composition" i-tiradgroup="rt_nodule2" i-tiradscore="2" id="ws_thyroid_rt_nodule2_composition:4" name="ws_thyroid_rt_nodule2_composition" outputtext=" has solid composition and" type="radio" value="ws_thyroid_rt_nodule2_composition:4" /> <label for="ws_thyroid_rt_nodule2_composition:4" id="ws_thyroid_rt_nodule2_composition:4_label" name="ws_thyroid_rt_nodule2_composition">Solid</label>&nbsp;&nbsp;</td>
+			<!--<input alttext="cystic" i-name="ws_thyroid_rt_nodule2_composition" i-tiradgroup="rt_nodule2" i-tiradscore="-1" id="ws_thyroid_rt_nodule2_composition:1" name="ws_thyroid_rt_nodule2_composition" outputtext="has cystic composition and" type="radio" value="ws_thyroid_rt_nodule2_composition:1" /> 
+							<label for="ws_thyroid_rt_nodule2_composition:1" id="ws_thyroid_rt_nodule2_composition:1_label" name="ws_thyroid_rt_nodule2_composition">Cystic&nbsp;</label>&nbsp;&nbsp; 
+							<input alttext="spongiform" i-name="ws_thyroid_rt_nodule2_composition" i-tiradgroup="rt_nodule2" i-tiradscore="-1" id="ws_thyroid_rt_nodule2_composition:2" name="ws_thyroid_rt_nodule2_composition" outputtext="has spongiform composition and" type="radio" value="ws_thyroid_rt_nodule2_composition:2" /> 
+							<label for="ws_thyroid_rt_nodule2_composition:2" id="ws_thyroid_rt_nodule2_composition:2_label" name="ws_thyroid_rt_nodule2_composition">Spongiform</label>&nbsp;&nbsp; 
+							<input alttext="mixed (cystic/solid)" i-name="ws_thyroid_rt_nodule2_composition" i-tiradgroup="rt_nodule2" i-tiradscore="1" id="ws_thyroid_rt_nodule2_composition:3" name="ws_thyroid_rt_nodule2_composition" outputtext="has mixed solid/cystic composition and" type="radio" value="ws_thyroid_rt_nodule2_composition:3" /> 
+							<label for="ws_thyroid_rt_nodule2_composition:3" id="ws_thyroid_rt_nodule2_composition:3_label" name="ws_thyroid_rt_nodule2_composition">Mixed (solid/cystic)&nbsp;</label>&nbsp;&nbsp; 
+							<input alttext="solid" i-name="ws_thyroid_rt_nodule2_composition" i-tiradgroup="rt_nodule2" i-tiradscore="2" id="ws_thyroid_rt_nodule2_composition:4" name="ws_thyroid_rt_nodule2_composition" outputtext="has solid composition and" type="radio" value="ws_thyroid_rt_nodule2_composition:4" /> 
+							<label for="ws_thyroid_rt_nodule2_composition:4" id="ws_thyroid_rt_nodule2_composition:4_label" name="ws_thyroid_rt_nodule2_composition">Solid</label>&nbsp;&nbsp;&nbsp;&nbsp;-->
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="impression_text"><i-snippet i-defaultstring="" i-diffvaluehigh="49.99" i-diffvaluelow="49.98" i-greaterthantemplate="Nodule %i1 right lobe%s6%s7 measures %s1 x %s2 x %s3 with significant growth (%s4) since %s5.\n-" i-indexes="nodules" i-lessthantemplate="Nodule %i1 right lobe%s6%s7 measures %s1 x %s2 x %s3 insignificant size change (%s4) since %s5.\n-" i-name="ws_nodule_finding_2" i-options="defaultvalue:;saveempty:false;delimstr:, ;" i-template="Nodule %i1 right lobe%s6%s7 measures %s1 x %s2 x %s3.\n-" i-testvar="rt_nod2_percentgrowth" i-type="i-string" i-variables="rt_thyroid_nodule2_len;rt_thyroid_nodule2_AP;rt_thyroid_nodule2_trv;rt_nod2_percentgrowth;study_date_p2;ws_thyroid_rt_nodule2_loc;ws_thyroid_rt_nodule2_composition:1" id="ws_nodule_finding_2" style="i-showlabel:false;">Nodule 2 right lobe superior mid measures 1.46 cm x 1.10 cm x 1.21 cm (L x AP x TRV). ACR TI-RADS: -</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_rt_nodule2_cmts" id="ws_thyroid_rt_nodule2_cmts" name="ws_thyroid_rt_nodule2_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-------------------------Right nodule 3 ----------------------------------------------------------></p>
+</i-snippet></div>
+
+<div><i-snippet i-show="rt_thyroid_nodule3_len" i-type="i-collapse" style="display: none;"> <i-snippet i-hide="ws_thyroid_rt_nodule3_composition:1;ws_thyroid_rt_nodule3_composition:2" i-hidetargets="RtNode3Echogenicity;RtNode3TallerThanWide;RtNode3Margins;RtNode3EchogenicFoci" i-show="ws_thyroid_rt_nodule3_composition:3;ws_thyroid_rt_nodule3_composition:4" i-showtargets="RtNode3Echogenicity;RtNode3TallerThanWide;RtNode3Margins;RtNode3EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Right Nodule %i1" i-type="i-string">Right Nodule 2</i-snippet></td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule3_len" groupguidkey="" i-imshowlabel="true" id="rt_thyroid_nodule3_len" title="rt_thyroid_nodule3_len">rt_thyroid_nodule3...</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule3_AP" groupguidkey="" i-imshowlabel="true" id="rt_thyroid_nodule3_AP" title="rt_thyroid_nodule3_AP">rt_thyroid_nodule3...</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule3_trv" groupguidkey="" i-imshowlabel="true" id="rt_thyroid_nodule3_trv" title="rt_thyroid_nodule3_trv">rt_thyroid_nodule3...</mvalue>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp; <i-calc calc="ProlateVolume" i-name="rt_nodule3_volume" id="rt_nodule3_volume" tantpos="" tlength="" ttranv="">--</i-calc>&nbsp;)&nbsp;<br />
+			<!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date_p1" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1" title="study_date_p1">study_date_p1</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="rt_thyroid_nodule3_len" groupguidkey="" i-prior="1" title="rt_thyroid_nodule3_len">rt_thyroid_nodule3_len</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule3_AP" groupguidkey="" i-imshowlabel="true" i-prior="1" title="rt_thyroid_nodule3_AP">rt_thyroid_nodule3_AP</mvalue>x <mvalue class="mapped" groupdesc="rt_thyroid_nodule3_trv" groupguidkey="" i-imshowlabel="true" i-prior="1" title="rt_thyroid_nodule3_trv">rt_thyroid_nodule3_trv</mvalue>&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text"><select i-name="ws_thyroid_rt_nodule3_loc" id="ws_thyroid_rt_nodule3_loc" name="ws_thyroid_rt_nodule3_loc" style=""><option selected="selected" value=""></option><option value=" superior">Superior</option><option value=" superior mid">Superior Mid</option><option value=" mid">Mid</option><option value=" mid inferior">Mid Inferior</option><option value=" inferior">Inferior</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Composition</td>
+			<td class="normal_text"><input alttext="cystic" i-name="ws_thyroid_rt_nodule3_composition" i-tiradgroup="rt_nodule3" i-tiradscore="-1" id="ws_thyroid_rt_nodule3_composition:1" name="ws_thyroid_rt_nodule3_composition" outputtext=" has cystic composition and" type="radio" value="ws_thyroid_rt_nodule3_composition:1" /> <label for="ws_thyroid_rt_nodule3_composition:1" id="ws_thyroid_rt_nodule3_composition:1_label" name="ws_thyroid_rt_nodule3_composition">Cystic</label>&nbsp; &nbsp; <input alttext="has spongiform composition and" i-name="ws_thyroid_rt_nodule3_composition" i-tiradgroup="rt_nodule3" i-tiradscore="-1" id="ws_thyroid_rt_nodule3_composition:2" name="ws_thyroid_rt_nodule3_composition" outputtext=" has spongiform composition and" type="radio" value="ws_thyroid_rt_nodule3_composition:2" /> <label for="ws_thyroid_rt_nodule3_composition:2" id="ws_thyroid_rt_nodule3_composition:2_label" name="ws_thyroid_rt_nodule3_composition">Spongiform</label>&nbsp;&nbsp; <input alttext="mixed (cystic/solid)" i-name="ws_thyroid_rt_nodule3_composition" i-tiradgroup="rt_nodule3" i-tiradscore="1" id="ws_thyroid_rt_nodule3_composition:3" name="ws_thyroid_rt_nodule3_composition" outputtext=" has mixed solid/cystic composition and" type="radio" value="ws_thyroid_rt_nodule3_composition:3" /> <label for="ws_thyroid_rt_nodule3_composition:3" id="ws_thyroid_rt_nodule3_composition:3_label" name="ws_thyroid_rt_nodule3_composition">Mixed (solid/cystic)</label>&nbsp;&nbsp; <input alttext="solid" i-name="ws_thyroid_rt_nodule3_composition" i-tiradgroup="rt_nodule3" i-tiradscore="2" id="ws_thyroid_rt_nodule3_composition:4" name="ws_thyroid_rt_nodule3_composition" outputtext=" has solid composition and" type="radio" value="ws_thyroid_rt_nodule3_composition:4" /> <label for="ws_thyroid_rt_nodule3_composition:4" id="ws_thyroid_rt_nodule3_composition:4_label" name="ws_thyroid_rt_nodule3_composition">Solid</label></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="normal_text"><i-snippet class="impression_text" i-defaultstring="" i-diffvaluehigh="49.99" i-diffvaluelow="49.98" i-greaterthantemplate="Nodule %i1 right lobe%s6%s7 measures %s1 x %s2 x %s3 with significant growth (%s4) since %s5.\n-" i-indexes="nodules" i-lessthantemplate="Nodule %i1 right lobe%s6%s7 measures %s1 x %s2 x %s3 insignificant size change (%s4) since %s5.\n-" i-name="ws_nodule_finding_3" i-options="defaultvalue:;saveempty:false;delimstr:, ;" i-template="Nodule %i1 right lobe%s6%s7 measures %s1 x %s2 x %s3.\n-" i-testvar="rt_nod3_percentgrowth" i-type="i-string" i-variables="rt_thyroid_nodule3_len;rt_thyroid_nodule3_AP;rt_thyroid_nodule3_trv;rt_nod3_percentgrowth;study_date_p3;ws_thyroid_rt_nodule3_loc;ws_thyroid_rt_nodule3_composition:1" id="ws_nodule_finding_3" style="i-showlabel:false;">Nodule 2 right lobe%s6%s7 measures %s1 x %s2 x %s3.<br />
+			-</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_rt_nodule3_cmts" id="ws_thyroid_rt_nodule3_cmts" name="ws_thyroid_rt_nodule3_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-------------------------------------Isthmus Nodule 1 -----------------------------------------------></p>
+</i-snippet></div>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-id1="ws_isthmus_Lobectomy:1" i-type="i-collapse" style="display: block;">
+<div><i-snippet i-show="isthmus_nodule1_len" i-type="i-collapse" style=""> <i-snippet i-hide="ws_isthmus_nodule1_composition:1;ws_isthmus_nodule1_composition:2" i-hidetargets="IsthmusNode1Echogenicity;IsthmusNode1TallerThanWide;IsthmusNode1Margins;IsthmusNode1EchogenicFoci" i-show="ws_isthmus_nodule1_composition:3;ws_isthmus_nodule1_composition:4" i-showtargets="IsthmusNode1Echogenicity;IsthmusNode1TallerThanWide;IsthmusNode1Margins;IsthmusNode1EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Isthmus Nodule %i1" i-type="i-string">Isthmus Nodule 3</i-snippet></td>
+			<td class="measurement_text">&nbsp; <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_len" groupguidkey="7e339515-6a4c-4393-9bc7-e05486f239b5" i-imshowlabel="true" id="isthmus_nodule1_len" title="isthmus_nodule1_len(2.81 cm)">isthmus_nodule1_le...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_AP" groupguidkey="4ef753dd-fa72-4015-a039-f065767a5e24" i-imshowlabel="true" id="isthmus_nodule1_AP" title="isthmus_nodule1_AP(1.76 cm)">isthmus_nodule1_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_trv" groupguidkey="" i-imshowlabel="true" id="isthmus_nodule1_trv" title="isthmus_nodule1_trv(1.83 cm)">isthmus_nodule1_tr...</mvalue>&nbsp;&nbsp;&nbsp;(&nbsp; <i-calc calc="ProlateVolume" i-name="IsthmusNod1Volume" id="isthmus_nod1_volume" tantpos="4ef753dd-fa72-4015-a039-f065767a5e24" tlength="7e339515-6a4c-4393-9bc7-e05486f239b5" ttranv="">4.74 cm3</i-calc>&nbsp; <i-calc calc="Interval Growth" class="ninterval" i-precision="1" id="isthmus_nod1_percentgrowth" id-new="isthmus_nod1_volume" im-old="a9144a03-e37e-4d87-857f-e0d319934022:1">--</i-calc>)&nbsp;<br />
+			<!-- m-old="a9144a03-e37e-4d87-857f-e0d319934022:1" --> &nbsp; <!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date_p1" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1" title="study_date_p1">study_date_p1</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_len" groupguidkey="7e339515-6a4c-4393-9bc7-e05486f239b5" i-prior="1" title="isthmus_nodule1_len">isthmus_nodule1_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_AP" groupguidkey="4ef753dd-fa72-4015-a039-f065767a5e24" i-imshowlabel="true" i-prior="1" title="isthmus_nodule1_AP">isthmus_nodule1_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_trv" groupguidkey="" i-imshowlabel="true" i-prior="1" title="isthmus_nodule1_trv">isthmus_nodule1_trv</mvalue>&nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="Isthmusnodule1volume" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="1" id="isthmus_nodule1_volume" title="Isthmusnodule1volume">Isthmusnodule1volume</mvalue>&nbsp; <i-calc calc="Interval Growth" class="pinterval" i-precision="1" im-new="a9144a03-e37e-4d87-857f-e0d319934022:1" im-old="a9144a03-e37e-4d87-857f-e0d319934022:2">--</i-calc>)&nbsp;<br />
+			&nbsp; <!--start prior2 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="2" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_len" groupguidkey="7e339515-6a4c-4393-9bc7-e05486f239b5" i-prior="2" title="isthmus_nodule1_len">isthmus_nodule1_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_AP" groupguidkey="4ef753dd-fa72-4015-a039-f065767a5e24" i-imshowlabel="true" i-prior="2" title="isthmus_nodule1_AP">isthmus_nodule1_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_trv" groupguidkey="" i-imshowlabel="true" i-prior="2" title="isthmus_nodule1_trv">isthmus_nodule1_trv</mvalue>&nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="Isthmusnodule1volume" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="2" title="Isthmusnodule1volume">Isthmusnodule1volume</mvalue> &nbsp; <i-calc calc="Interval Growth" class="ninterval" i-precision="1" im-new="a9144a03-e37e-4d87-857f-e0d319934022:2" im-old="a9144a03-e37e-4d87-857f-e0d319934022:3">--</i-calc>)&nbsp;<br />
+			&nbsp; <!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="3" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_len" groupguidkey="7e339515-6a4c-4393-9bc7-e05486f239b5" i-prior="3" title="isthmus_nodule1_len">isthmus_nodule1_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_AP" groupguidkey="4ef753dd-fa72-4015-a039-f065767a5e24" i-imshowlabel="true" i-prior="3" title="isthmus_nodule1_AP">isthmus_nodule1_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule1_trv" groupguidkey="" i-imshowlabel="true" i-prior="3" title="isthmus_nodule1_trv">isthmus_nodule1_trv</mvalue> &nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="Isthmusnodule1volume" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="3" title="Isthmusnodule1volume">Isthmusnodule1volume</mvalue> &nbsp;)&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text">&nbsp; <select i-name="ws_isthmus_nodule1_loc" id="ws_isthmus_nodule1_loc" name="ws_isthmus_nodule1_loc" style=" display: inline-block;"><option selected="selected" value=""></option><option value=" superior">Superior</option><option value=" mid">Mid</option><option value=" inferior">Inferior</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Composition</td>
+			<td class="normal_text"><input alttext="cystic" i-name="ws_isthmus_nodule1_composition" i-tiradgroup="isthmus_nodule1" i-tiradscore="-1" id="ws_isthmus_nodule1_composition:1" name="ws_isthmus_nodule1_composition" outputtext=" has cystic composition and" type="radio" value="ws_isthmus_nodule1_composition:1" /> <label for="ws_isthmus_nodule1_composition:1" id="ws_isthmus_nodule1_composition:1_label" name="ws_isthmus_nodule1_composition">Cystic&nbsp;</label>&nbsp;&nbsp; <input alttext="spongiform" i-name="ws_isthmus_nodule1_composition" i-tiradgroup="isthmus_nodule1" i-tiradscore="-1" id="ws_isthmus_nodule1_composition:2" name="ws_isthmus_nodule1_composition" outputtext=" has spongiform composition and" type="radio" value="ws_isthmus_nodule1_composition:2" /> <label for="ws_isthmus_nodule1_composition:2" id="ws_isthmus_nodule1_composition:2_label" name="ws_isthmus_nodule1_composition">Spongiform</label>&nbsp;&nbsp; <input alttext="mixed (cystic/solid)" i-name="ws_isthmus_nodule1_composition" i-tiradgroup="isthmus_nodule1" i-tiradscore="1" id="ws_isthmus_nodule1_composition:3" name="ws_isthmus_nodule1_composition" outputtext=" has mixed solid/cystic composition and" type="radio" value="ws_isthmus_nodule1_composition:3" /> <label for="ws_isthmus_nodule1_composition:3" id="ws_isthmus_nodule1_composition:3_label" name="ws_isthmus_nodule1_composition">Mixed (solid/cystic)&nbsp;</label>&nbsp;&nbsp; <input alttext="Solid" i-name="ws_isthmus_nodule1_composition" i-tiradgroup="isthmus_nodule1" i-tiradscore="2" id="ws_isthmus_nodule1_composition:4" name="ws_isthmus_nodule1_composition" outputtext=" has solid composition and" type="radio" value="ws_isthmus_nodule1_composition:4" /> <label for="ws_isthmus_nodule1_composition:4" id="ws_isthmus_nodule1_composition:4_label" name="ws_isthmus_nodule1_composition">Solid</label></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td><i-snippet class="impression_text" i-defaultstring="" i-diffvaluehigh="49.99" i-diffvaluelow="49.98" i-greaterthantemplate="Nodule %i1 isthmus lobe%s6%s7 measures %s1 x %s2 x %s3 with significant growth (%s4) since %s5.\n-" i-indexes="nodules" i-lessthantemplate="Nodule %i1 isthmus lobe%s6%s7 measures %s1 x %s2 x %s3 insignificant size change (%s4) since %s5.\n-" i-name="ws_nodule_finding_4" i-options="defaultvalue:;saveempty:false;delimstr:, ;" i-template="Nodule %i1 isthmus lobe%s6%s7 measures %s1 x %s2 x %s3.\n-" i-testvar="isthmus_nod1_percentgrowth" i-type="i-string" i-variables="isthmus_nodule1_len;isthmus_nodule1_AP;isthmus_nodule1_trv;isthmus_nod1_percentgrowth;study_date_p1;ws_isthmus_nodule1_loc;ws_isthmus_nodule1_composition:1" id="ws_nodule_finding_4" style="i-showlabel:false;">Nodule 3 isthmus lobe mid measures 2.81 cm x 1.76 cm x 1.83 cm (L x AP x TRV). ACR TI-RADS: -</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_isthmus_nodule1_cmts" id="ws_isthmus_nodule1_cmts" name="ws_isthmus_nodule1_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-------------------------------------Isthmus Nodule 2 -----------------------------------------------></p>
+</i-snippet></div>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-id1="ws_isthmus_Lobectomy:1" i-type="i-collapse" style="display: block;">
+<div><i-snippet i-show="isthmus_nodule2_len" i-type="i-collapse" style="display: none;"> <i-snippet i-hide="ws_isthmus_nodule2_composition:1;ws_isthmus_nodule2_composition:2" i-hidetargets="IsthmusNode2Echogenicity;IsthmusNode2TallerThanWide;IsthmusNode2Margins;IsthmusNode2EchogenicFoci" i-show="ws_isthmus_nodule2_composition:3;ws_isthmus_nodule2_composition:4" i-showtargets="IsthmusNode2Echogenicity;IsthmusNode2TallerThanWide;IsthmusNode2Margins;IsthmusNode2EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Isthmus Nodule %i1" i-type="i-string">Isthmus Nodule 3</i-snippet></td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_len" groupguidkey="3d53be80-f0d6-43a3-8820-bd0717df7be5" i-imshowlabel="true" id="isthmus_nodule2_len" title="isthmus_nodule2_len">isthmus_nodule2_le...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_AP" groupguidkey="14294aa2-0c5f-406f-9bba-ed7c65023a7b" i-imshowlabel="true" id="isthmus_nodule2_AP" title="isthmus_nodule2_AP">isthmus_nodule2_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_trv" groupguidkey="9d81385a-3f79-4e19-aeaa-b87046516b4e" i-imshowlabel="true" id="isthmus_nodule2_trv" title="isthmus_nodule2_trv">isthmus_nodule2_tr...</mvalue>&nbsp;&nbsp;&nbsp;(&nbsp; <i-calc calc="ProlateVolume" i-name="IsthmusNod2Volume" id="isthmus_nod2_volume" tantpos="14294aa2-0c5f-406f-9bba-ed7c65023a7b" tlength="3d53be80-f0d6-43a3-8820-bd0717df7be5" ttranv="9d81385a-3f79-4e19-aeaa-b87046516b4e">--</i-calc>&nbsp; <i-calc calc="Interval Growth" class="ninterval" i-precision="1" id="isthmus_nod2_percentgrowth" id-new="isthmus_nod2_volume" im-old="a9144a03-e37e-4d87-857f-e0d319934022:1">--</i-calc>)&nbsp;<br />
+			<!-- m-old="a9144a03-e37e-4d87-857f-e0d319934022:1" --> &nbsp; <!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date_p1" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1" title="study_date_p1">study_date_p1</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_len" groupguidkey="3d53be80-f0d6-43a3-8820-bd0717df7be5" i-prior="1" title="isthmus_nodule2_len">isthmus_nodule2_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_AP" groupguidkey="14294aa2-0c5f-406f-9bba-ed7c65023a7b" i-imshowlabel="true" i-prior="1" title="isthmus_nodule2_AP">isthmus_nodule2_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_trv" groupguidkey="9d81385a-3f79-4e19-aeaa-b87046516b4e" i-imshowlabel="true" i-prior="1" title="isthmus_nodule2_trv">isthmus_nodule2_trv</mvalue>&nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="Isthmusnodule2volume" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="1" id="isthmus_nodule2_volume" title="Isthmusnodule2volume">Isthmusnodule2volume</mvalue>&nbsp; <i-calc calc="Interval Growth" class="pinterval" i-precision="1" im-new="a9144a03-e37e-4d87-857f-e0d319934022:1" im-old="a9144a03-e37e-4d87-857f-e0d319934022:2">--</i-calc>)&nbsp;<br />
+			&nbsp; <!--start prior2 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="2" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_len" groupguidkey="3d53be80-f0d6-43a3-8820-bd0717df7be5" i-prior="2" title="isthmus_nodule2_len">isthmus_nodule2_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_AP" groupguidkey="14294aa2-0c5f-406f-9bba-ed7c65023a7b" i-imshowlabel="true" i-prior="2" title="isthmus_nodule2_AP">isthmus_nodule2_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_trv" groupguidkey="9d81385a-3f79-4e19-aeaa-b87046516b4e" i-imshowlabel="true" i-prior="2" title="isthmus_nodule2_trv">isthmus_nodule2_trv</mvalue>&nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="Isthmusnodule2volume" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="2" title="Isthmusnodule2volume">Isthmusnodule2volume</mvalue> &nbsp; <i-calc calc="Interval Growth" class="ninterval" i-precision="1" im-new="a9144a03-e37e-4d87-857f-e0d319934022:2" im-old="a9144a03-e37e-4d87-857f-e0d319934022:3">--</i-calc>)&nbsp;<br />
+			&nbsp; <!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="3" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_len" groupguidkey="3d53be80-f0d6-43a3-8820-bd0717df7be5" i-prior="3" title="isthmus_nodule2_len">isthmus_nodule2_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_AP" groupguidkey="14294aa2-0c5f-406f-9bba-ed7c65023a7b" i-imshowlabel="true" i-prior="3" title="isthmus_nodule2_AP">isthmus_nodule2_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule2_trv" groupguidkey="9d81385a-3f79-4e19-aeaa-b87046516b4e" i-imshowlabel="true" i-prior="3" title="isthmus_nodule2_trv">isthmus_nodule2_trv</mvalue> &nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="Isthmusnodule2volume" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="3" title="Isthmusnodule2volume">Isthmusnodule2volume</mvalue> &nbsp;)&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text">&nbsp; <select i-name="ws_isthmus_nodule2_loc" id="ws_isthmus_nodule2_loc" name="ws_isthmus_nodule2_loc" style=" display: inline-block;"><option selected="selected" value=""></option><option value=" superior">Superior</option><option value=" mid">Mid</option><option value=" inferior">Inferior</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Composition</td>
+			<td class="normal_text"><input alttext="cystic" i-name="ws_isthmus_nodule2_composition" i-tiradgroup="isthmus_nodule2" i-tiradscore="-1" id="ws_isthmus_nodule2_composition:1" name="ws_isthmus_nodule2_composition" outputtext=" has cystic composition and" type="radio" value="ws_isthmus_nodule2_composition:1" /> <label for="ws_isthmus_nodule2_composition:1" id="ws_isthmus_nodule2_composition:1_label" name="ws_isthmus_nodule2_composition">Cystic&nbsp;</label>&nbsp;&nbsp; <input alttext="spongiform" i-name="ws_isthmus_nodule2_composition" i-tiradgroup="isthmus_nodule2" i-tiradscore="-1" id="ws_isthmus_nodule2_composition:2" name="ws_isthmus_nodule2_composition" outputtext=" has spongiform composition and" type="radio" value="ws_isthmus_nodule2_composition:2" /> <label for="ws_isthmus_nodule2_composition:2" id="ws_isthmus_nodule2_composition:2_label" name="ws_isthmus_nodule2_composition">Spongiform</label>&nbsp;&nbsp; <input alttext="mixed (cystic/solid)" i-name="ws_isthmus_nodule2_composition" i-tiradgroup="isthmus_nodule2" i-tiradscore="1" id="ws_isthmus_nodule2_composition:3" name="ws_isthmus_nodule2_composition" outputtext=" has mixed solid/cystic composition and" type="radio" value="ws_isthmus_nodule2_composition:3" /> <label for="ws_isthmus_nodule2_composition:3" id="ws_isthmus_nodule2_composition:3_label" name="ws_isthmus_nodule2_composition">Mixed (solid/cystic)&nbsp;</label>&nbsp;&nbsp; <input alttext="Solid" i-name="ws_isthmus_nodule2_composition" i-tiradgroup="isthmus_nodule2" i-tiradscore="2" id="ws_isthmus_nodule2_composition:4" name="ws_isthmus_nodule2_composition" outputtext=" has solid composition and" type="radio" value="ws_isthmus_nodule2_composition:4" /> <label for="ws_isthmus_nodule2_composition:4" id="ws_isthmus_nodule2_composition:4_label" name="ws_isthmus_nodule2_composition">Solid</label>&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td><i-snippet class="impression_text" i-defaultstring="" i-diffvaluehigh="49.99" i-diffvaluelow="49.98" i-greaterthantemplate="Nodule %i1 isthmus lobe%s6%s7 measures %s1 x %s2 x %s3 with significant growth (%s4) since %s5.\n-" i-indexes="nodules" i-lessthantemplate="Nodule %i1 isthmus lobe%s6%s7 measures %s1 x %s2 x %s3 insignificant size change (%s4) since %s5.\n-" i-name="ws_nodule_finding_5" i-options="defaultvalue:;saveempty:false;delimstr:, ;" i-template="Nodule %i1 isthmus lobe%s6%s7 measures %s1 x %s2 x %s3.\n-" i-testvar="isthmus_nod1_percentgrowth" i-type="i-string" i-variables="isthmus_nodule2_len;isthmus_nodule2_AP;isthmus_nodule2_trv;isthmus_nod2_percentgrowth;study_date_p1;ws_isthmus_nodule2_loc;ws_isthmus_nodule2_composition:1" id="ws_nodule_finding_5" style="i-showlabel:false;">Nodule 3 isthmus lobe%s6%s7 measures %s1 x %s2 x %s3.<br />
+			-</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_isthmus_nodule2_cmts" id="ws_isthmus_nodule2_cmts" name="ws_isthmus_nodule2_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-------------------------------------Isthmus Nodule 3 -----------------------------------------------></p>
+</i-snippet></div>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-id1="ws_isthmus_Lobectomy:1" i-type="i-collapse" style="display: block;">
+<div><i-snippet i-show="isthmus_nodule3_len" i-type="i-collapse" style="display: none;"> <i-snippet i-hide="ws_isthmus_nodule3_composition:1;ws_isthmus_nodule3_composition:2" i-hidetargets="IsthmusNode3Echogenicity;IsthmusNode3TallerThanWide;IsthmusNode3Margins;IsthmusNode3EchogenicFoci" i-show="ws_isthmus_nodule3_composition:3;ws_isthmus_nodule3_composition:4" i-showtargets="IsthmusNode3Echogenicity;IsthmusNode3TallerThanWide;IsthmusNode3Margins;IsthmusNode3EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Isthmus Nodule %i1" i-type="i-string">Isthmus Nodule 3</i-snippet></td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_len" groupguidkey="02c5932b-0300-48bd-a9e6-bb4bdf9ebe09" i-imshowlabel="true" id="isthmus_nodule3_len" title="isthmus_nodule3_len">isthmus_nodule3_le...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_AP" groupguidkey="12379046-77cd-43a2-a516-ef5d512ff358" i-imshowlabel="true" id="isthmus_nodule3_AP" title="isthmus_nodule3_AP">isthmus_nodule3_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_trv" groupguidkey="23e70bb4-1aa9-4b61-a108-6fa29a63c94f" i-imshowlabel="true" id="isthmus_nodule3_trv" title="isthmus_nodule3_trv">isthmus_nodule3_tr...</mvalue>&nbsp;&nbsp;&nbsp;(&nbsp; <i-calc calc="ProlateVolume" i-name="IsthmusNod3Volume" id="isthmus_nod3_volume" tantpos="12379046-77cd-43a2-a516-ef5d512ff358" tlength="02c5932b-0300-48bd-a9e6-bb4bdf9ebe09" ttranv="23e70bb4-1aa9-4b61-a108-6fa29a63c94f">--</i-calc>&nbsp; <i-calc calc="Interval Growth" class="ninterval" i-precision="1" id="isthmus_nod3_percentgrowth" id-new="isthmus_nod3_volume" im-old="a9144a03-e37e-4d87-857f-e0d319934022:1">--</i-calc>)&nbsp;<br />
+			&nbsp; <!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date_p1" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1" title="study_date_p1">study_date_p1</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_len" groupguidkey="02c5932b-0300-48bd-a9e6-bb4bdf9ebe09" i-prior="1" title="isthmus_nodule3_len">isthmus_nodule3_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_AP" groupguidkey="12379046-77cd-43a2-a516-ef5d512ff358" i-imshowlabel="true" i-prior="1" title="isthmus_nodule3_AP">isthmus_nodule3_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_trv" groupguidkey="23e70bb4-1aa9-4b61-a108-6fa29a63c94f" i-imshowlabel="true" i-prior="1" title="isthmus_nodule3_trv">isthmus_nodule3_trv</mvalue>&nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="Isthmusnodule3volume" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="1" id="isthmus_nodule3_volume" title="Isthmusnodule3volume">Isthmusnodule3volume</mvalue>&nbsp; <i-calc calc="Interval Growth" class="pinterval" i-precision="1" im-new="a9144a03-e37e-4d87-857f-e0d319934022:1" im-old="a9144a03-e37e-4d87-857f-e0d319934022:2">--</i-calc>)&nbsp;<br />
+			&nbsp; <!--start prior2 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="2" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_len" groupguidkey="02c5932b-0300-48bd-a9e6-bb4bdf9ebe09" i-prior="2" title="isthmus_nodule3_len">isthmus_nodule3_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_AP" groupguidkey="12379046-77cd-43a2-a516-ef5d512ff358" i-imshowlabel="true" i-prior="2" title="isthmus_nodule3_AP">isthmus_nodule3_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_trv" groupguidkey="23e70bb4-1aa9-4b61-a108-6fa29a63c94f" i-imshowlabel="true" i-prior="2" title="isthmus_nodule3_trv">isthmus_nodule3_trv</mvalue>&nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="Isthmusnodule3volume" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="2" title="Isthmusnodule3volume">Isthmusnodule3volume</mvalue> &nbsp; <i-calc calc="Interval Growth" class="ninterval" i-precision="1" im-new="a9144a03-e37e-4d87-857f-e0d319934022:2" im-old="a9144a03-e37e-4d87-857f-e0d319934022:3">--</i-calc>)&nbsp;<br />
+			&nbsp; <!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="3" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_len" groupguidkey="02c5932b-0300-48bd-a9e6-bb4bdf9ebe09" i-prior="3" title="isthmus_nodule3_len">isthmus_nodule3_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_AP" groupguidkey="12379046-77cd-43a2-a516-ef5d512ff358" i-imshowlabel="true" i-prior="3" title="isthmus_nodule3_AP">isthmus_nodule3_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="isthmus_nodule3_trv" groupguidkey="23e70bb4-1aa9-4b61-a108-6fa29a63c94f" i-imshowlabel="true" i-prior="3" title="isthmus_nodule3_trv">isthmus_nodule3_trv</mvalue> &nbsp;&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="Isthmusnodule3volume" groupguidkey="a9144a03-e37e-4d87-857f-e0d319934022" i-prior="3" title="Isthmusnodule3volume">Isthmusnodule3volume</mvalue> &nbsp;)&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td font-size:18px="">&nbsp; <select i-name="ws_isthmus_nodule3_loc" id="ws_isthmus_nodule3_loc" name="ws_isthmus_nodule3_loc" style=" display: inline-block;"><option selected="selected" value=""></option><option value=" superior">Superior</option><option value=" mid">Mid</option><option value=" inferior">Inferior</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Composition</td>
+			<td class="normal_text"><input alttext="cystic" i-name="ws_isthmus_nodule3_composition" i-tiradgroup="isthmus_nodule3" i-tiradscore="-1" id="ws_isthmus_nodule3_composition:1" name="ws_isthmus_nodule3_composition" outputtext=" has cystic composition and" type="radio" value="ws_isthmus_nodule3_composition:1" /> <label for="ws_isthmus_nodule3_composition:1" id="ws_isthmus_nodule3_composition:1_label" name="ws_isthmus_nodule3_composition">Cystic&nbsp;</label>&nbsp;&nbsp; <input alttext="spongiform" i-name="ws_isthmus_nodule3_composition" i-tiradgroup="isthmus_nodule3" i-tiradscore="-1" id="ws_isthmus_nodule3_composition:2" name="ws_isthmus_nodule3_composition" outputtext=" has spongiform composition and" type="radio" value="ws_isthmus_nodule3_composition:2" /> <label for="ws_isthmus_nodule3_composition:2" id="ws_isthmus_nodule3_composition:2_label" name="ws_isthmus_nodule3_composition">Spongiform</label>&nbsp;&nbsp; <input alttext="mixed (cystic/solid)" i-name="ws_isthmus_nodule3_composition" i-tiradgroup="isthmus_nodule3" i-tiradscore="1" id="ws_isthmus_nodule3_composition:3" name="ws_isthmus_nodule3_composition" outputtext=" has mixed solid/cystic composition and" type="radio" value="ws_isthmus_nodule3_composition:3" /> <label for="ws_isthmus_nodule3_composition:3" id="ws_isthmus_nodule3_composition:3_label" name="ws_isthmus_nodule3_composition">Mixed (solid/cystic)&nbsp;</label>&nbsp;&nbsp; <input alttext="Solid" i-name="ws_isthmus_nodule3_composition" i-tiradgroup="isthmus_nodule3" i-tiradscore="2" id="ws_isthmus_nodule3_composition:4" name="ws_isthmus_nodule3_composition" outputtext=" has solid composition and" type="radio" value="ws_isthmus_nodule3_composition:4" /> <label for="ws_isthmus_nodule3_composition:4" id="ws_isthmus_nodule3_composition:4_label" name="ws_isthmus_nodule3_composition">Solid</label>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td><i-snippet class="impression_text" i-defaultstring="" i-diffvaluehigh="49.99" i-diffvaluelow="49.98" i-greaterthantemplate="Nodule %i1 isthmus lobe%s6%s7 measures %s1 x %s2 x %s3 with significant growth (%s4) since %s5.\n-" i-indexes="nodules" i-lessthantemplate="Nodule %i1 isthmus lobe%s6%s7 measures %s1 x %s2 x %s3 insignificant size change (%s4) since %s5.\n-" i-name="ws_nodule_finding_6" i-options="defaultvalue:;saveempty:false;delimstr:, ;" i-template="Nodule %i1 isthmus lobe%s6%s7 measures %s1 x %s2 x %s3.\n-" i-testvar="isthmus_nod1_percentgrowth" i-type="i-string" i-variables="isthmus_nodule3_len;isthmus_nodule3_AP;isthmus_nodule3_trv;isthmus_nod3_percentgrowth;study_date_p1;ws_isthmus_nodule3_loc;ws_isthmus_nodule3_composition:1" id="ws_nodule_finding_6" style="i-showlabel:false;">Nodule 3 isthmus lobe%s6%s7 measures %s1 x %s2 x %s3.<br />
+			-</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_isthmus_nodule3_cmts" id="ws_isthmus_nodule3_cmts" name="ws_isthmus_nodule3_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!---------------------left nodule 1 ----------------------------------------------------------------></p>
+</i-snippet></div>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-show="lt_thyroid_nodule1_len" i-type="i-collapse" style=""> <i-snippet i-hide="ws_thyroid_lt_nodule1_composition:1;ws_thyroid_lt_nodule1_composition:2" i-hidetargets="LtNode1Echogenicity;LtNode1TallerThanWide;LtNode1Margins;LtNode1EchogenicFoci" i-show="ws_thyroid_lt_nodule1_composition:3;ws_thyroid_lt_nodule1_composition:4" i-showtargets="LtNode1Echogenicity;LtNode1TallerThanWide;LtNode1Margins;LtNode1EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Left Nodule %i1" i-type="i-string">Left Nodule 4</i-snippet></td>
+			<td class="measurement_text">&nbsp; <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_len" groupguidkey="" i-imshowlabel="true" id="lt_thyroid_nodule1_len" title="lt_thyroid_nodule1_len(1.22 cm)">lt_thyroid_nodule1...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_AP" groupguidkey="" i-imshowlabel="true" id="lt_thyroid_nodule1_AP" title="lt_thyroid_nodule1_AP(1.07 cm)">lt_thyroid_nodule1...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_trv" groupguidkey="" i-imshowlabel="true" id="lt_thyroid_nodule1_trv" title="lt_thyroid_nodule1_trv(1.12 cm)">lt_thyroid_nodule1...</mvalue>&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp; <i-calc calc="ProlateVolume" i-name="lf_nodule1_volume" id="lf_nodule1_volume" tantpos="" tlength="" ttranv="">0.77 cm3</i-calc> <i-calc calc="Interval Growth" class="ninterval" i-precision="1" id="lt_nod1_percentgrowth" id-new="lf_nodule1_volume" im-old="b7bf8a2e-1b0c-4966-bf10-d0247ab88244:1">--</i-calc> )&nbsp;<br />
+			<!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_len" groupguidkey="" i-prior="1" title="lt_thyroid_nodule1_len">lt_thyroid_nodule1_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_AP" groupguidkey="" i-prior="1" title="lt_thyroid_nodule1_AP">lt_thyroid_nodule1_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_trv" groupguidkey="" i-prior="1" title="lt_thyroid_nodule1_trv">lt_thyroid_nodule1_trv</mvalue>&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="lt_nodule1_vol_prior" groupguidkey="b7bf8a2e-1b0c-4966-bf10-d0247ab88244" i-prior="1" title="lt_nodule1_vol_prior">lt_nodule1_vol_prior</mvalue> <i-calc calc="Interval Growth" class="pinterval" i-precision="1" im-new="b7bf8a2e-1b0c-4966-bf10-d0247ab88244:1" im-old="b7bf8a2e-1b0c-4966-bf10-d0247ab88244:2">--</i-calc>&nbsp;)&nbsp;<br />
+			<!--start prior2 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="2" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_len" groupguidkey="" i-prior="2" title="lt_thyroid_nodule1_len">lt_thyroid_nodule1_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_AP" groupguidkey="" i-prior="2" title="lt_thyroid_nodule1_AP">lt_thyroid_nodule1_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_trv" groupguidkey="" i-imshowlabel="true" i-prior="2" title="lt_thyroid_nodule1_trv">lt_thyroid_nodule1_trv</mvalue>&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="lt_nodule1_vol_prior" groupguidkey="b7bf8a2e-1b0c-4966-bf10-d0247ab88244" i-prior="2" title="lt_nodule1_vol_prior">lt_nodule1_vol_prior</mvalue> <i-calc calc="Interval Growth" class="pinterval ninterval" i-precision="1" im-new="b7bf8a2e-1b0c-4966-bf10-d0247ab88244:2" im-old="b7bf8a2e-1b0c-4966-bf10-d0247ab88244:3">--</i-calc>&nbsp;)&nbsp;<br />
+			<!--start prior3 measurements--> <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="3" title="study_date">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_len" groupguidkey="" i-prior="3" title="lt_thyroid_nodule1_len">lt_thyroid_nodule1_len</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_AP" groupguidkey="" i-imshowlabel="true" i-prior="3" title="lt_thyroid_nodule1_AP">lt_thyroid_nodule1_AP</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule1_trv" groupguidkey="" i-imshowlabel="true" i-prior="3" title="lt_thyroid_nodule1_trv">lt_thyroid_nodule1_trv</mvalue>&nbsp;&nbsp;(&nbsp; <mvalue class="highlighted" groupdesc="lt_nodule1_vol_prior" groupguidkey="b7bf8a2e-1b0c-4966-bf10-d0247ab88244" i-prior="3" title="lt_nodule1_vol_prior">lt_nodule1_vol_prior</mvalue>&nbsp;&nbsp;)&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text">&nbsp; <select i-name="ws_thyroid_lt_nodule1_loc" id="ws_thyroid_lt_nodule1_loc" name="ws_thyroid_lt_nodule1_loc" style=" display: inline-block;"><option selected="selected" value=""></option><option value=" superior">Superior</option><option value=" superior mid">Superior Mid</option><option value=" mid">Mid</option><option value=" mid inferior">Mid Inferior</option><option value=" inferior">Inferior</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Composition</td>
+			<td class="normal_text">&nbsp; <input alttext="cystic" i-name="ws_thyroid_lt_nodule1_composition" i-tiradgroup="lt_nodule1" i-tiradscore="-1" id="ws_thyroid_lt_nodule1_composition:1" name="ws_thyroid_lt_nodule1_composition" outputtext=" has cystic composition and" type="radio" value="ws_thyroid_lt_nodule1_composition:1" /> <label for="ws_thyroid_lt_nodule1_composition:1" id="ws_thyroid_lt_nodule1_composition:1_label" name="ws_thyroid_lt_nodule1_composition">Cystic</label>&nbsp; &nbsp; <input alttext="spongiform" i-name="ws_thyroid_lt_nodule1_composition" i-tiradgroup="lt_nodule1" i-tiradscore="-1" id="ws_thyroid_lt_nodule1_composition:2" name="ws_thyroid_lt_nodule1_composition" outputtext=" has spongiform composition and" type="radio" value="ws_thyroid_lt_nodule1_composition:2" /> <label for="ws_thyroid_lt_nodule1_composition:2" id="ws_thyroid_lt_nodule1_composition:2_label" name="ws_thyroid_lt_nodule1_composition">Spongiform</label>&nbsp;&nbsp; <input alttext="mixed (cystic/solid)" i-name="ws_thyroid_lt_nodule1_composition" i-tiradgroup="lt_nodule1" i-tiradscore="1" id="ws_thyroid_lt_nodule1_composition:3" name="ws_thyroid_lt_nodule1_composition" outputtext=" has mixed solid/cystic composition and" type="radio" value="ws_thyroid_lt_nodule1_composition:3" /> <label for="ws_thyroid_lt_nodule1_composition:3" id="ws_thyroid_lt_nodule1_composition:3_label" name="ws_thyroid_lt_nodule1_composition">Mixed (solid/cystic)</label>&nbsp;&nbsp; <input alttext="solid" i-name="ws_thyroid_lt_nodule1_composition" i-tiradgroup="lt_nodule1" i-tiradscore="2" id="ws_thyroid_lt_nodule1_composition:4" name="ws_thyroid_lt_nodule1_composition" outputtext=" has solid composition and" type="radio" value="ws_thyroid_lt_nodule1_composition:4" /> <label for="ws_thyroid_lt_nodule1_composition:4" id="ws_thyroid_lt_nodule1_composition:4_label" name="ws_thyroid_lt_nodule1_composition">Solid</label>&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="normal_text"><i-snippet class="impression_text" i-defaultstring="" i-diffvaluehigh="49.99" i-diffvaluelow="49.98" i-greaterthantemplate="Nodule %i1 left lobe%s6%s7 measures %s1 x %s2 x %s3 with significant growth (%s4) since %s5.\n-" i-indexes="nodules" i-lessthantemplate="Nodule %i1 left lobe%s6%s7 measures %s1 x %s2 x %s3 insignificant size change (%s4) since %s5.\n-" i-name="ws_nodule_finding_7" i-options="defaultvalue:;saveempty:false;delimstr:, ;" i-template="Nodule %i1 left lobe%s6%s7 measures %s1 x %s2 x %s3.\n-" i-testvar="lt_nod1_percentgrowth" i-type="i-string" i-variables="lt_thyroid_nodule1_len;lt_thyroid_nodule1_AP;lt_thyroid_nodule1_trv;lt_nod1_percentgrowth;study_date_p4;ws_thyroid_lt_nodule1_loc;ws_thyroid_lt_nodule1_composition:1" id="ws_nodule_finding_7" style="i-showlabel:false;">Nodule 4 left lobe mid inferior measures 1.22 cm x 1.07 cm x 1.12 cm (L x AP x TRV). ACR TI-RADS: -</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_lt_nodule1_cmts" id="ws_thyroid_lt_nodule1_cmts" name="ws_thyroid_lt_nodule1_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!---------------------left nodule 2 ----------------------------------------------------------------></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-show="lt_thyroid_nodule2_len" i-type="i-collapse" style=""> <i-snippet i-hide="ws_thyroid_lt_nodule2_composition:1;ws_thyroid_lt_nodule2_composition:2" i-hidetargets="LtNode2Echogenicity;LtNode2TallerThanWide;LtNode2Margins;LtNode2EchogenicFoci" i-show="ws_thyroid_lt_nodule2_composition:3;ws_thyroid_lt_nodule2_composition:4" i-showtargets="LtNode2Echogenicity;LtNode2TallerThanWide;LtNode2Margins;LtNode2EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Left Nodule %i1" i-type="i-string">Left Nodule 5</i-snippet></td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule2_len" groupguidkey="" i-imshowlabel="true" id="lt_thyroid_nodule2_len" title="lt_thyroid_nodule2_len(1.38 cm)">lt_thyroid_nodule2...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule2_AP" groupguidkey="" i-imshowlabel="true" id="lt_thyroid_nodule2_AP" title="lt_thyroid_nodule2_AP(0.87 cm)">lt_thyroid_nodule2...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule2_trv" groupguidkey="" i-imshowlabel="true" id="lt_thyroid_nodule2_trv" title="lt_thyroid_nodule2_trv(0.94 cm)">lt_thyroid_nodule2...</mvalue>&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp; <i-calc calc="ProlateVolume" i-name="lf_nodule2_volume" id="lf_nodule2_volume" tantpos="" tlength="" ttranv="">0.59 cm3</i-calc>&nbsp;)&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text">&nbsp; <select i-name="ws_thyroid_lt_nodule2_loc" id="ws_thyroid_lt_nodule2_loc" name="ws_thyroid_lt_nodule2_loc" style=" display: inline-block;"><option selected="selected" value=""></option><option value=" superior">Superior</option><option value=" superior mid">Superior Mid</option><option value=" mid">Mid</option><option value=" mid inferior">Mid Inferior</option><option value=" inferior">Inferior</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Composition</td>
+			<td class="normal_text">&nbsp; <input alttext="cystic" i-name="ws_thyroid_lt_nodule2_composition" i-tiradgroup="lt_nodule2" i-tiradscore="-1" id="ws_thyroid_lt_nodule2_composition:1" name="ws_thyroid_lt_nodule2_composition" outputtext=" has cystic composition and" type="radio" value="ws_thyroid_lt_nodule2_composition:1" /> <label for="ws_thyroid_lt_nodule2_composition:1" id="ws_thyroid_lt_nodule2_composition:1_label" name="ws_thyroid_lt_nodule2_composition">Cystic</label>&nbsp; &nbsp; <input alttext="spongiform" i-name="ws_thyroid_lt_nodule2_composition" i-tiradgroup="lt_nodule2" i-tiradscore="-1" id="ws_thyroid_lt_nodule2_composition:2" name="ws_thyroid_lt_nodule2_composition" outputtext=" has spongiform composition and" type="radio" value="ws_thyroid_lt_nodule2_composition:2" /> <label for="ws_thyroid_lt_nodule2_composition:2" id="ws_thyroid_lt_nodule2_composition:2_label" name="ws_thyroid_lt_nodule2_composition">Spongiform</label>&nbsp;&nbsp; <input alttext="mixed (cystic/solid)" i-name="ws_thyroid_lt_nodule2_composition" i-tiradgroup="lt_nodule2" i-tiradscore="1" id="ws_thyroid_lt_nodule2_composition:3" name="ws_thyroid_lt_nodule2_composition" outputtext=" has mixed solid/cystic composition and" type="radio" value="ws_thyroid_lt_nodule2_composition:3" /> <label for="ws_thyroid_lt_nodule2_composition:3" id="ws_thyroid_lt_nodule2_composition:3_label" name="ws_thyroid_lt_nodule2_composition">Mixed (solid/cystic)</label>&nbsp;&nbsp; <input alttext="solid" i-name="ws_thyroid_lt_nodule2_composition" i-tiradgroup="lt_nodule2" i-tiradscore="2" id="ws_thyroid_lt_nodule2_composition:4" name="ws_thyroid_lt_nodule2_composition" outputtext=" has solid composition and" type="radio" value="ws_thyroid_lt_nodule2_composition:4" /> <label for="ws_thyroid_lt_nodule2_composition:4" id="ws_thyroid_lt_nodule2_composition:4_label" name="ws_thyroid_lt_nodule2_composition">Solid</label>&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="normal_text"><i-snippet class="impression_text" i-defaultstring="" i-diffvaluehigh="49.99" i-diffvaluelow="49.98" i-greaterthantemplate="Nodule %i1 left lobe%s6%s7 measures %s1 x %s2 x %s3 with significant growth (%s4) since %s5.\n-" i-indexes="nodules" i-lessthantemplate="Nodule %i1 left lobe%s6%s7 measures %s1 x %s2 x %s3 insignificant size change (%s4) since %s5.\n-" i-name="ws_nodule_finding_8" i-options="defaultvalue:;saveempty:false;delimstr:, ;" i-template="Nodule %i1 left lobe%s6%s7 measures %s1 x %s2 x %s3.\n-" i-testvar="lt_nod2_percentgrowth" i-type="i-string" i-variables="lt_thyroid_nodule2_len;lt_thyroid_nodule2_AP;lt_thyroid_nodule2_trv;lt_nod2_percentgrowth;study_date_p5;ws_thyroid_lt_nodule2_loc;ws_thyroid_lt_nodule2_composition:1" id="ws_nodule_finding_8" style="i-showlabel:false;">Nodule 5 left lobe inferior measures 1.38 cm x 0.87 cm x 0.94 cm (L x AP x TRV). ACR TI-RADS: -</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_lt_nodule2_cmts" id="ws_thyroid_lt_nodule2_cmts" name="ws_thyroid_lt_nodule2_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!---------------------left nodule 3 ----------------------------------------------------------------></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-show="lt_thyroid_nodule3_len" i-type="i-collapse" style=""> <i-snippet i-hide="ws_thyroid_lt_nodule3_composition:1;ws_thyroid_lt_nodule3_composition:2" i-hidetargets="LtNode3Echogenicity;LtNode3TallerThanWide;LtNode3Margins;LtNode3EchogenicFoci" i-show="ws_thyroid_lt_nodule3_composition:3;ws_thyroid_lt_nodule3_composition:4" i-showtargets="LtNode3Echogenicity;LtNode3TallerThanWide;LtNode3Margins;LtNode3EchogenicFoci" i-type="i-collapse" style="display: none;"> </i-snippet>
+
+<table class="custom_table" i-index="nodules">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="nodules" i-template="Left Nodule %i1" i-type="i-string">Left Nodule 6</i-snippet></td>
+			<td class="measurement_text">&nbsp; <mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp;&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule3_len" groupguidkey="" i-imshowlabel="true" id="lt_thyroid_nodule3_len" title="lt_thyroid_nodule3_len(2.70 cm)">lt_thyroid_nodule3...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule3_AP" groupguidkey="" i-imshowlabel="true" id="lt_thyroid_nodule3_AP" title="lt_thyroid_nodule3_AP(2.67 cm)">lt_thyroid_nodule3...</mvalue>&nbsp;x&nbsp; <mvalue class="mapped" groupdesc="lt_thyroid_nodule3_trv" groupguidkey="" i-imshowlabel="true" id="lt_thyroid_nodule3_trv" title="lt_thyroid_nodule3_trv(2.68 cm)">lt_thyroid_nodule3...</mvalue>&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp; <i-calc calc="ProlateVolume" i-name="lf_nodule3_volume" id="lf_nodule3_volume" tantpos="" tlength="" ttranv="">10.12 cm3</i-calc>&nbsp;)&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text">&nbsp; <select i-name="ws_thyroid_lt_nodule3_loc" id="ws_thyroid_lt_nodule3_loc" name="ws_thyroid_lt_nodule3_loc" style=" display: inline-block;"><option selected="selected" value=""></option><option value=" superior">Superior</option><option value=" superior mid">Superior Mid</option><option value=" mid">Mid</option><option value=" mid inferior">Mid Inferior</option><option value=" inferior">Inferior</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Composition</td>
+			<td class="normal_text"><input alttext="cystic" i-name="ws_thyroid_lt_nodule3_composition" i-tiradgroup="lt_nodule3" i-tiradscore="-1" id="ws_thyroid_lt_nodule3_composition:1" name="ws_thyroid_lt_nodule3_composition" outputtext=" has cystic composition and" type="radio" value="ws_thyroid_lt_nodule3_composition:1" /> <label for="ws_thyroid_lt_nodule3_composition:1" id="ws_thyroid_lt_nodule3_composition:1_label" name="ws_thyroid_lt_nodule3_composition">Cystic</label>&nbsp; &nbsp; <input alttext="spongiform" i-name="ws_thyroid_lt_nodule3_composition" i-tiradgroup="lt_nodule3" i-tiradscore="-1" id="ws_thyroid_lt_nodule3_composition:2" name="ws_thyroid_lt_nodule3_composition" outputtext=" has spongiform composition and" type="radio" value="ws_thyroid_lt_nodule3_composition:2" /> <label for="ws_thyroid_lt_nodule3_composition:2" id="ws_thyroid_lt_nodule3_composition:2_label" name="ws_thyroid_lt_nodule3_composition">Spongiform</label>&nbsp;&nbsp; <input alttext="mixed (cystic/solid)" i-name="ws_thyroid_lt_nodule3_composition" i-tiradgroup="lt_nodule3" i-tiradscore="1" id="ws_thyroid_lt_nodule3_composition:3" name="ws_thyroid_lt_nodule3_composition" outputtext=" has mixed solid/cystic composition and" type="radio" value="ws_thyroid_lt_nodule3_composition:3" /> <label for="ws_thyroid_lt_nodule3_composition:3" id="ws_thyroid_lt_nodule3_composition:3_label" name="ws_thyroid_lt_nodule3_composition">Mixed (solid/cystic)</label>&nbsp;&nbsp; <input alttext="solid" i-name="ws_thyroid_lt_nodule3_composition" i-tiradgroup="lt_nodule3" i-tiradscore="2" id="ws_thyroid_lt_nodule3_composition:4" name="ws_thyroid_lt_nodule3_composition" outputtext=" has solid composition and" type="radio" value="ws_thyroid_lt_nodule3_composition:4" /> <label for="ws_thyroid_lt_nodule3_composition:4" id="ws_thyroid_lt_nodule3_composition:4_label" name="ws_thyroid_lt_nodule3_composition">Solid</label>&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="normal_text"><i-snippet class="impression_text" i-defaultstring="" i-diffvaluehigh="49.99" i-diffvaluelow="49.98" i-greaterthantemplate="Nodule %i1 left lobe%s6%s7 measures %s1 x %s2 x %s3 with significant growth (%s4) since %s5.\n-" i-indexes="nodules" i-lessthantemplate="Nodule %i1 left lobe%s6%s7 measures %s1 x %s2 x %s3 insignificant size change (%s4) since %s5.\n-" i-name="ws_nodule_finding_9" i-options="defaultvalue:;saveempty:false;delimstr:, ;" i-template="Nodule %i1 left lobe%s6%s7 measures %s1 x %s2 x %s3.\n-" i-testvar="lt_nod3_percentgrowth" i-type="i-string" i-variables="lt_thyroid_nodule3_len;lt_thyroid_nodule3_AP;lt_thyroid_nodule3_trv;lt_nod3_percentgrowth;study_date_p6;ws_thyroid_lt_nodule3_loc;ws_thyroid_lt_nodule3_composition:1" id="ws_nodule_finding_9" style="i-showlabel:false;">Nodule 6 left lobe superior measures 2.70 cm x 2.67 cm x 2.68 cm (L x AP x TRV). ACR TI-RADS: -</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_lt_nodule3_cmts" id="ws_thyroid_lt_nodule3_cmts" name="ws_thyroid_lt_nodule3_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-----------------  Neck lymph node default statement w no nodes ---------------------------></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-hide="rt_neck_node1_len;rt_neck_node1_AP;lt_neck_node1_len;lt_neck_node1_AP" i-type="i-collapse" style="">
+<table class="custom_table">
+	<tbody>
+		<tr>
+			<td class="header_text">Neck Lymph</td>
+			<td class="impression_text"><i-snippet i-defaultstring="No suspicious nodes in the lateral compartment of the neck bilaterally." i-name="ws_lymph1_finding1" i-options="defaultvalue:;saveempty:false" i-template="" i-type="i-string" i-variables="rt_neck_node1_len" style="i-showlabel:false;">No suspicious nodes in the lateral compartment of the neck bilaterally.</i-snippet></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-----------------------right Neck lymph node 1 -----------------------------></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-show="rt_neck_node1_len;rt_neck_node1_AP" i-type="i-collapse" style="display: none;">
+<table class="custom_table" i-index="lymph">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph" i-template="Lymph Node %i1" i-type="i-string">Lymph Node 0</i-snippet></td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="rt_neck_node1_len" groupguidkey="" id="rt_neck_node1_len" title="rt_neck_node1_len">rt_neck_node1_len</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node1_AP" groupguidkey="" id="rt_neck_node1_AP" title="rt_neck_node1_AP">rt_neck_node1_AP</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node1_trv" groupguidkey="" id="rt_neck_node1_trv" title="rt_neck_node1_trv">rt_neck_node1_trv</mvalue><br />
+			<!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date_p1" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1" title="study_date_p1">study_date_p1</mvalue>&nbsp; <mvalue class="mapped" groupdesc="rt_neck_node1_len" groupguidkey="" i-prior="1" id="rt_neck_node1_len" title="rt_neck_node1_len">rt_neck_node1_len</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node1_AP" groupguidkey="" i-prior="1" id="rt_neck_node1_AP" title="rt_neck_node1_AP">rt_neck_node1_AP</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node1_trv" groupguidkey="" i-prior="1" id="rt_neck_node1_trv" title="rt_neck_node1_trv">rt_neck_node1_trv</mvalue></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text"><!--<input id="ws_lymph1_l_r:1" name="ws_lymph1_l_r" outputtext="Left" type="radio" value="ws_lymph1_l_r:1" />
+				<label for="ws_lymph1_l_r:1" id="ws_lymph1_l_r:1_label" name="ws_lymph1_l_r">Left&nbsp;</label>&nbsp; 
+				<input id="ws_lymph1_l_r:2" name="ws_lymph1_l_r" outputtext="Right" type="radio" value="ws_lymph1_l_r:2" />
+				<label for="ws_lymph1_l_r:2" id="ws_lymph1_l_r:2_label" name="ws_lymph1_l_r">Right&nbsp;</label> --><select i-name="ws_lymph1_location" id="ws_lymph1_location" name="ws_lymph1_location"><option value="">Level</option><option value=", level IA">IA submental</option><option value=", level IB">IB submandibular</option><option value=", level IIA">IIA upper jugular(anterior)</option><option value=", level IIB">IIB upper jugular(posterior)</option><option value=", level III">III mid jugular</option><option value=", level IV">IV lower jugular</option><option value=", level VA">VA upper posterior triangle</option><option value=", level VB">VB lower posterior triangle</option><option value=", level VI">VI anterior compartment</option><option value=", level VII">VII superior mediastinal</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Characteristics</td>
+			<td class="normal_text"><input checked="checked" id="ws_lymph1_hilum:1" name="ws_lymph1_hilum" outputtext=" fatty hilum" type="radio" value="ws_lymph1_hilum:1" /> <label for="ws_lymph1_hilum:1" id="ws_lymph1_hilum:1_label" name="ws_lymph1_hilum">Fatty Hilum</label> <input id="ws_lymph1_hilum:2" name="ws_lymph1_hilum" outputtext=" no hilum" type="radio" value="ws_lymph1_hilum:2" /> <label for="ws_lymph1_hilum:2" id="ws_lymph1_hilum:2_label" name="ws_lymph1_hilum">No Hilum</label>&nbsp;&nbsp; <input checked="checked" id="ws_lymph1_char_ro:1" name="ws_lymph1_char_ro" outputtext=", oval" type="radio" value="ws_lymph1_char_ro:1" /> <label for="ws_lymph1_char_ro:1" id="ws_lymph1_char_ro:1_label" name="ws_lymph1_char_ro">Oval</label> <input id="ws_lymph1_char_ro:2" name="ws_lymph1_char_ro" outputtext=", round" type="radio" value="ws_lymph1_char_ro:2" /> <label for="ws_lymph1_char_ro:2" id="ws_lymph1_char_ro:2_label" name="ws_lymph1_char_ro">Round</label>&nbsp;&nbsp; <input id="ws_lymph1_char_ro:3" name="ws_lymph1_char_ro" outputtext=", irregular" type="radio" value="ws_lymph1_char_ro:3" /> <label for="ws_lymph1_char_ro:3" id="ws_lymph1_char_ro:3_label" name="ws_lymph1_char_ro">Irregular</label>&nbsp;&nbsp;<br />
+			<input id="ws_lymph1_char:1" name="ws_lymph1_char" outputtext=" vascularity" type="checkbox" value="ws_lymph1_char:1" /> <label for="ws_lymph1_char:1" id="ws_lymph1_char:_label" name="ws_lymph1_char">Vascularity</label> <i-snippet i-show="ws_lymph1_char:1" i-type="i-collapse" style="display: none;"> <input data-ms-editor="true" id="ws_vasc1_desc_char_txt" name="ws_lymph1_char_txt" placeholder="Add vascularity description here" size="53" spellcheck="false" style="width:250px" type="text" /></i-snippet> <input id="ws_lymph1_char:2" name="ws_lymph1_char" outputtext=" calcification" type="checkbox" value="ws_lymph1_char:2" /> <label for="ws_lymph1_char:2" id="ws_lymph1_char:2_label" name="ws_lymph1_char">Calcification</label> <input data-ms-editor="true" id="ws_lymph1_char_txt" name="ws_lymph1_char_txt" placeholder="Add additional comments here" size="53" spellcheck="false" type="text" /></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="impression_text"><i-snippet i-defaultstring="" i-indexes="lymph" i-name="ws_lymph_finding_1" i-options="defaultvalue:;saveempty:false" i-template="Right%s4%s5%s7 lymph node %i1 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.\n-" i-type="i-string" i-variables="rt_neck_node1_len;rt_neck_node1_AP;rt_neck_node1_trv;ws_lymph1_l_r:1;ws_lymph1_location;ws_lymph1_hilum:1;ws_lymph1_char_ro:1;ws_lymph1_char:1;ws_lymph1_char:2;ws_lymph1_char_txt;ws_vasc1_desc_char_txt" id="ws_lymph_finding_1" style="i-showlabel:false;">Right%s4%s5%s7 lymph node 0 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.<br />
+			-</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_lymph1_cmts" id="ws_thyroid_lymph1_cmts" name="ws_thyroid_lymph1_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-----------------  Right Neck lymph node 2 --------------------------------></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-show="rt_neck_node2_len;rt_neck_node2_AP" i-type="i-collapse" style="display: none;">
+<table class="custom_table" i-index="lymph">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph" i-template="Lymph Node %i1" i-type="i-string">Lymph Node 0</i-snippet></td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="rt_neck_node2_len" groupguidkey="" id="rt_neck_node2_len" title="rt_neck_node2_len">rt_neck_node2_len</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node2_AP" groupguidkey="" id="rt_neck_node2_AP" title="rt_neck_node2_AP">rt_neck_node2_AP</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node2_trv" groupguidkey="" id="rt_neck_node2_trv" title="rt_neck_node2_trv">rt_neck_node2_trv</mvalue><br />
+			<!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date_p1" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1" title="study_date_p1">study_date_p1</mvalue>&nbsp; <mvalue class="mapped" groupdesc="rt_neck_node2_len" groupguidkey="" i-prior="1" id="rt_neck_node2_len" title="rt_neck_node2_len">rt_neck_node2_len</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node2_AP" groupguidkey="" i-prior="1" id="rt_neck_node2_AP" title="rt_neck_node2_AP">rt_neck_node2_AP</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node2_trv" groupguidkey="" i-prior="1" id="rt_neck_node2_trv" title="rt_neck_node2_trv">rt_neck_node2_trv</mvalue></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text"><!--<input id="ws_lymph2_l_r:1" name="ws_lymph2_l_r" outputtext="Left" type="radio" value="ws_lymph2_l_r:1" /><label for="ws_lymph2_l_r:1" id="ws_lymph2_l_r:1_label" name="ws_lymph2_l_r">Left&nbsp;</label>&nbsp; <input id="ws_lymph2_l_r:2" name="ws_lymph2_l_r" outputtext="Right" type="radio" value="ws_lymph2_l_r:2" /><label for="ws_lymph2_l_r:2" id="ws_lymph2_l_r:2_label" name="ws_lymph2_l_r">Right&nbsp;</label> --><select i-name="ws_lymph2_location" id="ws_lymph2_location" name="ws_lymph2_location"><option value="">Level</option><option value=", level IA">IA submental</option><option value=", level IB">IB submandibular</option><option value=", level IIA">IIA upper jugular(anterior)</option><option value=", level IIB">IIB upper jugular(posterior)</option><option value=", level III">III mid jugular</option><option value=", level IV">IV lower jugular</option><option value=", level VA">VA upper posterior triangle</option><option value=", level VB">VB lower posterior triangle</option><option value=", level VI">VI anterior compartment</option><option value=", level VII">VII superior mediastinal</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Characteristics</td>
+			<td class="normal_text"><input checked="checked" id="ws_lymph2_hilum:1" name="ws_lymph2_hilum" outputtext=" fatty hilum" type="radio" value="ws_lymph2_hilum:1" /> <label for="ws_lymph2_hilum:1" id="ws_lymph2_hilum:1_label" name="ws_lymph2_hilum">Fatty Hilum</label> <input id="ws_lymph2_hilum:2" name="ws_lymph2_hilum" outputtext=" no hilum" type="radio" value="ws_lymph2_hilum:2" /> <label for="ws_lymph2_hilum:2" id="ws_lymph2_hilum:2_label" name="ws_lymph2_hilum">No Hilum</label>&nbsp;&nbsp; <input checked="checked" id="ws_lymph2_char_ro:1" name="ws_lymph2_char_ro" outputtext=", oval" type="radio" value="ws_lymph2_char_ro:1" /> <label for="ws_lymph2_char_ro:1" id="ws_lymph2_char_ro:1_label" name="ws_lymph2_char_ro">Oval</label> <input id="ws_lymph2_char_ro:2" name="ws_lymph2_char_ro" outputtext=", round" type="radio" value="ws_lymph2_char_ro:2" /> <label for="ws_lymph2_char_ro:2" id="ws_lymph2_char_ro:2_label" name="ws_lymph2_char_ro">Round</label>&nbsp;&nbsp;<input id="ws_lymph2_char_ro:3" name="ws_lymph2_char_ro" outputtext=", irregular" type="radio" value="ws_lymph2_char_ro:3" /> <label for="ws_lymph2_char_ro:3" id="ws_lymph2_char_ro:3_label" name="ws_lymph2_char_ro">Irregular</label>&nbsp;&nbsp;<br />
+			<input id="ws_lymph2_char:1" name="ws_lymph2_char" outputtext=" vascularity" type="checkbox" value="ws_lymph2_char:1" /> <label for="ws_lymph2_char:1" id="ws_lymph2_char:_label" name="ws_lymph2_char">Vascularity</label> <i-snippet i-show="ws_lymph2_char:1" i-type="i-collapse" style="display: none;"><input data-ms-editor="true" id="ws_vasc2_desc_char_txt" name="ws_lymph2_char_txt" placeholder="Add vascularity description here" size="53" spellcheck="false" style="width:250px" type="text" /></i-snippet> <input id="ws_lymph2_char:2" name="ws_lymph2_char" outputtext=" calcification" type="checkbox" value="ws_lymph2_char:2" /> <label for="ws_lymph2_char:2" id="ws_lymph2_char:2_label" name="ws_lymph2_char">Calcification</label> <input data-ms-editor="true" id="ws_lymph2_char_txt" name="ws_lymph2_char_txt" placeholder="Add additional comments here" size="53" spellcheck="false" type="text" /></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="impression_text"><i-snippet i-defaultstring="" i-indexes="lymph" i-name="ws_lymph_finding_2" i-options="defaultvalue:;saveempty:false" i-template="Right%s4%s5%s7 lymph node %i1 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.\n-" i-type="i-string" i-variables="rt_neck_node2_len;rt_neck_node2_AP;rt_neck_node2_trv;ws_lymph2_l_r:1;ws_lymph2_location;ws_lymph2_hilum:1;ws_lymph2_char_ro:1;ws_lymph2_char:1;ws_lymph2_char:2;ws_lymph2_char_txt;ws_vasc2_desc_char_txt" id="ws_lymph_finding_2" style="i-showlabel:false;">Right%s4%s5%s7 lymph node 0 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.<br />
+			-</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_lymph2_cmts" id="ws_thyroid_lymph2_cmts" name="ws_thyroid_lymph2_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-----------------  Right Neck lymph node 3 --------------------------------></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-show="rt_neck_node3_len;rt_neck_node3_AP" i-type="i-collapse" style="display: none;">
+<table class="custom_table" i-index="lymph">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph" i-template="Lymph Node %i1" i-type="i-string">Lymph Node 0</i-snippet></td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="rt_neck_node3_len" groupguidkey="" id="rt_neck_node3_len" title="rt_neck_node3_len">rt_neck_node3_len</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node3_AP" groupguidkey="" id="rt_neck_node3_AP" title="rt_neck_node3_AP">rt_neck_node3_AP</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node3_trv" groupguidkey="" id="rt_neck_node3_trv" title="rt_neck_node3_trv">rt_neck_node3_trv</mvalue><br />
+			<!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date_p1" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1" title="study_date_p1">study_date_p1</mvalue>&nbsp; <mvalue class="mapped" groupdesc="rt_neck_node3_len" groupguidkey="" i-prior="1" id="rt_neck_node3_len" title="rt_neck_node3_len">rt_neck_node3_len</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node3_AP" groupguidkey="" i-prior="1" id="rt_neck_node3_AP" title="rt_neck_node3_AP">rt_neck_node3_AP</mvalue> x <mvalue class="mapped" groupdesc="rt_neck_node3_trv" groupguidkey="" i-prior="1" id="rt_neck_node3_trv" title="rt_neck_node3_trv">rt_neck_node3_trv</mvalue></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text"><!--<input id="ws_lymph3_l_r:1" name="ws_lymph3_l_r" outputtext="Left" type="radio" value="ws_lymph3_l_r:1" /><label for="ws_lymph3_l_r:1" id="ws_lymph3_l_r:1_label" name="ws_lymph3_l_r">Left&nbsp;</label>&nbsp; <input id="ws_lymph3_l_r:2" name="ws_lymph3_l_r" outputtext="Right" type="radio" value="ws_lymph3_l_r:2" /><label for="ws_lymph3_l_r:2" id="ws_lymph3_l_r:2_label" name="ws_lymph3_l_r">Right&nbsp;</label> --><select i-name="ws_lymph3_location" id="ws_lymph3_location" name="ws_lymph3_location"><option value="">Level</option><option value=", level IA">IA submental</option><option value=", level IB">IB submandibular</option><option value=", level IIA">IIA upper jugular(anterior)</option><option value=", level IIB">IIB upper jugular(posterior)</option><option value=", level III">III mid jugular</option><option value=", level IV">IV lower jugular</option><option value=", level VA">VA upper posterior triangle</option><option value=", level VB">VB lower posterior triangle</option><option value=", level VI">VI anterior compartment</option><option value=", level VII">VII superior mediastinal</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Characteristics</td>
+			<td class="normal_text"><input checked="checked" id="ws_lymph3_hilum:1" name="ws_lymph3_hilum" outputtext=" fatty hilum" type="radio" value="ws_lymph3_hilum:1" /> <label for="ws_lymph3_hilum:1" id="ws_lymph3_hilum:1_label" name="ws_lymph3_hilum">Fatty Hilum</label> <input id="ws_lymph3_hilum:2" name="ws_lymph3_hilum" outputtext=" no hilum" type="radio" value="ws_lymph3_hilum:2" /> <label for="ws_lymph3_hilum:2" id="ws_lymph3_hilum:2_label" name="ws_lymph3_hilum">No Hilum</label>&nbsp;&nbsp; <input checked="checked" id="ws_lymph3_char_ro:1" name="ws_lymph3_char_ro" outputtext=", oval" type="radio" value="ws_lymph3_char_ro:1" /> <label for="ws_lymph3_char_ro:1" id="ws_lymph3_char_ro:1_label" name="ws_lymph3_char_ro">Oval</label> <input id="ws_lymph3_char_ro:2" name="ws_lymph3_char_ro" outputtext=", round" type="radio" value="ws_lymph3_char_ro:2" /> <label for="ws_lymph3_char_ro:2" id="ws_lymph3_char_ro:2_label" name="ws_lymph3_char_ro">Round</label>&nbsp;&nbsp;<input id="ws_lymph3_char_ro:3" name="ws_lymph3_char_ro" outputtext=", irregular" type="radio" value="ws_lymph3_char_ro:3" /> <label for="ws_lymph3_char_ro:3" id="ws_lymph3_char_ro:3_label" name="ws_lymph3_char_ro">Irregular</label>&nbsp;&nbsp;<br />
+			<input id="ws_lymph3_char:1" name="ws_lymph3_char" outputtext=" vascularity" type="checkbox" value="ws_lymph3_char:1" /> <label for="ws_lymph3_char:1" id="ws_lymph3_char:_label" name="ws_lymph3_char">Vascularity</label> <i-snippet i-show="ws_lymph3_char:1" i-type="i-collapse" style="display: none;"><input data-ms-editor="true" id="ws_vasc3_desc_char_txt" name="ws_lymph3_char_txt" placeholder="Add vascularity description here" size="53" spellcheck="false" style="width:250px" type="text" /></i-snippet> <input id="ws_lymph3_char:2" name="ws_lymph3_char" outputtext=" calcification" type="checkbox" value="ws_lymph3_char:2" /> <label for="ws_lymph3_char:2" id="ws_lymph3_char:2_label" name="ws_lymph3_char">Calcification</label> <input data-ms-editor="true" id="ws_lymph3_char_txt" name="ws_lymph3_char_txt" placeholder="Add additional comments here" size="53" spellcheck="false" type="text" /></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="impression_text"><i-snippet i-defaultstring="" i-indexes="lymph" i-name="ws_lymph_finding_3" i-options="defaultvalue:;saveempty:false" i-template="Right%s5%s7 lymph node %i1 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.\n-" i-type="i-string" i-variables="rt_neck_node3_len;rt_neck_node3_AP;rt_neck_node3_trv;ws_lymph3_l_r:1;ws_lymph3_location;ws_lymph3_hilum:1;ws_lymph3_char_ro:1;ws_lymph3_char:1;ws_lymph3_char:2;ws_lymph3_char_txt;ws_vasc3_desc_char_txt" id="ws_lymph_finding_3" style="i-showlabel:false;">Right%s5%s7 lymph node 0 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.<br />
+			-</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_lymph3_cmts" id="ws_thyroid_lymph3_cmts" name="ws_thyroid_lymph3_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p></p>
+</i-snippet></div>
+
+<p></p>
+
+<p><!--
+<div>
+<p>&nbsp;
+	<!-----------------Midline Neck lymph node 4 --------------------------------
+</p>
+<i-snippet i-show="mid_neck_node1_len;mid_neck_node1_AP" i-type="i-collapse" style="display: none;">
+	<table class="custom_table" i-index="lymph">
+		<tbody>
+			<tr>
+				<td class="header_text">
+					<i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph"
+						i-template="Lymph Node %i1" i-type="i-string">Lymph Node 4</i-snippet>
+				</td>
+				<td class="measurement_text">
+					<mvalue class="mapped" groupdesc="study_date"
+						groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(4/19/2024)">study_date
+					</mvalue>&nbsp; <mvalue class="highlighted" groupdesc="mid_neck_node1_len"
+						groupguidkey="" id="mid_neck_node1_len"
+						title="mid_neck_node1_len">mid_neck_node1_len</mvalue> x <mvalue class="highlighted"
+						groupdesc="mid_neck_node1_ap" groupguidkey=""
+						id="mid_neck_node1_ap" title="mid_neck_node1_ap">mid_neck_node1_ap</mvalue> x <mvalue
+						class="highlighted" groupdesc="mid_neck_node1_trv"
+						groupguidkey="" id="mid_neck_node1_trv"
+						title="mid_neck_node1_trv">mid_neck_node1_trv</mvalue><br />
+					<!--start prior1 measurements--
+					<mvalue class="mapped" groupdesc="study_date_p1"
+						groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1"
+						title="study_date_p1">study_date_p1</mvalue>&nbsp; <mvalue class="highlighted"
+						groupdesc="mid_neck_node1_len" groupguidkey=""
+						i-prior="1" id="mid_neck_node1_len" title="mid_neck_node1_len">mid_neck_node1_len</mvalue> x
+					<mvalue class="highlighted" groupdesc="mid_neck_node1_ap"
+						groupguidkey="" i-prior="1" id="mid_neck_node1_ap"
+						title="mid_neck_node1_ap">mid_neck_node1_ap</mvalue> x <mvalue class="highlighted"
+						groupdesc="mid_neck_node1_trv" groupguidkey=""
+						i-prior="1" id="mid_neck_node1_trv" title="mid_neck_node1_trv">mid_neck_node1_trv</mvalue>
+				</td>
+			</tr>
+			<tr>
+				<td class="header3_text">Location</td>
+				<td class="normal_text">
+					<!-----------------------<input id="ws_lymph4_l_r:1" name="ws_lymph4_l_r" outputtext="Left" type="radio" value="ws_lymph4_l_r:1" />
+			<label for="ws_lymph4_l_r:1" id="ws_lymph4_l_r:1_label" name="ws_lymph4_l_r">Left&nbsp;</label>&nbsp; 
+			
+			<input id="ws_lymph4_l_r:2" name="ws_lymph4_l_r" outputtext="Midline" type="radio" value="ws_lymph4_l_r:2" /><label for="ws_lymph4_l_r:2" id="ws_lymph4_l_r:2_label" name="ws_lymph4_l_r">Midline&nbsp;</label> -----------------------
+			<select
+						i-name="ws_lymph4_location" id="ws_lymph4_location"
+						name="ws_lymph4_location">
+						<option value="">Level</option>
+						<option value=", level IA">IA submental</option>
+						<option value=", level IB">IB submandibular</option>
+						<option value=", level IIA">IIA upper jugular(anterior)</option>
+						<option value=", level IIB">IIB upper jugular(posterior)</option>
+						<option value=", level III">III mid jugular</option>
+						<option value=", level IV">IV lower jugular</option>
+						<option value=", level VA">VA upper posterior triangle</option>
+						<option value=", level VB">VB lower posterior triangle</option>
+						<option value=", level VI">VI anterior compartment</option>
+						<option value=", level VII">VII superior mediastinal</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td class="header3_text">Characteristics</td>
+				<td class="normal_text"><input checked="checked" id="ws_lymph4_hilum:1" name="ws_lymph4_hilum"
+						outputtext=" fatty hilum" type="radio" value="ws_lymph4_hilum:1" /> <label
+						for="ws_lymph4_hilum:1" id="ws_lymph4_hilum:1_label" name="ws_lymph4_hilum">Fatty
+						Hilum</label> <input id="ws_lymph4_hilum:2" name="ws_lymph4_hilum" outputtext=" no hilum"
+						type="radio" value="ws_lymph4_hilum:2" /> <label for="ws_lymph4_hilum:2"
+						id="ws_lymph4_hilum:2_label" name="ws_lymph4_hilum">No Hilum</label>&nbsp;&nbsp; <input
+						checked="checked" id="ws_lymph4_char_ro:1" name="ws_lymph4_char_ro" outputtext=", oval"
+						type="radio" value="ws_lymph4_char_ro:1" /> <label for="ws_lymph4_char_ro:1"
+						id="ws_lymph4_char_ro:1_label" name="ws_lymph4_char_ro">Oval</label> <input
+						id="ws_lymph4_char_ro:2" name="ws_lymph4_char_ro" outputtext=", round" type="radio"
+						value="ws_lymph4_char_ro:2" /> <label for="ws_lymph4_char_ro:2"
+						id="ws_lymph4_char_ro:2_label" name="ws_lymph4_char_ro">Round</label>&nbsp;&nbsp;<input
+						id="ws_lymph4_char_ro:3" name="ws_lymph4_char_ro" outputtext=", irregular" type="radio"
+						value="ws_lymph4_char_ro:3" /> <label for="ws_lymph4_char_ro:3"
+						id="ws_lymph4_char_ro:3_label" name="ws_lymph4_char_ro">Irregular</label>&nbsp;&nbsp;<br />
+					<input id="ws_lymph4_char:1" name="ws_lymph4_char" outputtext=" vascularity" type="checkbox"
+						value="ws_lymph4_char:1" /> <label for="ws_lymph4_char:1" id="ws_lymph4_char:_label"
+						name="ws_lymph4_char">Vascularity</label>
+					<i-snippet i-show="ws_lymph4_char:1" i-type="i-collapse" style="display: none;"><input
+							id="ws_vasc1_desc_char_txt" name="ws_lymph4_char_txt"
+							placeholder="Add vascularity description here" size="53" style="width:250px"
+							type="text" /></i-snippet> <input id="ws_lymph4_char:2" name="ws_lymph4_char"
+						outputtext=" calcification" type="checkbox" value="ws_lymph4_char:2" /> <label
+						for="ws_lymph4_char:2" id="ws_lymph4_char:2_label"
+						name="ws_lymph4_char">Calcification</label> <input 
+						id="ws_lymph4_char_txt" name="ws_lymph4_char_txt" placeholder="Add additional comments here"
+						size="53" type="text" />
+				</td>
+			</tr>
+			<tr>
+				<td class="header3_text">Findings</td>
+				<td class="impression_text">
+					<i-snippet i-defaultstring="" i-indexes="lymph" i-name="ws_lymph_finding_3"
+						i-nametemplate="ws_lymph_finding_%i1" i-options="defaultvalue:;saveempty:false"
+						i-template="Midline%s4%s5%s7 lymph node %i1 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn."
+						i-type="i-string"
+						i-variables="mid_neck_node1_len;mid_neck_node1_ap;mid_neck_node1_trv;ws_lymph4_l_r:1;ws_lymph4_location;ws_lymph4_hilum:1;ws_lymph4_char_ro:1;ws_lymph4_char:1;ws_lymph4_char:2;ws_lymph4_char_txt;ws_vasc1_desc_char_txt"
+						style="i-showlabel:false;">Midline%s4%s5%s7 lymph node 3 measures %s1 x %s2 x %s3
+						with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.</i-snippet>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</i-snippet>
+</div>
+
+<div>
+<p>&nbsp;
+	<!-----------------  Midline Neck lymph node 5 --------------------------------
+</p>
+<i-snippet i-show="mid_neck_node2_len;mid_neck_node2_AP" i-type="i-collapse" style="display: none;">
+	<table class="custom_table" i-index="lymph">
+		<tbody>
+			<tr>
+				<td class="header_text">
+					<i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph"
+						i-template="Lymph Node %i1" i-type="i-string">Lymph Node 3</i-snippet>
+				</td>
+				<td class="measurement_text">
+					<mvalue class="mapped" groupdesc="study_date"
+						groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(4/19/2024)">study_date
+					</mvalue>&nbsp; <mvalue class="highlighted" groupdesc="mid_neck_node2_len"
+						groupguidkey="" id="mid_neck_node2_len"
+						title="mid_neck_node2_len">mid_neck_node2_len</mvalue> x <mvalue class="highlighted"
+						groupdesc="mid_neck_node2_AP" groupguidkey=""
+						id="mid_neck_node2_AP" title="mid_neck_node2_AP">mid_neck_node2_AP</mvalue> x <mvalue
+						class="highlighted" groupdesc="mid_neck_node2_trv"
+						groupguidkey="" id="mid_neck_node2_trv"
+						title="mid_neck_node2_trv">mid_neck_node2_trv</mvalue><br />
+					<!--start prior1 measurements--
+					<mvalue class="mapped" groupdesc="study_date_p1"
+						groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1"
+						title="study_date_p1">study_date_p1</mvalue>&nbsp; <mvalue class="highlighted"
+						groupdesc="mid_neck_node2_len" groupguidkey=""
+						i-prior="1" id="mid_neck_node2_len" title="mid_neck_node2_len">mid_neck_node2_len</mvalue> x
+					<mvalue class="highlighted" groupdesc="mid_neck_node2_AP"
+						groupguidkey="" i-prior="1" id="mid_neck_node2_AP"
+						title="mid_neck_node2_AP">mid_neck_node2_AP</mvalue> x <mvalue class="highlighted"
+						groupdesc="mid_neck_node2_trv" groupguidkey=""
+						i-prior="1" id="mid_neck_node2_trv" title="mid_neck_node2_trv">mid_neck_node2_trv</mvalue>
+				</td>
+			</tr>
+			<tr>
+				<td class="header3_text">Location</td>
+				<td class="normal_text">
+					<!--<input id="ws_lymph5_l_r:1" name="ws_lymph5_l_r" outputtext="Left" type="radio" value="ws_lymph5_l_r:1" /><label for="ws_lymph5_l_r:1" id="ws_lymph5_l_r:1_label" name="ws_lymph5_l_r">Left&nbsp;</label>&nbsp; <input id="ws_lymph5_l_r:2" name="ws_lymph5_l_r" outputtext="Midline" type="radio" value="ws_lymph5_l_r:2" /><label for="ws_lymph5_l_r:2" id="ws_lymph5_l_r:2_label" name="ws_lymph5_l_r">Midline&nbsp;</label> -----------------------------
+					<select
+						i-name="ws_lymph5_location" id="ws_lymph5_location"
+						name="ws_lymph5_location">
+						<option value="">Level</option>
+						<option value=", level IA">IA submental</option>
+						<option value=", level IB">IB submandibular</option>
+						<option value=", level IIA">IIA upper jugular(anterior)</option>
+						<option value=", level IIB">IIB upper jugular(posterior)</option>
+						<option value=", level III">III mid jugular</option>
+						<option value=", level IV">IV lower jugular</option>
+						<option value=", level VA">VA upper posterior triangle</option>
+						<option value=", level VB">VB lower posterior triangle</option>
+						<option value=", level VI">VI anterior compartment</option>
+						<option value=", level VII">VII superior mediastinal</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td class="header3_text">Characteristics</td>
+				<td class="normal_text"><input checked="checked" id="ws_lymph5_hilum:1" name="ws_lymph5_hilum"
+						outputtext=" fatty hilum" type="radio" value="ws_lymph5_hilum:1" /> <label
+						for="ws_lymph5_hilum:1" id="ws_lymph5_hilum:1_label" name="ws_lymph5_hilum">Fatty
+						Hilum</label> <input id="ws_lymph5_hilum:2" name="ws_lymph5_hilum" outputtext=" no hilum"
+						type="radio" value="ws_lymph5_hilum:2" /> <label for="ws_lymph5_hilum:2"
+						id="ws_lymph5_hilum:2_label" name="ws_lymph5_hilum">No Hilum</label>&nbsp;&nbsp; <input
+						checked="checked" id="ws_lymph5_char_ro:1" name="ws_lymph5_char_ro" outputtext=", oval"
+						type="radio" value="ws_lymph5_char_ro:1" /> <label for="ws_lymph5_char_ro:1"
+						id="ws_lymph5_char_ro:1_label" name="ws_lymph5_char_ro">Oval</label> <input
+						id="ws_lymph5_char_ro:2" name="ws_lymph5_char_ro" outputtext=", round" type="radio"
+						value="ws_lymph5_char_ro:2" /> <label for="ws_lymph5_char_ro:2"
+						id="ws_lymph5_char_ro:2_label" name="ws_lymph5_char_ro">Round</label>&nbsp;&nbsp;<input
+						id="ws_lymph5_char_ro:3" name="ws_lymph5_char_ro" outputtext=", irregular" type="radio"
+						value="ws_lymph5_char_ro:3" /> <label for="ws_lymph5_char_ro:3"
+						id="ws_lymph5_char_ro:3_label" name="ws_lymph5_char_ro">Irregular</label>&nbsp;&nbsp;<br />
+					<input id="ws_lymph5_char:1" name="ws_lymph5_char" outputtext=" vascularity" type="checkbox"
+						value="ws_lymph5_char:1" /> <label for="ws_lymph5_char:1" id="ws_lymph5_char:_label"
+						name="ws_lymph5_char">Vascularity</label>
+					<i-snippet i-show="ws_lymph5_char:1" i-type="i-collapse" style="display: none;"><input
+							id="ws_vasc2_desc_char_txt" name="ws_lymph5_char_txt"
+							placeholder="Add vascularity description here" size="53" style="width:250px"
+							type="text" /></i-snippet> <input id="ws_lymph5_char:2" name="ws_lymph5_char"
+						outputtext=" calcification" type="checkbox" value="ws_lymph5_char:2" /> <label
+						for="ws_lymph5_char:2" id="ws_lymph5_char:2_label"
+						name="ws_lymph5_char">Calcification</label> <input 
+						id="ws_lymph5_char_txt" name="ws_lymph5_char_txt" placeholder="Add additional comments here"
+						size="53" type="text" />
+				</td>
+			</tr>
+			<tr>
+				<td class="header3_text">Findings</td>
+				<td class="impression_text">
+					<i-snippet i-defaultstring="" i-indexes="lymph" i-name="ws_lymph_finding_3"
+						i-nametemplate="ws_lymph_finding_%i1" i-options="defaultvalue:;saveempty:false"
+						i-template="Midline%s5%s7 lymph node %i1 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn."
+						i-type="i-string"
+						i-variables="mid_neck_node2_len;mid_neck_node2_AP;mid_neck_node2_trv;ws_lymph5_l_r:1;ws_lymph5_location;ws_lymph5_hilum:1;ws_lymph5_char_ro:1;ws_lymph5_char:1;ws_lymph5_char:2;ws_lymph5_char_txt;ws_vasc2_desc_char_txt"
+						style="i-showlabel:false;">Midline%s5%s7 lymph node 3 measures %s1 x %s2 x %s3 with%sn%s6%s,
+						%s11%s8%s,%s9%s,%s10%sn.</i-snippet>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</i-snippet>
+</div>
+
+<div>
+<p>&nbsp;<!----------------- Midline Neck Lymph Node 6 --------------------------------</p>
+<i-snippet i-show="mid_neck_node3_len;mid_neck_node3_AP" i-type="i-collapse" style="display: none;">
+	<table class="custom_table" i-index="lymph">
+		<tbody>
+			<tr>
+				<td class="header_text">
+					<i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph"
+						i-template="Lymph Node %i1" i-type="i-string">Lymph Node 6</i-snippet>
+				</td>
+				<td class="measurement_text">
+					<mvalue class="mapped" groupdesc="study_date"
+						groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(4/19/2024)">study_date
+					</mvalue>&nbsp; <mvalue class="highlighted" groupdesc="mid_neck_node3_len"
+						groupguidkey="" id="mid_neck_node3_len"
+						title="mid_neck_node3_len">mid_neck_node3_len</mvalue> x <mvalue class="highlighted"
+						groupdesc="mid_neck_node3_AP" groupguidkey=""
+						id="mid_neck_node3_AP" title="mid_neck_node3_AP">mid_neck_node3_AP</mvalue> x <mvalue
+						class="highlighted" groupdesc="mid_neck_node3_trv"
+						groupguidkey="" id="mid_neck_node3_trv"
+						title="mid_neck_node3_trv">mid_neck_node3_trv</mvalue><br />
+					<!--start prior1 measurements--
+					<mvalue class="mapped" groupdesc="study_date_p1"
+						groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1"
+						title="study_date_p1">study_date_p1</mvalue>&nbsp; <mvalue class="highlighted"
+						groupdesc="mid_neck_node3_len" groupguidkey=""
+						i-prior="1" id="mid_neck_node3_len" title="mid_neck_node3_len">mid_neck_node3_len</mvalue> x
+					<mvalue class="highlighted" groupdesc="mid_neck_node3_AP"
+						groupguidkey="" i-prior="1" id="mid_neck_node3_AP"
+						title="mid_neck_node3_AP">mid_neck_node3_AP</mvalue> x <mvalue class="highlighted"
+						groupdesc="mid_neck_node3_trv" groupguidkey=""
+						i-prior="1" id="mid_neck_node3_trv" title="mid_neck_node3_trv">mid_neck_node3_trv</mvalue>
+				</td>
+			</tr>
+			<tr>
+				<td class="header3_text">Location</td>
+				<td class="normal_text">
+					<!--<input id="ws_lymph6_l_r:1" name="ws_lymph6_l_r" outputtext="Left" type="radio" value="ws_lymph6_l_r:1" /><label for="ws_lymph6_l_r:1" id="ws_lymph6_l_r:1_label" name="ws_lymph6_l_r">Left&nbsp;</label>&nbsp; <input id="ws_lymph6_l_r:2" name="ws_lymph6_l_r" outputtext="Midline" type="radio" value="ws_lymph6_l_r:2" /><label for="ws_lymph6_l_r:2" id="ws_lymph6_l_r:2_label" name="ws_lymph6_l_r">Midline&nbsp;</label> -------------------------
+					<select
+						 i-name="ws_lymph6_location" id="ws_lymph6_location"
+						name="ws_lymph6_location">
+						<option value="">Level</option>
+						<option value=", level IA">IA submental</option>
+						<option value=", level IB">IB submandibular</option>
+						<option value=", level IIA">IIA upper jugular(anterior)</option>
+						<option value=", level IIB">IIB upper jugular(posterior)</option>
+						<option value=", level III">III mid jugular</option>
+						<option value=", level IV">IV lower jugular</option>
+						<option value=", level VA">VA upper posterior triangle</option>
+						<option value=", level VB">VB lower posterior triangle</option>
+						<option value=", level VI">VI anterior compartment</option>
+						<option value=", level VII">VII superior mediastinal</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td class="header3_text">Characteristics</td>
+				<td class="normal_text"><input checked="checked" id="ws_lymph6_hilum:1" name="ws_lymph6_hilum"
+						outputtext=" fatty hilum" type="radio" value="ws_lymph6_hilum:1" /> <label
+						for="ws_lymph6_hilum:1" id="ws_lymph6_hilum:1_label" name="ws_lymph6_hilum">Fatty
+						Hilum</label> <input id="ws_lymph6_hilum:2" name="ws_lymph6_hilum" outputtext=" no hilum"
+						type="radio" value="ws_lymph6_hilum:2" /> <label for="ws_lymph6_hilum:2"
+						id="ws_lymph6_hilum:2_label" name="ws_lymph6_hilum">No Hilum</label>&nbsp;&nbsp; <input
+						checked="checked" id="ws_lymph6_char_ro:1" name="ws_lymph6_char_ro" outputtext=", oval"
+						type="radio" value="ws_lymph6_char_ro:1" /> <label for="ws_lymph6_char_ro:1"
+						id="ws_lymph6_char_ro:1_label" name="ws_lymph6_char_ro">Oval</label> <input
+						id="ws_lymph6_char_ro:2" name="ws_lymph6_char_ro" outputtext=", round" type="radio"
+						value="ws_lymph6_char_ro:2" /> <label for="ws_lymph6_char_ro:2"
+						id="ws_lymph6_char_ro:2_label" name="ws_lymph6_char_ro">Round</label>&nbsp;&nbsp;<input
+						id="ws_lymph6_char_ro:3" name="ws_lymph6_char_ro" outputtext=", irregular" type="radio"
+						value="ws_lymph6_char_ro:3" /> <label for="ws_lymph6_char_ro:3"
+						id="ws_lymph6_char_ro:3_label" name="ws_lymph6_char_ro">Irregular</label>&nbsp;&nbsp;<br />
+					<input id="ws_lymph6_char:1" name="ws_lymph6_char" outputtext=" vascularity" type="checkbox"
+						value="ws_lymph6_char:1" /> <label for="ws_lymph6_char:1" id="ws_lymph6_char:_label"
+						name="ws_lymph6_char">Vascularity</label>
+					<i-snippet i-show="ws_lymph6_char:1" i-type="i-collapse" style="display: none;"><input
+							id="ws_vasc2_desc_char_txt" name="ws_lymph6_char_txt"
+							placeholder="Add vascularity description here" size="53" style="width:250px"
+							type="text" /></i-snippet> <input id="ws_lymph6_char:2" name="ws_lymph6_char"
+						outputtext=" calcification" type="checkbox" value="ws_lymph6_char:2" /> <label
+						for="ws_lymph6_char:2" id="ws_lymph6_char:2_label"
+						name="ws_lymph6_char">Calcification</label> <input 
+						id="ws_lymph6_char_txt" name="ws_lymph6_char_txt" placeholder="Add additional comments here"
+						size="53" type="text" />
+				</td>
+			</tr>
+			<tr>
+				<td class="header3_text">Findings</td>
+				<td class="impression_text">
+					<i-snippet i-defaultstring="" i-indexes="lymph" i-name="ws_lymph_finding_3"
+						i-nametemplate="ws_lymph_finding_%i1" i-options="defaultvalue:;saveempty:false"
+						i-template="Midline%s5%s7 lymph node %i1 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn."
+						i-type="i-string"
+						i-variables="mid_neck_node3_len;mid_neck_node3_AP;mid_neck_node3_trv;ws_lymph6_l_r:1;ws_lymph6_location;ws_lymph6_hilum:1;ws_lymph6_char_ro:1;ws_lymph6_char:1;ws_lymph6_char:2;ws_lymph6_char_txt;ws_vasc2_desc_char_txt"
+						style="i-showlabel:false;">Midline%s5%s7 lymph node 3 measures %s1 x %s2 x %s3 with%sn%s6%s,
+						%s11%s8%s,%s9%s,%s10%sn.</i-snippet>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</i-snippet>
+</div>
+--><!-----------------------------------------------------Left Neck lymph node 1 ---------------------------------------------------------------></p>
+
+<p></p>
+
+<div><i-snippet i-show="lt_neck_node1_len;lt_neck_node1_AP" i-type="i-collapse" style="display: none;">
+<table class="custom_table" i-index="lymph">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph" i-template="Lymph Node %i1" i-type="i-string">Lymph Node 0</i-snippet></td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="lt_neck_node1_len" groupguidkey="" id="lt_neck_node1_len" title="lt_neck_node1_len">lt_neck_node1_len</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node1_ap" groupguidkey="" id="lt_neck_node1_ap" title="lt_neck_node1_ap">lt_neck_node1_ap</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node1_trv" groupguidkey="" id="lt_neck_node1_trv" title="lt_neck_node1_trv">lt_neck_node1_trv</mvalue><br />
+			<!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date_p1" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1" title="study_date_p1">study_date_p1</mvalue>&nbsp; <mvalue class="mapped" groupdesc="lt_neck_node1_len" groupguidkey="" i-prior="1" id="lt_neck_node1_len" title="lt_neck_node1_len">lt_neck_node1_len</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node1_ap" groupguidkey="" i-prior="1" id="lt_neck_node1_ap" title="lt_neck_node1_ap">lt_neck_node1_ap</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node1_trv" groupguidkey="" i-prior="1" id="lt_neck_node1_trv" title="lt_neck_node1_trv">lt_neck_node1_trv</mvalue></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text"><!--<input id="ws_lymph7_l_r:1" name="ws_lymph7_l_r" outputtext="Left" type="radio" value="ws_lymph7_l_r:1" />
+			<label for="ws_lymph7_l_r:1" id="ws_lymph7_l_r:1_label" name="ws_lymph7_l_r">Left&nbsp;</label>&nbsp; 
+			
+			<input id="ws_lymph7_l_r:2" name="ws_lymph7_l_r" outputtext="Left" type="radio" value="ws_lymph7_l_r:2" /><label for="ws_lymph7_l_r:2" id="ws_lymph7_l_r:2_label" name="ws_lymph7_l_r">Left&nbsp;</label> --><select i-name="ws_lymph7_location" id="ws_lymph7_location" name="ws_lymph7_location"><option value="">Level</option><option value=", level IA">IA submental</option><option value=", level IB">IB submandibular</option><option value=", level IIA">IIA upper jugular(anterior)</option><option value=", level IIB">IIB upper jugular(posterior)</option><option value=", level III">III mid jugular</option><option value=", level IV">IV lower jugular</option><option value=", level VA">VA upper posterior triangle</option><option value=", level VB">VB lower posterior triangle</option><option value=", level VI">VI anterior compartment</option><option value=", level VII">VII superior mediastinal</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Characteristics</td>
+			<td class="normal_text"><input checked="checked" id="ws_lymph7_hilum:1" name="ws_lymph7_hilum" outputtext=" fatty hilum" type="radio" value="ws_lymph7_hilum:1" /> <label for="ws_lymph7_hilum:1" id="ws_lymph7_hilum:1_label" name="ws_lymph7_hilum">Fatty Hilum</label> <input id="ws_lymph7_hilum:2" name="ws_lymph7_hilum" outputtext=" no hilum" type="radio" value="ws_lymph7_hilum:2" /> <label for="ws_lymph7_hilum:2" id="ws_lymph7_hilum:2_label" name="ws_lymph7_hilum">No Hilum</label>&nbsp;&nbsp; <input checked="checked" id="ws_lymph7_char_ro:1" name="ws_lymph7_char_ro" outputtext=", oval" type="radio" value="ws_lymph7_char_ro:1" /> <label for="ws_lymph7_char_ro:1" id="ws_lymph7_char_ro:1_label" name="ws_lymph7_char_ro">Oval</label> <input id="ws_lymph7_char_ro:2" name="ws_lymph7_char_ro" outputtext=", round" type="radio" value="ws_lymph7_char_ro:2" /> <label for="ws_lymph7_char_ro:2" id="ws_lymph7_char_ro:2_label" name="ws_lymph7_char_ro">Round</label>&nbsp;&nbsp;<input id="ws_lymph7_char_ro:3" name="ws_lymph7_char_ro" outputtext=", irregular" type="radio" value="ws_lymph7_char_ro:3" /> <label for="ws_lymph7_char_ro:3" id="ws_lymph7_char_ro:3_label" name="ws_lymph7_char_ro">Irregular</label>&nbsp;&nbsp;<br />
+			<input id="ws_lymph7_char:1" name="ws_lymph7_char" outputtext=" vascularity" type="checkbox" value="ws_lymph7_char:1" /> <label for="ws_lymph7_char:1" id="ws_lymph7_char:_label" name="ws_lymph7_char">Vascularity</label> <i-snippet i-show="ws_lymph7_char:1" i-type="i-collapse" style="display: none;"><input data-ms-editor="true" id="ws_vasc7_desc_char_txt" name="ws_lymph7_char_txt" placeholder="Add vascularity description here" size="53" spellcheck="false" style="width:250px" type="text" /></i-snippet> <input id="ws_lymph7_char:2" name="ws_lymph7_char" outputtext=" calcification" type="checkbox" value="ws_lymph7_char:2" /> <label for="ws_lymph7_char:2" id="ws_lymph7_char:2_label" name="ws_lymph7_char">Calcification</label> <input data-ms-editor="true" id="ws_lymph7_char_txt" name="ws_lymph7_char_txt" placeholder="Add additional comments here" size="53" spellcheck="false" type="text" /></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="impression_text"><i-snippet i-defaultstring="" i-indexes="lymph" i-name="ws_lymph_finding_4" i-options="defaultvalue:;saveempty:false" i-template="Left%s4%s5%s7 lymph node %i1 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.\n-" i-type="i-string" i-variables="lt_neck_node1_len;lt_neck_node1_ap;lt_neck_node1_trv;ws_lymph7_l_r:1;ws_lymph7_location;ws_lymph7_hilum:1;ws_lymph7_char_ro:1;ws_lymph7_char:1;ws_lymph7_char:2;ws_lymph7_char_txt;ws_vasc7_desc_char_txt" id="ws_lymph_finding_4" style="i-showlabel:false;">Left%s4%s5%s7 lymph node 0 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.<br />
+			-</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_lymph7_cmts" id="ws_thyroid_lymph7_cmts" name="ws_thyroid_lymph7_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-----------------  Left Neck lymph node 2 --------------------------------></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-show="lt_neck_node2_len;lt_neck_node2_AP" i-type="i-collapse" style="display: none;">
+<table class="custom_table" i-index="lymph">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph" i-template="Lymph Node %i1" i-type="i-string">Lymph Node 0</i-snippet></td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="lt_neck_node2_len" groupguidkey="" id="lt_neck_node2_len" title="lt_neck_node2_len">lt_neck_node2_len</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node2_AP" groupguidkey="" id="lt_neck_node2_AP" title="lt_neck_node2_AP">lt_neck_node2_AP</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node2_trv" groupguidkey="" id="lt_neck_node2_trv" title="lt_neck_node2_trv">lt_neck_node2_trv</mvalue><br />
+			<!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date_p1" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1" title="study_date_p1">study_date_p1</mvalue>&nbsp; <mvalue class="mapped" groupdesc="lt_neck_node2_len" groupguidkey="" i-prior="1" id="lt_neck_node2_len" title="lt_neck_node2_len">lt_neck_node2_len</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node2_AP" groupguidkey="" i-prior="1" id="lt_neck_node2_AP" title="lt_neck_node2_AP">lt_neck_node2_AP</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node2_trv" groupguidkey="" i-prior="1" id="lt_neck_node2_trv" title="lt_neck_node2_trv">lt_neck_node2_trv</mvalue></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text"><!--<input id="ws_lymph8_l_r:1" name="ws_lymph8_l_r" outputtext="Left" type="radio" value="ws_lymph8_l_r:1" /><label for="ws_lymph8_l_r:1" id="ws_lymph8_l_r:1_label" name="ws_lymph8_l_r">Left&nbsp;</label>&nbsp; <input id="ws_lymph8_l_r:2" name="ws_lymph8_l_r" outputtext="Left" type="radio" value="ws_lymph8_l_r:2" /><label for="ws_lymph8_l_r:2" id="ws_lymph8_l_r:2_label" name="ws_lymph8_l_r">Left&nbsp;</label> --><select i-name="ws_lymph8_location" id="ws_lymph8_location" name="ws_lymph8_location"><option value="">Level</option><option value=", level IA">IA submental</option><option value=", level IB">IB submandibular</option><option value=", level IIA">IIA upper jugular(anterior)</option><option value=", level IIB">IIB upper jugular(posterior)</option><option value=", level III">III mid jugular</option><option value=", level IV">IV lower jugular</option><option value=", level VA">VA upper posterior triangle</option><option value=", level VB">VB lower posterior triangle</option><option value=", level VI">VI anterior compartment</option><option value=", level VII">VII superior mediastinal</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Characteristics</td>
+			<td class="normal_text"><input checked="checked" id="ws_lymph8_hilum:1" name="ws_lymph8_hilum" outputtext=" fatty hilum" type="radio" value="ws_lymph8_hilum:1" /> <label for="ws_lymph8_hilum:1" id="ws_lymph8_hilum:1_label" name="ws_lymph8_hilum">Fatty Hilum</label> <input id="ws_lymph8_hilum:2" name="ws_lymph8_hilum" outputtext=" no hilum" type="radio" value="ws_lymph8_hilum:2" /> <label for="ws_lymph8_hilum:2" id="ws_lymph8_hilum:2_label" name="ws_lymph8_hilum">No Hilum</label>&nbsp;&nbsp; <input checked="checked" id="ws_lymph8_char_ro:1" name="ws_lymph8_char_ro" outputtext=", oval" type="radio" value="ws_lymph8_char_ro:1" /> <label for="ws_lymph8_char_ro:1" id="ws_lymph8_char_ro:1_label" name="ws_lymph8_char_ro">Oval</label> <input id="ws_lymph8_char_ro:2" name="ws_lymph8_char_ro" outputtext=", round" type="radio" value="ws_lymph8_char_ro:2" /> <label for="ws_lymph8_char_ro:2" id="ws_lymph8_char_ro:2_label" name="ws_lymph8_char_ro">Round</label>&nbsp;&nbsp;<input id="ws_lymph8_char_ro:3" name="ws_lymph8_char_ro" outputtext=", irregular" type="radio" value="ws_lymph8_char_ro:3" /> <label for="ws_lymph8_char_ro:3" id="ws_lymph8_char_ro:3_label" name="ws_lymph8_char_ro">Irregular</label>&nbsp;&nbsp;<br />
+			<input id="ws_lymph8_char:1" name="ws_lymph8_char" outputtext=" vascularity" type="checkbox" value="ws_lymph8_char:1" /> <label for="ws_lymph8_char:1" id="ws_lymph8_char:_label" name="ws_lymph8_char">Vascularity</label> <i-snippet i-show="ws_lymph8_char:1" i-type="i-collapse" style="display: none;"><input data-ms-editor="true" id="ws_vasc8_desc_char_txt" name="ws_lymph8_char_txt" placeholder="Add vascularity description here" size="53" spellcheck="false" style="width:250px" type="text" /></i-snippet> <input id="ws_lymph8_char:2" name="ws_lymph8_char" outputtext=" calcification" type="checkbox" value="ws_lymph8_char:2" /> <label for="ws_lymph8_char:2" id="ws_lymph8_char:2_label" name="ws_lymph8_char">Calcification</label> <input data-ms-editor="true" id="ws_lymph8_char_txt" name="ws_lymph8_char_txt" placeholder="Add additional comments here" size="53" spellcheck="false" type="text" /></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="impression_text"><i-snippet i-defaultstring="" i-indexes="lymph" i-name="ws_lymph_finding_5" i-options="defaultvalue:;saveempty:false" i-template="Left%s4%s5%s7 lymph node %i1 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.\n-" i-type="i-string" i-variables="lt_neck_node2_len;lt_neck_node2_AP;lt_neck_node2_trv;ws_lymph8_l_r:1;ws_lymph8_location;ws_lymph8_hilum:1;ws_lymph8_char_ro:1;ws_lymph8_char:1;ws_lymph8_char:2;ws_lymph8_char_txt;ws_vasc8_desc_char_txt" id="ws_lymph_finding_5" style="i-showlabel:false;">Left%s4%s5%s7 lymph node 0 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.<br />
+			-</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_lymph8_cmts" id="ws_thyroid_lymph8_cmts" name="ws_thyroid_lymph8_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-----------------  Left Neck lymph node 3 --------------------------------></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-show="lt_neck_node3_len;lt_neck_node3_AP" i-type="i-collapse" style="display: none;">
+<table class="custom_table" i-index="lymph">
+	<tbody>
+		<tr>
+			<td class="header_text"><i-snippet i-eventmonitors="check1" i-eventmontiors="check1" i-indexes="lymph" i-template="Lymph Node %i1" i-type="i-string">Lymph Node 0</i-snippet></td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="lt_neck_node3_len" groupguidkey="" id="lt_neck_node3_len" title="lt_neck_node3_len">lt_neck_node3_len</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node3_AP" groupguidkey="" id="lt_neck_node3_AP" title="lt_neck_node3_AP">lt_neck_node3_AP</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node3_trv" groupguidkey="" id="lt_neck_node3_trv" title="lt_neck_node3_trv">lt_neck_node3_trv</mvalue><br />
+			<!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date_p1" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1" title="study_date_p1">study_date_p1</mvalue>&nbsp; <mvalue class="mapped" groupdesc="lt_neck_node3_len" groupguidkey="" i-prior="1" id="lt_neck_node3_len" title="lt_neck_node3_len">lt_neck_node3_len</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node3_AP" groupguidkey="" i-prior="1" id="lt_neck_node3_AP" title="lt_neck_node3_AP">lt_neck_node3_AP</mvalue> x <mvalue class="mapped" groupdesc="lt_neck_node3_trv" groupguidkey="" i-prior="1" id="lt_neck_node3_trv" title="lt_neck_node3_trv">lt_neck_node3_trv</mvalue></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Location</td>
+			<td class="normal_text"><!--<input id="ws_lymph9_l_r:1" name="ws_lymph9_l_r" outputtext="Left" type="radio" value="ws_lymph9_l_r:1" /><label for="ws_lymph9_l_r:1" id="ws_lymph9_l_r:1_label" name="ws_lymph9_l_r">Left&nbsp;</label>&nbsp; <input id="ws_lymph9_l_r:2" name="ws_lymph9_l_r" outputtext="Left" type="radio" value="ws_lymph9_l_r:2" /><label for="ws_lymph9_l_r:2" id="ws_lymph9_l_r:2_label" name="ws_lymph9_l_r">Left&nbsp;</label> --><select i-name="ws_lymph9_location" id="ws_lymph9_location" name="ws_lymph9_location"><option value="">Level</option><option value=", level IA">IA submental</option><option value=", level IB">IB submandibular</option><option value=", level IIA">IIA upper jugular(anterior)</option><option value=", level IIB">IIB upper jugular(posterior)</option><option value=", level III">III mid jugular</option><option value=", level IV">IV lower jugular</option><option value=", level VA">VA upper posterior triangle</option><option value=", level VB">VB lower posterior triangle</option><option value=", level VI">VI anterior compartment</option><option value=", level VII">VII superior mediastinal</option> </select></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Characteristics</td>
+			<td class="normal_text"><input checked="checked" id="ws_lymph9_hilum:1" name="ws_lymph9_hilum" outputtext=" fatty hilum" type="radio" value="ws_lymph9_hilum:1" /> <label for="ws_lymph9_hilum:1" id="ws_lymph9_hilum:1_label" name="ws_lymph9_hilum">Fatty Hilum</label> <input id="ws_lymph9_hilum:2" name="ws_lymph9_hilum" outputtext=" no hilum" type="radio" value="ws_lymph9_hilum:2" /> <label for="ws_lymph9_hilum:2" id="ws_lymph9_hilum:2_label" name="ws_lymph9_hilum">No Hilum</label>&nbsp;&nbsp; <input checked="checked" id="ws_lymph9_char_ro:1" name="ws_lymph9_char_ro" outputtext=", oval" type="radio" value="ws_lymph9_char_ro:1" /> <label for="ws_lymph9_char_ro:1" id="ws_lymph9_char_ro:1_label" name="ws_lymph9_char_ro">Oval</label> <input id="ws_lymph9_char_ro:2" name="ws_lymph9_char_ro" outputtext=", round" type="radio" value="ws_lymph9_char_ro:2" /> <label for="ws_lymph9_char_ro:2" id="ws_lymph9_char_ro:2_label" name="ws_lymph9_char_ro">Round</label>&nbsp;&nbsp;<input id="ws_lymph9_char_ro:3" name="ws_lymph9_char_ro" outputtext=", irregular" type="radio" value="ws_lymph9_char_ro:3" /> <label for="ws_lymph9_char_ro:3" id="ws_lymph9_char_ro:3_label" name="ws_lymph9_char_ro">Irregular</label>&nbsp;&nbsp;<br />
+			<input id="ws_lymph9_char:1" name="ws_lymph9_char" outputtext=" vascularity" type="checkbox" value="ws_lymph9_char:1" /> <label for="ws_lymph9_char:1" id="ws_lymph9_char:_label" name="ws_lymph9_char">Vascularity</label> <i-snippet i-show="ws_lymph9_char:1" i-type="i-collapse" style="display: none;"><input data-ms-editor="true" id="ws_vasc9_desc_char_txt" name="ws_lymph9_char_txt" placeholder="Add vascularity description here" size="53" spellcheck="false" style="width:250px" type="text" /></i-snippet> <input id="ws_lymph9_char:2" name="ws_lymph9_char" outputtext=" calcification" type="checkbox" value="ws_lymph9_char:2" /> <label for="ws_lymph9_char:2" id="ws_lymph9_char:2_label" name="ws_lymph9_char">Calcification</label> <input data-ms-editor="true" id="ws_lymph9_char_txt" name="ws_lymph9_char_txt" placeholder="Add additional comments here" size="53" spellcheck="false" type="text" /></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="impression_text"><i-snippet i-defaultstring="" i-indexes="lymph" i-name="ws_lymph_finding_6" i-options="defaultvalue:;saveempty:false" i-template="Left%s5%s5%s7 lymph node %i1 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.\n-" i-type="i-string" i-variables="lt_neck_node3_len;lt_neck_node3_AP;lt_neck_node3_trv;ws_lymph9_l_r:1;ws_lymph9_location;ws_lymph9_hilum:1;ws_lymph9_char_ro:1;ws_lymph9_char:1;ws_lymph9_char:2;ws_lymph9_char_txt;ws_vasc9_desc_char_txt" id="ws_lymph_finding_6" style="i-showlabel:false;">Left%s5%s5%s7 lymph node 0 measures %s1 x %s2 x %s3 with%sn%s6%s, %s11%s8%s,%s9%s,%s10%sn.<br />
+			-</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_thyroid_lymph9_cmts" id="ws_thyroid_lymph9_cmts" name="ws_thyroid_lymph9_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-----------------right Parotid Nodule --------------------------------></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-show="rt_parotid_nodule_len;rt_parotid_nodule_AP" i-type="i-collapse" style="display: none;">
+<table class="custom_table" i-index="lymph">
+	<tbody>
+		<tr>
+			<td class="header_text">Right Parotid Nodule</td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="rt_parotid_nodule_len" groupguidkey="" id="rt_parotid_nodule_len" title="rt_parotid_nodule_len">rt_parotid_nodule_...</mvalue> x <mvalue class="mapped" groupdesc="rt_parotid_nodule_AP" groupguidkey="" id="rt_parotid_nodule_AP" title="rt_parotid_nodule_AP">rt_parotid_nodule_...</mvalue> x <mvalue class="mapped" groupdesc="rt_parotid_nodule_trv" groupguidkey="" id="rt_parotid_nodule_trv" title="rt_parotid_nodule_trv">rt_parotid_nodule_...</mvalue><br />
+			<!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date_p1" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1" title="study_date_p1">study_date_p1</mvalue>&nbsp; <mvalue class="mapped" groupdesc="rt_parotid_nodule_len" groupguidkey="" i-prior="1" id="rt_parotid_nodule_len" title="rt_parotid_nodule_len">rt_parotid_nodule_len</mvalue> x <mvalue class="mapped" groupdesc="rt_parotid_nodule_AP" groupguidkey="" i-prior="1" id="rt_parotid_nodule_AP" title="rt_parotid_nodule_AP">rt_parotid_nodule_AP</mvalue> x <mvalue class="mapped" groupdesc="rt_parotid_nodule_trv" groupguidkey="" i-prior="1" id="rt_parotid_nodule_trv" title="rt_parotid_nodule_trv">rt_parotid_nodule_trv</mvalue></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Characteristics</td>
+			<td class="normal_text"><input checked="checked" id="ws_rt_parotid_hilum:1" name="ws_rt_parotid_hilum" outputtext=" fatty hilum" type="radio" value="ws_rt_parotid_hilum:1" /> <label for="ws_rt_parotid_hilum:1" id="ws_rt_parotid_hilum:1_label" name="ws_rt_parotid_hilum">Fatty Hilum</label> <input id="ws_rt_parotid_hilum:2" name="ws_rt_parotid_hilum" outputtext=" no hilum" type="radio" value="ws_rt_parotid_hilum:2" /> <label for="ws_rt_parotid_hilum:2" id="ws_rt_parotid_hilum:2_label" name="ws_rt_parotid_hilum">No Hilum</label>&nbsp;&nbsp; <input checked="checked" id="ws_rt_parotid_char_ro:1" name="ws_rt_parotid_char_ro" outputtext=", oval" type="radio" value="ws_rt_parotid_char_ro:1" /> <label for="ws_rt_parotid_char_ro:1" id="ws_rt_parotid_char_ro:1_label" name="ws_rt_parotid_char_ro">Oval</label> <input id="ws_rt_parotid_char_ro:2" name="ws_rt_parotid_char_ro" outputtext=", round" type="radio" value="ws_rt_parotid_char_ro:2" /> <label for="ws_rt_parotid_char_ro:2" id="ws_rt_parotid_char_ro:2_label" name="ws_rt_parotid_char_ro">Round</label>&nbsp;&nbsp; <input id="ws_rt_parotid_char_ro:3" name="ws_rt_parotid_char_ro" outputtext=", irregular" type="radio" value="ws_rt_parotid_char_ro:3" /> <label for="ws_rt_parotid_char_ro:3" id="ws_rt_parotid_char_ro:3_label" name="ws_rt_parotid_char_ro">Irregular</label>&nbsp;&nbsp;<br />
+			<input id="ws_rt_parotid_char:1" name="ws_rt_parotid_char" outputtext=" vascularity" type="checkbox" value="ws_rt_parotid_char:1" /> <label for="ws_rt_parotid_char:1" id="ws_rt_parotid_char:_label" name="ws_rt_parotid_char">Vascularity</label> <i-snippet i-show="ws_rt_parotid_char:1" i-type="i-collapse" style="display: none;"> <input data-ms-editor="true" id="ws_rt_pt_vasc1_desc_char_txt" name="ws_rt_parotid_char_txt" placeholder="Add vascularity description here" size="53" spellcheck="false" style="width:250px" type="text" /></i-snippet> <input id="ws_rt_parotid_char:2" name="ws_rt_parotid_char" outputtext=" calcification" type="checkbox" value="ws_rt_parotid_char:2" /> <label for="ws_rt_parotid_char:2" id="ws_rt_parotid_char:2_label" name="ws_rt_parotid_char">Calcification</label> <input data-ms-editor="true" id="ws_rt_parotid_char_txt" name="ws_rt_parotid_char_txt" placeholder="Add additional comments here" size="53" spellcheck="false" type="text" /></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="impression_text"><i-snippet i-defaultstring="" i-indexes="parotid" i-name="ws_rt_parotid_finding_1" i-options="defaultvalue:;saveempty:false" i-template="Right%s4%s6 parotid nodule measures %s1 x %s2 x %s3 with%sn%s5%s, %s10%s7%s,%s8%s,%s9%sn.\n-" i-type="i-string" i-variables="rt_parotid_nodule_len;rt_parotid_nodule_AP;rt_parotid_nodule_trv;ws_rt_parotid_l_r:1;ws_rt_parotid_hilum:1;ws_rt_parotid_char_ro:1;ws_rt_parotid_char:1;ws_rt_parotid_char:2;ws_rt_parotid_char_txt;ws_rt_pt_vasc1_desc_char_txt" style="i-showlabel:false;">Right%s4%s6 parotid nodule measures %s1 x %s2 x %s3 with%sn%s5%s, %s10%s7%s,%s8%s,%s9%sn.<br />
+			-</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_rt_parotid_cmts" id="ws_rt_parotid_cmts" name="ws_rt_parotid_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; <!-----------------Left Parotid Nodule --------------------------------></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<div><i-snippet i-show="rt_parotid_nodule_len;rt_parotid_nodule_AP" i-type="i-collapse" style="display: none;">
+<table class="custom_table" i-index="lymph">
+	<tbody>
+		<tr>
+			<td class="header_text">Left Parotid Nodule</td>
+			<td class="measurement_text"><mvalue class="mapped" groupdesc="study_date" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" title="study_date(5/15/2024)">study_date</mvalue>&nbsp; <mvalue class="mapped" groupdesc="lt_parotid_nodule_len" groupguidkey="" id="lt_parotid_nodule_len" title="lt_parotid_nodule_len">lt_parotid_nodule_...</mvalue> x <mvalue class="mapped" groupdesc="lt_parotid_nodule_AP" groupguidkey="" id="lt_parotid_nodule_AP" title="lt_parotid_nodule_AP">lt_parotid_nodule_...</mvalue> x <mvalue class="mapped" groupdesc="lt_parotid_nodule_trv" groupguidkey="" id="lt_parotid_nodule_trv" title="lt_parotid_nodule_trv">lt_parotid_nodule_...</mvalue><br />
+			<!--start prior1 measurements--> <mvalue class="mapped" groupdesc="study_date_p1" groupguidkey="1ac7435d-38d6-4f77-a6d1-774558db434c" i-prior="1" id="study_date_p1" title="study_date_p1">study_date_p1</mvalue>&nbsp; <mvalue class="mapped" groupdesc="lt_parotid_nodule_len" groupguidkey="" i-prior="1" id="lt_parotid_nodule_len" title="lt_parotid_nodule_len">lt_parotid_nodule_len</mvalue> x <mvalue class="mapped" groupdesc="lt_parotid_nodule_AP" groupguidkey="" i-prior="1" id="lt_parotid_nodule_AP" title="lt_parotid_nodule_AP">lt_parotid_nodule_AP</mvalue> x <mvalue class="mapped" groupdesc="lt_parotid_nodule_trv" groupguidkey="" i-prior="1" id="lt_parotid_nodule_trv" title="lt_parotid_nodule_trv">lt_parotid_nodule_trv</mvalue></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Characteristics</td>
+			<td class="normal_text"><input checked="checked" id="ws_lt_parotid_hilum:1" name="ws_lt_parotid_hilum" outputtext=" fatty hilum" type="radio" value="ws_lt_parotid_hilum:1" /> <label for="ws_lt_parotid_hilum:1" id="ws_lt_parotid_hilum:1_label" name="ws_lt_parotid_hilum">Fatty Hilum</label> <input id="ws_lt_parotid_hilum:2" name="ws_lt_parotid_hilum" outputtext=" no hilum" type="radio" value="ws_lt_parotid_hilum:2" /> <label for="ws_lt_parotid_hilum:2" id="ws_lt_parotid_hilum:2_label" name="ws_lt_parotid_hilum">No Hilum</label>&nbsp;&nbsp; <input checked="checked" id="ws_lt_parotid_char_ro:1" name="ws_lt_parotid_char_ro" outputtext=", oval" type="radio" value="ws_lt_parotid_char_ro:1" /> <label for="ws_lt_parotid_char_ro:1" id="ws_lt_parotid_char_ro:1_label" name="ws_lt_parotid_char_ro">Oval</label> <input id="ws_lt_parotid_char_ro:2" name="ws_lt_parotid_char_ro" outputtext=", round" type="radio" value="ws_lt_parotid_char_ro:2" /> <label for="ws_lt_parotid_char_ro:2" id="ws_lt_parotid_char_ro:2_label" name="ws_lt_parotid_char_ro">Round</label>&nbsp;&nbsp; <input id="ws_lt_parotid_char_ro:3" name="ws_lt_parotid_char_ro" outputtext=", irregular" type="radio" value="ws_lt_parotid_char_ro:3" /> <label for="ws_lt_parotid_char_ro:3" id="ws_lt_parotid_char_ro:3_label" name="ws_lt_parotid_char_ro">Irregular</label>&nbsp;&nbsp;<br />
+			<input id="ws_lt_parotid_char:1" name="ws_lt_parotid_char" outputtext=" vascularity" type="checkbox" value="ws_lt_parotid_char:1" /> <label for="ws_lt_parotid_char:1" id="ws_lt_parotid_char:_label" name="ws_lt_parotid_char">Vascularity</label> <i-snippet i-show="ws_lt_parotid_char:1" i-type="i-collapse" style="display: none;"> <input data-ms-editor="true" id="ws_lt_pt_vasc1_desc_char_txt" name="ws_lt_parotid_char_txt" placeholder="Add vascularity description here" size="53" spellcheck="false" style="width:250px" type="text" /></i-snippet> <input id="ws_lt_parotid_char:2" name="ws_lt_parotid_char" outputtext=" calcification" type="checkbox" value="ws_lt_parotid_char:2" /> <label for="ws_lt_parotid_char:2" id="ws_lt_parotid_char:2_label" name="ws_lt_parotid_char">Calcification</label> <input data-ms-editor="true" id="ws_lt_parotid_char_txt" name="ws_lt_parotid_char_txt" placeholder="Add additional comments here" size="53" spellcheck="false" type="text" /></td>
+		</tr>
+		<tr>
+			<td class="header3_text">Findings</td>
+			<td class="impression_text"><i-snippet i-defaultstring="" i-indexes="lymph" i-name="ws_lt_parotid_finding_1" i-options="defaultvalue:;saveempty:false" i-template="Left%s4%s6 parotid nodule measures %s1 x %s2 x %s3 with%sn%s5%s, %s10%s7%s,%s8%s,%s9%sn.\n-" i-type="i-string" i-variables="lt_parotid_nodule_len;lt_parotid_nodule_AP;lt_parotid_nodule_trv;ws_lt_parotid_l_r:1;ws_lt_parotid_hilum:1;ws_lt_parotid_char_ro:1;ws_lt_parotid_char:1;ws_lt_parotid_char:2;ws_lt_parotid_char_txt;ws_lt_pt_vasc1_desc_char_txt" style="i-showlabel:false;">Left%s4%s6 parotid nodule measures %s1 x %s2 x %s3 with%sn%s5%s, %s10%s7%s,%s8%s,%s9%sn.<br />
+			-</i-snippet> <input data-ms-editor="true" i-imshowlabel="true" i-name="ws_lt_parotid_cmts" id="ws_lt_parotid_cmts" name="ws_lt_parotid_cmts" size="45" spellcheck="false" type="text" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p></p>
+</i-snippet></div>
+
+<p></p>
+
+<p></p>
+
+<p></p>
