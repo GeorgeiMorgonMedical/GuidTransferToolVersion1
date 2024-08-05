@@ -9,7 +9,6 @@ const AzureMeasurementsFilePath = path.resolve(__dirname, '../HTMLFiles/AzureMea
 const AzureWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/AzureWorksheet.html');
 const AzureSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/AzureSummary.html');
 
-const UserInputPath = path.resolve(__dirname, '../Txts/userInput.txt');
 const AzureVariablesPath = path.resolve(__dirname, '../Txts/AzureVariables.csv');
 
 const TargetMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
@@ -19,24 +18,6 @@ const TargetMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMea
 const NewMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/NewMeasurements.html');
 const NewWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/NewWorksheet.html');
 const NewSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/NewSummary.html');
-
-
-
-function extractAzureVariable(line: string) : string {
-    let start_index = line.indexOf('for ') + 4;
-    let end_index = line.indexOf(' (');
-    return line.substring(start_index, end_index).trim();
-}
-
-function extractUserAnswer(line: string) : string | null {
-    let start_index = line.indexOf('[') + 1;
-    let end_index = line.indexOf(']');
-    if (start_index === end_index) {
-        return null;
-    } else {
-        return line.substring(start_index, end_index).trim();
-    }
-}
 
 function verifyResponse(response: string, TargetVariables: VariableInformation[]): VariableInformation | null {
     response = response.trim().toLowerCase();
@@ -100,24 +81,6 @@ function createOtherCopies(matches: Match[], AzureVariables: VariableInformation
     });
 
     fs.writeFileSync(NewSummaryFilePath, SummaryFile, 'utf-8');
-}
-
-function getUserAnswers(AzureVariables: VariableInformation[], TargetVariables: VariableInformation[]) {
-    let userAnswers: string[] = fs.readFileSync(UserInputPath, 'utf-8').split('\n');
-    let matches: Match[] = [];
-
-    userAnswers.forEach((line: string) => {
-        let answer = extractUserAnswer(line);
-        if (answer) {
-            let answerInformation = verifyResponse(answer, TargetVariables);
-            if (answerInformation) {
-                let azureVarName = extractAzureVariable(line);
-                let azureVar: VariableInformation = AzureVariables.find(variable => variable.name === azureVarName)!;
-                matches.push({ azureVarName: azureVar.name, azurevarGuid: azureVar.guid, targetVarName: answerInformation.name, targetVarGuid:answerInformation.guid });
-            }
-        }
-    });
-    return matches;
 }
 
 function getUserAnswers2(AzureVariables: VariableInformation[], TargetVariables: VariableInformation[]) {

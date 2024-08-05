@@ -4,15 +4,15 @@ import { extractMvalueInfoFromFile, removeParagraphTags, removeUnnecessaryCommen
 import { VariableInformation, Match } from './interfaces';
 import { cleanExtractedMvalueInfo, storeAsVariableInformation, narrowDownList } from './MValueMatching';
 
-const AzureFilePath = path.resolve(__dirname, '../HTMLFiles/AzureMeasurements.html');
-const TargetFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
+const AzureMeasurementsFilePath = path.resolve(__dirname, '../HTMLFiles/AzureMeasurements.html');
+const AzureWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/AzureWorksheet.html');
+const AzureSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/AzureSummary.html');
+const TargetMeasurementsFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
 
-const UserInputPath = path.resolve(__dirname, '../Txts/userInput.txt');
 const AzureVariablesPath = path.resolve(__dirname, '../Txts/AzureVariables.csv');
 const TargetVariablesPath = path.resolve(__dirname, '../Txts/TargetVariables.csv');
 
-export function targetJsonToCsv(variables: any[]): string {
-    // Check if variables is defined and not empty
+export function azureJsonToCsv(variables: any[]): string {
     if (!variables || variables.length === 0) {
         throw new Error("The variables array is undefined or empty.");
     }
@@ -20,10 +20,8 @@ export function targetJsonToCsv(variables: any[]): string {
     const headers = Object.keys(variables[0]);
     const csvRows = [];
 
-    // Add the headers row
     csvRows.push(headers.join(','));
 
-    // Add each row of data
     for (const row of variables) {
         const values = headers.map((header) => {
             const escaped = ('' + row[header]).replace(/"/g, '\\"');
@@ -35,24 +33,20 @@ export function targetJsonToCsv(variables: any[]): string {
     return csvRows.join('\n');
 }
 
-export function azureJsonToCsv(variables: any[]): string {
-    // Check if variables is defined and not empty
+export function targetJsonToCsv(variables: any[]): string {
     if (!variables || variables.length === 0) {
         throw new Error("The variables array is undefined or empty.");
     }
 
     const headers = Object.keys(variables[0]);
-    headers.push("Other ID"); // Add "Other ID" as the last header
+    headers.push("Matching Azure Variable Name");
     const csvRows = [];
 
-    // Add the headers row
     csvRows.push(headers.join(','));
 
-    // Add each row of data
     for (const row of variables) {
         const values = headers.map((header) => {
-            // Check if the header is "Other ID", if so, leave it blank
-            if (header === "Other ID") {
+            if (header === "Matching Azure Variable Name") {
                 return `""`;
             } else {
                 const escaped = ('' + row[header]).replace(/"/g, '\\"');
@@ -73,7 +67,23 @@ function formatOutput(azure: VariableInformation[], target: VariableInformation[
     fs.writeFileSync(TargetVariablesPath, targetCsv, 'utf-8');
 }
 
+function cleanFiles() {
+    removeParagraphTags(AzureMeasurementsFilePath);
+    removeUnnecessaryComments(AzureMeasurementsFilePath);
+
+    removeParagraphTags(AzureWorksheetFilePath);
+    removeUnnecessaryComments(AzureWorksheetFilePath);
+
+    removeParagraphTags(AzureSummaryFilePath);
+    removeParagraphTags(AzureSummaryFilePath);
+
+    removeParagraphTags(TargetMeasurementsFilePath);
+    removeUnnecessaryComments(TargetMeasurementsFilePath);
+}
+
 function main(AzureFilePath: string, TargetFilePath: string) {
+    cleanFiles();
+
     let AzureVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(AzureFilePath)));
     let TargetVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(TargetFilePath)));
 
@@ -100,4 +110,4 @@ function main(AzureFilePath: string, TargetFilePath: string) {
 }
 
 
-main(AzureFilePath, TargetFilePath);
+main(AzureMeasurementsFilePath, TargetMeasurementsFilePath);
