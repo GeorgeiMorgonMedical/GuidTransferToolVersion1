@@ -30,7 +30,6 @@ const GuidExtraction_1 = require("./GuidExtraction");
 const AzureMeasurementsFilePath = path.resolve(__dirname, '../HTMLFiles/AzureMeasurements.html');
 const AzureWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/AzureWorksheet.html');
 const AzureSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/AzureSummary.html');
-const UserInputPath = path.resolve(__dirname, '../Txts/userInput.txt');
 const AzureVariablesPath = path.resolve(__dirname, '../Txts/AzureVariables.csv');
 const TargetMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
 //const TargetWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/OtherWorksheet.html');
@@ -38,21 +37,6 @@ const TargetMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMea
 const NewMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/NewMeasurements.html');
 const NewWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/NewWorksheet.html');
 const NewSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/NewSummary.html');
-function extractAzureVariable(line) {
-    let start_index = line.indexOf('for ') + 4;
-    let end_index = line.indexOf(' (');
-    return line.substring(start_index, end_index).trim();
-}
-function extractUserAnswer(line) {
-    let start_index = line.indexOf('[') + 1;
-    let end_index = line.indexOf(']');
-    if (start_index === end_index) {
-        return null;
-    }
-    else {
-        return line.substring(start_index, end_index).trim();
-    }
-}
 function verifyResponse(response, TargetVariables) {
     response = response.trim().toLowerCase();
     const match = TargetVariables.find(variable => variable.name.trim().toLowerCase() == response);
@@ -101,22 +85,6 @@ function createOtherCopies(matches, AzureVariables) {
         }
     });
     fs.writeFileSync(NewSummaryFilePath, SummaryFile, 'utf-8');
-}
-function getUserAnswers(AzureVariables, TargetVariables) {
-    let userAnswers = fs.readFileSync(UserInputPath, 'utf-8').split('\n');
-    let matches = [];
-    userAnswers.forEach((line) => {
-        let answer = extractUserAnswer(line);
-        if (answer) {
-            let answerInformation = verifyResponse(answer, TargetVariables);
-            if (answerInformation) {
-                let azureVarName = extractAzureVariable(line);
-                let azureVar = AzureVariables.find(variable => variable.name === azureVarName);
-                matches.push({ azureVarName: azureVar.name, azurevarGuid: azureVar.guid, targetVarName: answerInformation.name, targetVarGuid: answerInformation.guid });
-            }
-        }
-    });
-    return matches;
 }
 function getUserAnswers2(AzureVariables, TargetVariables) {
     let userAnswers = fs.readFileSync(AzureVariablesPath, 'utf-8').split('\n');

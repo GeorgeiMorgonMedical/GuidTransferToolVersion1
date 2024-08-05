@@ -26,27 +26,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.targetJsonToCsv = targetJsonToCsv;
 exports.azureJsonToCsv = azureJsonToCsv;
+exports.targetJsonToCsv = targetJsonToCsv;
 const path_1 = __importDefault(require("path"));
 const fs = __importStar(require("fs"));
 const GuidExtraction_1 = require("./GuidExtraction");
 const MValueMatching_1 = require("./MValueMatching");
-const AzureFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/AzureMeasurements.html');
-const TargetFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
-const UserInputPath = path_1.default.resolve(__dirname, '../Txts/userInput.txt');
+const AzureMeasurementsFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/AzureMeasurements.html');
+const AzureWorksheetFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/AzureWorksheet.html');
+const AzureSummaryFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/AzureSummary.html');
+const TargetMeasurementsFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
 const AzureVariablesPath = path_1.default.resolve(__dirname, '../Txts/AzureVariables.csv');
 const TargetVariablesPath = path_1.default.resolve(__dirname, '../Txts/TargetVariables.csv');
-function targetJsonToCsv(variables) {
-    // Check if variables is defined and not empty
+function azureJsonToCsv(variables) {
     if (!variables || variables.length === 0) {
         throw new Error("The variables array is undefined or empty.");
     }
     const headers = Object.keys(variables[0]);
     const csvRows = [];
-    // Add the headers row
     csvRows.push(headers.join(','));
-    // Add each row of data
     for (const row of variables) {
         const values = headers.map((header) => {
             const escaped = ('' + row[header]).replace(/"/g, '\\"');
@@ -56,21 +54,17 @@ function targetJsonToCsv(variables) {
     }
     return csvRows.join('\n');
 }
-function azureJsonToCsv(variables) {
-    // Check if variables is defined and not empty
+function targetJsonToCsv(variables) {
     if (!variables || variables.length === 0) {
         throw new Error("The variables array is undefined or empty.");
     }
     const headers = Object.keys(variables[0]);
-    headers.push("Other ID"); // Add "Other ID" as the last header
+    headers.push("Matching Azure Variable Name");
     const csvRows = [];
-    // Add the headers row
     csvRows.push(headers.join(','));
-    // Add each row of data
     for (const row of variables) {
         const values = headers.map((header) => {
-            // Check if the header is "Other ID", if so, leave it blank
-            if (header === "Other ID") {
+            if (header === "Matching Azure Variable Name") {
                 return `""`;
             }
             else {
@@ -88,7 +82,18 @@ function formatOutput(azure, target) {
     let targetCsv = targetJsonToCsv(target);
     fs.writeFileSync(TargetVariablesPath, targetCsv, 'utf-8');
 }
+function cleanFiles() {
+    (0, GuidExtraction_1.removeParagraphTags)(AzureMeasurementsFilePath);
+    (0, GuidExtraction_1.removeUnnecessaryComments)(AzureMeasurementsFilePath);
+    (0, GuidExtraction_1.removeParagraphTags)(AzureWorksheetFilePath);
+    (0, GuidExtraction_1.removeUnnecessaryComments)(AzureWorksheetFilePath);
+    (0, GuidExtraction_1.removeParagraphTags)(AzureSummaryFilePath);
+    (0, GuidExtraction_1.removeParagraphTags)(AzureSummaryFilePath);
+    (0, GuidExtraction_1.removeParagraphTags)(TargetMeasurementsFilePath);
+    (0, GuidExtraction_1.removeUnnecessaryComments)(TargetMeasurementsFilePath);
+}
 function main(AzureFilePath, TargetFilePath) {
+    cleanFiles();
     let AzureVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(AzureFilePath)));
     let TargetVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(TargetFilePath)));
     formatOutput(AzureVariables, TargetVariables);
@@ -111,5 +116,5 @@ function main(AzureFilePath, TargetFilePath) {
     fs.writeFileSync(UserInputPath, txtFile, 'utf-8');
     */
 }
-main(AzureFilePath, TargetFilePath);
+main(AzureMeasurementsFilePath, TargetMeasurementsFilePath);
 //# sourceMappingURL=Main.js.map
