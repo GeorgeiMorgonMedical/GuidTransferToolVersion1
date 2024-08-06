@@ -68,24 +68,36 @@ function formatOutput(azure: VariableInformation[], target: VariableInformation[
 }
 
 function cleanFiles() {
+    console.log('Checkpoint 2');
     removeParagraphTags(AzureMeasurementsFilePath);
+    console.log('Checkpoint 2.5');
     removeUnnecessaryComments(AzureMeasurementsFilePath);
 
+    console.log('Checkpoint 3');
     removeParagraphTags(AzureWorksheetFilePath);
     removeUnnecessaryComments(AzureWorksheetFilePath);
 
+    console.log('Checkpoint 4');
     removeParagraphTags(AzureSummaryFilePath);
     removeParagraphTags(AzureSummaryFilePath);
 
+    console.log('Checkpoint 5');
     removeParagraphTags(TargetMeasurementsFilePath);
     removeUnnecessaryComments(TargetMeasurementsFilePath);
 }
 
 function main(AzureFilePath: string, TargetFilePath: string) {
+    console.log('Checkpoint 1');
     cleanFiles();
+    console.log('Checkpoint 6');
 
     let AzureVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(AzureFilePath)));
     let TargetVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(TargetFilePath)));
+
+    console.log('Checkpoint 7');
+
+    console.log(AzureVariables);
+    console.log(TargetVariables);
 
     formatOutput(AzureVariables, TargetVariables);
 

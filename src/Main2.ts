@@ -9,45 +9,20 @@ const AzureMeasurementsFilePath = path.resolve(__dirname, '../HTMLFiles/AzureMea
 const AzureWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/AzureWorksheet.html');
 const AzureSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/AzureSummary.html');
 
-const AzureVariablesPath = path.resolve(__dirname, '../Txts/AzureVariables.csv');
+const TargetVariablesPath = path.resolve(__dirname, '../Txts/TargetVariables.csv');
 
 const TargetMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
-//const TargetWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/OtherWorksheet.html');
-//const TargetSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/OtherSummary.html');
+const TargetWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/OtherWorksheet.html');
+const TargetSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/OtherSummary.html');
 
-const NewMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/NewMeasurements.html');
+//const NewMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/NewMeasurements.html');
 const NewWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/NewWorksheet.html');
 const NewSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/NewSummary.html');
 
-function verifyResponse(response: string, TargetVariables: VariableInformation[]): VariableInformation | null {
+function verifyResponse(response: string, AzureVariables: VariableInformation[]): VariableInformation | null {
     response = response.trim().toLowerCase();
-    const match = TargetVariables.find(variable => variable.name.trim().toLowerCase() == response);
+    const match = AzureVariables.find(variable => variable.name.trim().toLowerCase() == response);
     return match || null;
-}
-
-
-// Specifically for measurements page.
-function createMeasurementsCopy(matches: Match[], AzureVariables: VariableInformation[]) {
-    let htmlFile = fs.readFileSync(AzureMeasurementsFilePath, 'utf-8');
-    matches.forEach((match: Match) => {
-        const regex = new RegExp(match.azurevarGuid, 'g');
-        htmlFile = htmlFile.replace(regex, match.targetVarGuid);
-    });
-
-    AzureVariables.forEach(azureVar => {
-        if (!matches.some(match => match.azureVarName === azureVar.name)) {
-            const regex = new RegExp(azureVar.guid, 'g');
-            htmlFile = htmlFile.replace(regex, '');
-        }
-    });
-
-    const unusedAzureVariables = AzureVariables.filter(azure => 
-        !matches.some(match => match.azureVarName === azure.name)
-    );
-
-    fs.writeFileSync(NewMeasurementFilePath, htmlFile, 'utf-8');
-
-    return unusedAzureVariables;
 }
 
 // For worksheet and summary pages
@@ -84,19 +59,21 @@ function createOtherCopies(matches: Match[], AzureVariables: VariableInformation
 }
 
 function getUserAnswers2(AzureVariables: VariableInformation[], TargetVariables: VariableInformation[]) {
-    let userAnswers: string[] = fs.readFileSync(AzureVariablesPath, 'utf-8').split('\n');
+    let userAnswers: string[] = fs.readFileSync(TargetVariablesPath, 'utf-8').split('\n');
     let matches: Match[] = [];
 
     userAnswers.forEach((line: string) => {
         let answer = line.split(',')[5];
-        answer = answer.substring(1, answer.length - 1);
-        if (answer && answer.length > 0) {
-            let answerInformation = verifyResponse(answer, TargetVariables);
-            if (answerInformation) {
-                let azureVarName = line.split(',')[0];
-                azureVarName = azureVarName.substring(1, azureVarName.length - 1);
-                let azureVar: VariableInformation = AzureVariables.find(variable => variable.name === azureVarName)!;
-                matches.push({ azureVarName: azureVar.name, azurevarGuid: azureVar.guid, targetVarName: answerInformation.name, targetVarGuid:answerInformation.guid });
+        if (answer) {
+            answer = answer.substring(1, answer.length - 1);
+            if (answer && answer.length > 0) {
+                let answerInformation = verifyResponse(answer, AzureVariables);
+                if (answerInformation) {
+                    let targetVarName = line.split(',')[0];
+                    targetVarName = targetVarName.substring(1, targetVarName.length - 1);
+                    let targetVar: VariableInformation = TargetVariables.find(variable => variable.name === targetVarName)!;
+                    matches.push({ azureVarName: answerInformation.name, azurevarGuid: answerInformation.guid, targetVarName: targetVar.name, targetVarGuid: targetVar.guid });
+                }
             }
         }
     });
@@ -108,14 +85,9 @@ function main2(AzureMeasurementsFilePath: string, TargetMeasurementFilePath: str
     let TargetVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(TargetMeasurementFilePath)));
 
     let matches = getUserAnswers2(AzureVariables, TargetVariables);
+    console.log(matches);
 
-    let unused = createMeasurementsCopy(matches, AzureVariables);
     createOtherCopies(matches, AzureVariables);
-    
-    console.log('\n\nThe following may potentially need to have a mapping created or found elsewhere due to being unmatched:\n');
-    unused.forEach((variable: VariableInformation) => {
-        console.log(`${variable.name}\t${variable.guid}`);
-    });
 }
 
 main2(AzureMeasurementsFilePath, TargetMeasurementFilePath);

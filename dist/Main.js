@@ -83,19 +83,29 @@ function formatOutput(azure, target) {
     fs.writeFileSync(TargetVariablesPath, targetCsv, 'utf-8');
 }
 function cleanFiles() {
+    console.log('Checkpoint 2');
     (0, GuidExtraction_1.removeParagraphTags)(AzureMeasurementsFilePath);
+    console.log('Checkpoint 2.5');
     (0, GuidExtraction_1.removeUnnecessaryComments)(AzureMeasurementsFilePath);
+    console.log('Checkpoint 3');
     (0, GuidExtraction_1.removeParagraphTags)(AzureWorksheetFilePath);
     (0, GuidExtraction_1.removeUnnecessaryComments)(AzureWorksheetFilePath);
+    console.log('Checkpoint 4');
     (0, GuidExtraction_1.removeParagraphTags)(AzureSummaryFilePath);
     (0, GuidExtraction_1.removeParagraphTags)(AzureSummaryFilePath);
+    console.log('Checkpoint 5');
     (0, GuidExtraction_1.removeParagraphTags)(TargetMeasurementsFilePath);
     (0, GuidExtraction_1.removeUnnecessaryComments)(TargetMeasurementsFilePath);
 }
 function main(AzureFilePath, TargetFilePath) {
+    console.log('Checkpoint 1');
     cleanFiles();
+    console.log('Checkpoint 6');
     let AzureVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(AzureFilePath)));
     let TargetVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(TargetFilePath)));
+    console.log('Checkpoint 7');
+    console.log(AzureVariables);
+    console.log(TargetVariables);
     formatOutput(AzureVariables, TargetVariables);
     /*
 

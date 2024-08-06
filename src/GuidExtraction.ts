@@ -194,13 +194,10 @@ export function removeUnnecessaryComments(filePath: string) : void {
         let commentEndIndex: number = HtmlFile.indexOf("-->");
         if (commentEndIndex == -1) {
             HtmlFile = HtmlFile.substring(0, commentStartIndex);
-            break;
         } else {
-            let comment: string = HtmlFile.substring(commentStartIndex + 3, commentEndIndex);
-            if (comment.indexOf("<") != -1) {
-                HtmlFile = HtmlFile.substring(0, commentStartIndex) + HtmlFile.substring(commentEndIndex + 3);
-            }
+            HtmlFile = HtmlFile.substring(0, commentStartIndex) + HtmlFile.substring(commentEndIndex + 3);
         }
+        commentStartIndex = HtmlFile.indexOf("<!--");
     }
     fs.writeFileSync(filePath, HtmlFile, 'utf-8');
 }
@@ -212,7 +209,5 @@ export function removeParagraphTags(filePath: string) : void {
     let ptags: string = "<p></p>\n";
     let result_string = HtmlFile.replace(ptags, '');
     
-    fs.writeFileSync(filePath, HtmlFile, 'utf-8');
-
-
+    fs.writeFileSync(filePath, result_string, 'utf-8');
 } 

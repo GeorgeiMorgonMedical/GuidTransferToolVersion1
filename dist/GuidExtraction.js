@@ -202,14 +202,11 @@ function removeUnnecessaryComments(filePath) {
         let commentEndIndex = HtmlFile.indexOf("-->");
         if (commentEndIndex == -1) {
             HtmlFile = HtmlFile.substring(0, commentStartIndex);
-            break;
         }
         else {
-            let comment = HtmlFile.substring(commentStartIndex + 3, commentEndIndex);
-            if (comment.indexOf("<") != -1) {
-                HtmlFile = HtmlFile.substring(0, commentStartIndex) + HtmlFile.substring(commentEndIndex + 3);
-            }
+            HtmlFile = HtmlFile.substring(0, commentStartIndex) + HtmlFile.substring(commentEndIndex + 3);
         }
+        commentStartIndex = HtmlFile.indexOf("<!--");
     }
     fs.writeFileSync(filePath, HtmlFile, 'utf-8');
 }
@@ -219,6 +216,6 @@ function removeParagraphTags(filePath) {
     let HtmlFile = fs.readFileSync(filePath, 'utf-8');
     let ptags = "<p></p>\n";
     let result_string = HtmlFile.replace(ptags, '');
-    fs.writeFileSync(filePath, HtmlFile, 'utf-8');
+    fs.writeFileSync(filePath, result_string, 'utf-8');
 }
 //# sourceMappingURL=GuidExtraction.js.map
