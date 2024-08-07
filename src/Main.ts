@@ -12,9 +12,11 @@ const TargetMeasurementsFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMe
 const AzureVariablesPath = path.resolve(__dirname, '../Txts/AzureVariables.csv');
 const TargetVariablesPath = path.resolve(__dirname, '../Txts/TargetVariables.csv');
 
-export function azureJsonToCsv(variables: any[]): string {
+const StudyDatePath = path.resolve(__dirname, '../Txts/studydate.txt');
+
+function azureJsonToCsv(variables: any[]): string {
     if (!variables || variables.length === 0) {
-        throw new Error("The variables array is undefined or empty.");
+        return "";
     }
 
     const headers = Object.keys(variables[0]);
@@ -33,11 +35,11 @@ export function azureJsonToCsv(variables: any[]): string {
     return csvRows.join('\n');
 }
 
-export function targetJsonToCsv(variables: any[]): string {
+function targetJsonToCsv(variables: any[]): string {
     if (!variables || variables.length === 0) {
-        throw new Error("The variables array is undefined or empty.");
+        return "";
     }
-
+    
     const headers = Object.keys(variables[0]);
     headers.push("Matching Azure Variable Name");
     const csvRows = [];
@@ -65,60 +67,34 @@ function formatOutput(azure: VariableInformation[], target: VariableInformation[
 
     let targetCsv = targetJsonToCsv(target);
     fs.writeFileSync(TargetVariablesPath, targetCsv, 'utf-8');
+
+    let date = "Enter new study date guid: []";
+    fs.writeFileSync(StudyDatePath, date, 'utf-8');
 }
 
 function cleanFiles() {
-    console.log('Checkpoint 2');
     removeParagraphTags(AzureMeasurementsFilePath);
-    console.log('Checkpoint 2.5');
     removeUnnecessaryComments(AzureMeasurementsFilePath);
 
-    console.log('Checkpoint 3');
     removeParagraphTags(AzureWorksheetFilePath);
     removeUnnecessaryComments(AzureWorksheetFilePath);
 
-    console.log('Checkpoint 4');
     removeParagraphTags(AzureSummaryFilePath);
     removeParagraphTags(AzureSummaryFilePath);
 
-    console.log('Checkpoint 5');
     removeParagraphTags(TargetMeasurementsFilePath);
     removeUnnecessaryComments(TargetMeasurementsFilePath);
 }
 
 function main(AzureFilePath: string, TargetFilePath: string) {
-    console.log('Checkpoint 1');
     cleanFiles();
-    console.log('Checkpoint 6');
+    console.log(StudyDatePath);
+    console.log(fs.existsSync(StudyDatePath));
 
     let AzureVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(AzureFilePath)));
     let TargetVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(TargetFilePath)));
 
-    console.log('Checkpoint 7');
-
-    console.log(AzureVariables);
-    console.log(TargetVariables);
-
     formatOutput(AzureVariables, TargetVariables);
-
-    /*
-
-    let allPossibleMatches : Map<string, string[]> = new Map();
-    AzureVariables.forEach((AzureVar: VariableInformation) => {
-        allPossibleMatches.set(AzureVar.name, narrowDownList(AzureVar, TargetVariables));
-    });
-
-    AzureVariables.forEach((variable: VariableInformation) => {
-        let possibleMatch = allPossibleMatches.get(variable.name);
-        if (possibleMatch && possibleMatch.length > 0) {
-            txtFile += `\n${variable.name} (Recommended: ${possibleMatch}): []`;
-        } else {
-            txtFile += `\n${variable.name}: []`;
-        }
-    });
-    
-    fs.writeFileSync(UserInputPath, txtFile, 'utf-8');
-    */
 }
 
 

@@ -3,19 +3,17 @@ import * as fs from 'fs';
 
 import { Match, VariableInformation } from './interfaces';
 import { storeAsVariableInformation, cleanExtractedMvalueInfo } from './MValueMatching';
-import { extractMvalueInfoFromFile } from './GuidExtraction';
+import { extractMvalueInfoFromFile, extractStudyDateGuid } from './GuidExtraction';
 
 const AzureMeasurementsFilePath = path.resolve(__dirname, '../HTMLFiles/AzureMeasurements.html');
 const AzureWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/AzureWorksheet.html');
 const AzureSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/AzureSummary.html');
 
 const TargetVariablesPath = path.resolve(__dirname, '../Txts/TargetVariables.csv');
+const StudyDatePath = path.resolve(__dirname, '../Txts/studydate.txt');
 
 const TargetMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
-const TargetWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/OtherWorksheet.html');
-const TargetSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/OtherSummary.html');
 
-//const NewMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/NewMeasurements.html');
 const NewWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/NewWorksheet.html');
 const NewSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/NewSummary.html');
 
@@ -25,8 +23,10 @@ function verifyResponse(response: string, AzureVariables: VariableInformation[])
     return match || null;
 }
 
-// For worksheet and summary pages
 function createOtherCopies(matches: Match[], AzureVariables: VariableInformation[]) {
+    let originalSdGuid = extractStudyDateGuid(AzureWorksheetFilePath);
+    let newGuid = getNewSdGuid();
+    
     let WorksheetFile = fs.readFileSync(AzureWorksheetFilePath, 'utf-8');
     matches.forEach((match: Match) => {
         const regex = new RegExp(match.azurevarGuid, 'g');
@@ -39,8 +39,6 @@ function createOtherCopies(matches: Match[], AzureVariables: VariableInformation
             WorksheetFile = WorksheetFile.replace(regex, '');
         }
     });
-
-    fs.writeFileSync(NewWorksheetFilePath, WorksheetFile, 'utf-8');
 
     let SummaryFile = fs.readFileSync(AzureSummaryFilePath, 'utf-8');
     matches.forEach((match: Match) => {
@@ -55,10 +53,18 @@ function createOtherCopies(matches: Match[], AzureVariables: VariableInformation
         }
     });
 
+    if (originalSdGuid && newGuid) {
+        const regex = new RegExp(originalSdGuid, 'g');
+        WorksheetFile = WorksheetFile.replace(regex, newGuid);
+        SummaryFile = SummaryFile.replace(regex, newGuid);
+    }
+
+    fs.writeFileSync(NewWorksheetFilePath, WorksheetFile, 'utf-8');
     fs.writeFileSync(NewSummaryFilePath, SummaryFile, 'utf-8');
 }
 
-function getUserAnswers2(AzureVariables: VariableInformation[], TargetVariables: VariableInformation[]) {
+
+function getUserAnswers(AzureVariables: VariableInformation[], TargetVariables: VariableInformation[]) {
     let userAnswers: string[] = fs.readFileSync(TargetVariablesPath, 'utf-8').split('\n');
     let matches: Match[] = [];
 
@@ -80,11 +86,19 @@ function getUserAnswers2(AzureVariables: VariableInformation[], TargetVariables:
     return matches;
 }
 
+function getNewSdGuid() {
+    let response: string = fs.readFileSync(StudyDatePath, 'utf-8');
+    if (response.indexOf('[') + 1 !== response.indexOf(']')) {
+        return response.substring(response.indexOf('[') + 1, response.indexOf(']'));
+    }
+    return null;
+}
+
 function main2(AzureMeasurementsFilePath: string, TargetMeasurementFilePath: string) {
     let AzureVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(AzureMeasurementsFilePath)));
     let TargetVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(TargetMeasurementFilePath)));
 
-    let matches = getUserAnswers2(AzureVariables, TargetVariables);
+    let matches = getUserAnswers(AzureVariables, TargetVariables);
     console.log(matches);
 
     createOtherCopies(matches, AzureVariables);

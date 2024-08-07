@@ -183,7 +183,17 @@ export function extractMvalueInfoFromFile(filePath: string): Map<string, string[
     return fileMValueInformation;
 }
 
-
+export function extractStudyDateGuid(WorksheetFilePath: string) {
+    let worksheet: string = fs.readFileSync(WorksheetFilePath, 'utf-8');
+    let index1: number = worksheet.indexOf("groupdesc=\"study_date\" groupguidkey=\"");
+    let index2: number = worksheet.indexOf("groupdesc=\"ws_exam_date\" groupguidkey=\"");
+    if (index1 !== -1) {
+        return worksheet.substring(index1 + 37, worksheet.indexOf('\"', index1 + 38));
+    } else if (index2 !== -1) {
+        return worksheet.substring(index2 + 39, worksheet.indexOf('\"', index2 + 40));
+    }
+    return null;
+}
 
 // Inputs: File path of the target HTML file.
 // Outputs: Removes comments that contain tags which may mess up extracting information and saves file.

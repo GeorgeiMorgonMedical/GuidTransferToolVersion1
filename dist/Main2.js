@@ -31,10 +31,8 @@ const AzureMeasurementsFilePath = path.resolve(__dirname, '../HTMLFiles/AzureMea
 const AzureWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/AzureWorksheet.html');
 const AzureSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/AzureSummary.html');
 const TargetVariablesPath = path.resolve(__dirname, '../Txts/TargetVariables.csv');
+const StudyDatePath = path.resolve(__dirname, '../Txts/studydate.txt');
 const TargetMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
-const TargetWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/OtherWorksheet.html');
-const TargetSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/OtherSummary.html');
-//const NewMeasurementFilePath = path.resolve(__dirname, '../HTMLFiles/NewMeasurements.html');
 const NewWorksheetFilePath = path.resolve(__dirname, '../HTMLFiles/NewWorksheet.html');
 const NewSummaryFilePath = path.resolve(__dirname, '../HTMLFiles/NewSummary.html');
 function verifyResponse(response, AzureVariables) {
@@ -42,8 +40,9 @@ function verifyResponse(response, AzureVariables) {
     const match = AzureVariables.find(variable => variable.name.trim().toLowerCase() == response);
     return match || null;
 }
-// For worksheet and summary pages
 function createOtherCopies(matches, AzureVariables) {
+    let originalSdGuid = (0, GuidExtraction_1.extractStudyDateGuid)(AzureWorksheetFilePath);
+    let newGuid = getNewSdGuid();
     let WorksheetFile = fs.readFileSync(AzureWorksheetFilePath, 'utf-8');
     matches.forEach((match) => {
         const regex = new RegExp(match.azurevarGuid, 'g');
@@ -55,7 +54,6 @@ function createOtherCopies(matches, AzureVariables) {
             WorksheetFile = WorksheetFile.replace(regex, '');
         }
     });
-    fs.writeFileSync(NewWorksheetFilePath, WorksheetFile, 'utf-8');
     let SummaryFile = fs.readFileSync(AzureSummaryFilePath, 'utf-8');
     matches.forEach((match) => {
         const regex = new RegExp(match.azurevarGuid, 'g');
@@ -67,9 +65,15 @@ function createOtherCopies(matches, AzureVariables) {
             SummaryFile = SummaryFile.replace(regex, '');
         }
     });
+    if (originalSdGuid && newGuid) {
+        const regex = new RegExp(originalSdGuid, 'g');
+        WorksheetFile = WorksheetFile.replace(regex, newGuid);
+        SummaryFile = SummaryFile.replace(regex, newGuid);
+    }
+    fs.writeFileSync(NewWorksheetFilePath, WorksheetFile, 'utf-8');
     fs.writeFileSync(NewSummaryFilePath, SummaryFile, 'utf-8');
 }
-function getUserAnswers2(AzureVariables, TargetVariables) {
+function getUserAnswers(AzureVariables, TargetVariables) {
     let userAnswers = fs.readFileSync(TargetVariablesPath, 'utf-8').split('\n');
     let matches = [];
     userAnswers.forEach((line) => {
@@ -89,10 +93,17 @@ function getUserAnswers2(AzureVariables, TargetVariables) {
     });
     return matches;
 }
+function getNewSdGuid() {
+    let response = fs.readFileSync(StudyDatePath, 'utf-8');
+    if (response.indexOf('[') + 1 !== response.indexOf(']')) {
+        return response.substring(response.indexOf('[') + 1, response.indexOf(']'));
+    }
+    return null;
+}
 function main2(AzureMeasurementsFilePath, TargetMeasurementFilePath) {
     let AzureVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(AzureMeasurementsFilePath)));
     let TargetVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(TargetMeasurementFilePath)));
-    let matches = getUserAnswers2(AzureVariables, TargetVariables);
+    let matches = getUserAnswers(AzureVariables, TargetVariables);
     console.log(matches);
     createOtherCopies(matches, AzureVariables);
 }

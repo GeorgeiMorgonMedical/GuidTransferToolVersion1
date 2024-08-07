@@ -26,8 +26,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.azureJsonToCsv = azureJsonToCsv;
-exports.targetJsonToCsv = targetJsonToCsv;
 const path_1 = __importDefault(require("path"));
 const fs = __importStar(require("fs"));
 const GuidExtraction_1 = require("./GuidExtraction");
@@ -38,9 +36,10 @@ const AzureSummaryFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/Azu
 const TargetMeasurementsFilePath = path_1.default.resolve(__dirname, '../HTMLFiles/OtherMeasurements.html');
 const AzureVariablesPath = path_1.default.resolve(__dirname, '../Txts/AzureVariables.csv');
 const TargetVariablesPath = path_1.default.resolve(__dirname, '../Txts/TargetVariables.csv');
+const StudyDatePath = path_1.default.resolve(__dirname, '../Txts/studydate.txt');
 function azureJsonToCsv(variables) {
     if (!variables || variables.length === 0) {
-        throw new Error("The variables array is undefined or empty.");
+        return "";
     }
     const headers = Object.keys(variables[0]);
     const csvRows = [];
@@ -56,7 +55,7 @@ function azureJsonToCsv(variables) {
 }
 function targetJsonToCsv(variables) {
     if (!variables || variables.length === 0) {
-        throw new Error("The variables array is undefined or empty.");
+        return "";
     }
     const headers = Object.keys(variables[0]);
     headers.push("Matching Azure Variable Name");
@@ -81,50 +80,26 @@ function formatOutput(azure, target) {
     fs.writeFileSync(AzureVariablesPath, azureCsv, 'utf-8');
     let targetCsv = targetJsonToCsv(target);
     fs.writeFileSync(TargetVariablesPath, targetCsv, 'utf-8');
+    let date = "Enter new study date guid: []";
+    fs.writeFileSync(StudyDatePath, date, 'utf-8');
 }
 function cleanFiles() {
-    console.log('Checkpoint 2');
     (0, GuidExtraction_1.removeParagraphTags)(AzureMeasurementsFilePath);
-    console.log('Checkpoint 2.5');
     (0, GuidExtraction_1.removeUnnecessaryComments)(AzureMeasurementsFilePath);
-    console.log('Checkpoint 3');
     (0, GuidExtraction_1.removeParagraphTags)(AzureWorksheetFilePath);
     (0, GuidExtraction_1.removeUnnecessaryComments)(AzureWorksheetFilePath);
-    console.log('Checkpoint 4');
     (0, GuidExtraction_1.removeParagraphTags)(AzureSummaryFilePath);
     (0, GuidExtraction_1.removeParagraphTags)(AzureSummaryFilePath);
-    console.log('Checkpoint 5');
     (0, GuidExtraction_1.removeParagraphTags)(TargetMeasurementsFilePath);
     (0, GuidExtraction_1.removeUnnecessaryComments)(TargetMeasurementsFilePath);
 }
 function main(AzureFilePath, TargetFilePath) {
-    console.log('Checkpoint 1');
     cleanFiles();
-    console.log('Checkpoint 6');
+    console.log(StudyDatePath);
+    console.log(fs.existsSync(StudyDatePath));
     let AzureVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(AzureFilePath)));
     let TargetVariables = (0, MValueMatching_1.storeAsVariableInformation)((0, MValueMatching_1.cleanExtractedMvalueInfo)((0, GuidExtraction_1.extractMvalueInfoFromFile)(TargetFilePath)));
-    console.log('Checkpoint 7');
-    console.log(AzureVariables);
-    console.log(TargetVariables);
     formatOutput(AzureVariables, TargetVariables);
-    /*
-
-    let allPossibleMatches : Map<string, string[]> = new Map();
-    AzureVariables.forEach((AzureVar: VariableInformation) => {
-        allPossibleMatches.set(AzureVar.name, narrowDownList(AzureVar, TargetVariables));
-    });
-
-    AzureVariables.forEach((variable: VariableInformation) => {
-        let possibleMatch = allPossibleMatches.get(variable.name);
-        if (possibleMatch && possibleMatch.length > 0) {
-            txtFile += `\n${variable.name} (Recommended: ${possibleMatch}): []`;
-        } else {
-            txtFile += `\n${variable.name}: []`;
-        }
-    });
-    
-    fs.writeFileSync(UserInputPath, txtFile, 'utf-8');
-    */
 }
 main(AzureMeasurementsFilePath, TargetMeasurementsFilePath);
 //# sourceMappingURL=Main.js.map

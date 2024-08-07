@@ -25,6 +25,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.processTable = processTable;
 exports.extractMvalueInfoFromFile = extractMvalueInfoFromFile;
+exports.extractStudyDateGuid = extractStudyDateGuid;
 exports.removeUnnecessaryComments = removeUnnecessaryComments;
 exports.removeParagraphTags = removeParagraphTags;
 const fs = __importStar(require("fs"));
@@ -192,6 +193,18 @@ function extractMvalueInfoFromFile(filePath) {
         }
     }
     return fileMValueInformation;
+}
+function extractStudyDateGuid(WorksheetFilePath) {
+    let worksheet = fs.readFileSync(WorksheetFilePath, 'utf-8');
+    let index1 = worksheet.indexOf("groupdesc=\"study_date\" groupguidkey=\"");
+    let index2 = worksheet.indexOf("groupdesc=\"ws_exam_date\" groupguidkey=\"");
+    if (index1 !== -1) {
+        return worksheet.substring(index1 + 37, worksheet.indexOf('\"', index1 + 38));
+    }
+    else if (index2 !== -1) {
+        return worksheet.substring(index2 + 39, worksheet.indexOf('\"', index2 + 40));
+    }
+    return null;
 }
 // Inputs: File path of the target HTML file.
 // Outputs: Removes comments that contain tags which may mess up extracting information and saves file.
