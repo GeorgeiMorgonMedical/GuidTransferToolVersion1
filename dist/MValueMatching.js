@@ -40,10 +40,10 @@ function numberDescription(variable) {
     return null;
 }
 function determineSide(variable) {
-    if (variable.name.toLowerCase().substring(0, 3) === 'lt_') {
+    if (variable.name.toLowerCase().substring(0, 3) === 'lt_' || variable.name.indexOf('_lt_') !== -1) {
         return 'lt';
     }
-    else if (variable.name.toLowerCase().substring(0, 3) === 'rt_') {
+    else if (variable.name.toLowerCase().substring(0, 3) === 'rt_' || variable.name.indexOf('_rt_') !== -1) {
         return 'rt';
     }
     else {
@@ -127,6 +127,9 @@ function measurementOfInterest(variable) {
 }
 function cleanExtractedMvalueInfo(results) {
     results.forEach((value, key) => {
+        if (value[2].indexOf('<') !== -1) {
+            value[2] === '';
+        }
         if (key.indexOf('<') !== -1 || key.indexOf('=') !== -1) {
             results.delete(key);
         }
