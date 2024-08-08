@@ -35,6 +35,7 @@ function azureJsonToCsv(variables: any[]): string {
     return csvRows.join('\n');
 }
 
+// Update to include reccomendations now with updated matching
 function targetJsonToCsv(variables: any[]): string {
     if (!variables || variables.length === 0) {
         return "";
