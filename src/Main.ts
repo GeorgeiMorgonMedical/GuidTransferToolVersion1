@@ -89,9 +89,7 @@ function cleanFiles() {
 
 function main(AzureFilePath: string, TargetFilePath: string) {
     cleanFiles();
-    console.log(StudyDatePath);
-    console.log(fs.existsSync(StudyDatePath));
-
+    
     let AzureVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(AzureFilePath)));
     let TargetVariables: VariableInformation[] = storeAsVariableInformation(cleanExtractedMvalueInfo(extractMvalueInfoFromFile(TargetFilePath)));
 
