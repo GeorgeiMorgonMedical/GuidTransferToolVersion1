@@ -69,14 +69,18 @@ function getUserAnswers(AzureVariables: VariableInformation[], TargetVariables: 
     let matches: Match[] = [];
 
     userAnswers.forEach((line: string) => {
-        let answer = line.split(',')[5];
+        let answer: string = line.split(',')[5];
         if (answer) {
-            answer = answer.substring(1, answer.length - 1);
+            if (answer[0] === '\"' && answer[answer.length - 1] === '\"') {
+                answer = answer.substring(1, answer.length - 1);
+            }
             if (answer && answer.length > 0) {
                 let answerInformation = verifyResponse(answer, AzureVariables);
                 if (answerInformation) {
                     let targetVarName = line.split(',')[0];
-                    targetVarName = targetVarName.substring(1, targetVarName.length - 1);
+                    if (targetVarName[0] === '\"' && targetVarName[targetVarName.length - 1] === '\"') {
+                        targetVarName = targetVarName.substring(1, targetVarName.length - 1);
+                    }
                     let targetVar: VariableInformation = TargetVariables.find(variable => variable.name === targetVarName)!;
                     matches.push({ azureVarName: answerInformation.name, azurevarGuid: answerInformation.guid, targetVarName: targetVar.name, targetVarGuid: targetVar.guid });
                 }
